@@ -1,25 +1,21 @@
-import './index.less'
+import './index.less';
 
-import { Drawer } from 'ant-design-vue'
-import SiderMenu, { SiderMenuProps } from './SiderMenu'
+import { Drawer } from 'ant-design-vue';
+import SiderMenu, { SiderMenuProps } from './SiderMenu';
 
 const SiderMenuWrapper = {
   name: 'SiderMenuWrapper',
   model: {
     prop: 'collapsed',
-    event: 'collapse'
+    event: 'collapse',
   },
   props: SiderMenuProps,
-  render (h) {
-    const {
-      layout,
-      isMobile,
-      collapsed
-    } = this
-    const isTopMenu = layout === 'topmenu'
-    const handleCollapse = (e) => {
-      this.$emit('collapse', true)
-    }
+  render(h) {
+    const { layout, isMobile, collapsed, headerSticky } = this;
+    const isTopMenu = layout === 'topmenu';
+    const handleCollapse = e => {
+      this.$emit('collapse', true);
+    };
     return isMobile ? (
       <Drawer
         class="ant-pro-sider-menu"
@@ -30,24 +26,21 @@ const SiderMenuWrapper = {
         onClose={handleCollapse}
         bodyStyle={{
           padding: 0,
-          height: '100vh'
+          height: '100vh',
         }}
       >
-        <SiderMenu {...{ props: {...this.$props, collapsed: isMobile ? false : collapsed} }} />
+        <SiderMenu {...{ props: { ...this.$props, collapsed: isMobile ? false : collapsed } }} />
       </Drawer>
-    ) : !isTopMenu && (
-      <SiderMenu class="ant-pro-sider-menu" {...{ props: this.$props }} />
-    )
-  }
-}
+    ) : (
+      !isTopMenu && <SiderMenu class="ant-pro-sider-menu" {...{ props: this.$props }} />
+    );
+  },
+};
 
-SiderMenuWrapper.install = function (Vue) {
-  Vue.component(SiderMenuWrapper.name, SiderMenuWrapper)
-}
+SiderMenuWrapper.install = function(Vue) {
+  Vue.component(SiderMenuWrapper.name, SiderMenuWrapper);
+};
 
-export {
-  SiderMenu,
-  SiderMenuProps
-}
+export { SiderMenu, SiderMenuProps };
 
-export default SiderMenuWrapper
+export default SiderMenuWrapper;

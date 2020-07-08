@@ -2,8 +2,8 @@
 export const storageOptions = {
   namespace: 'pro__', // key prefix
   name: 'ls', // name variable Vue.[ls] or this.[$ls],
-  storage: 'local' // storage name session, local, memory
-}
+  storage: 'local', // storage name session, local, memory
+};
 
 export default {
   navTheme: 'dark',
@@ -13,11 +13,12 @@ export default {
   fixedHeader: false,
   autoHideHeader: false,
   fixSiderbar: false,
+  headerSticky: false,
   colorWeak: false,
   menu: {
-    locale: true
+    locale: true,
   },
   title: 'Ant Design Pro',
   pwa: false,
-  iconfontUrl: ''
-}
+  iconfontUrl: '',
+};
