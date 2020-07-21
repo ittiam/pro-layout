@@ -7,8 +7,8 @@
 <style lang="less" scoped>
 .nav-container {
   width: 400px;
-  padding-top: 100px;
   margin: 0 auto;
+  padding-top: 100px;
 
   ul {
     li {
@@ -18,11 +18,11 @@
   }
 
   a {
-    user-select: none;
     text-decoration: none;
+    user-select: none;
 
     &.router-link-active {
-      color: #FF0000;
+      color: #f00;
     }
   }
 }

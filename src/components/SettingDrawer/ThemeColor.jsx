@@ -1,54 +1,58 @@
-import './ThemeColor.less'
+import './ThemeColor.less';
 
-import PropTypes from 'ant-design-vue/es/_util/vue-types'
-import { Tooltip, Icon } from 'ant-design-vue'
-import { genThemeToString } from '../../utils/util'
+import PropTypes from 'ant-design-vue/es/_util/vue-types';
+import { Tooltip, Icon } from 'ant-design-vue';
+import { genThemeToString } from '../../utils/util';
 
-const baseClassName = 'theme-color'
+const baseClassName = 'theme-color';
 
 export const TagProps = {
   color: PropTypes.string,
   check: PropTypes.bool
-}
+};
 
 const Tag = {
   props: TagProps,
   functional: true,
-  render (h, content) {
-    const { props: { color, check }, data, ...rest } = content
+  render(h, content) {
+    const {
+      props: { color, check },
+      data,
+      ...rest
+    } = content;
     return (
       <div {...data} style={{ backgroundColor: color }}>
-        { check ? <Icon type="check" /> : null }
+        {check ? <Icon type="check" /> : null}
       </div>
-    )
+    );
   }
-}
+};
 
 export const ThemeColorProps = {
   colors: PropTypes.array,
   title: PropTypes.string,
   value: PropTypes.string,
 
-  i18nRender: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]).def(false),
-}
+  i18nRender: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]).def(false)
+};
 
 const ThemeColor = {
   props: ThemeColorProps,
   inject: ['locale'],
-  render (h) {
-    const { title, value, colors = [] } = this
-    const i18n = this.$props.i18nRender || this.locale
-    const handleChange = (key) => {
-      this.$emit('change', key)
-    }
+  render(h) {
+    const { title, value, colors = [] } = this;
+    const i18n = this.$props.i18nRender || this.locale;
+    const handleChange = key => {
+      this.$emit('change', key);
+    };
 
     return (
       <div class={baseClassName} ref={'ref'}>
         <h3 class={`${baseClassName}-title`}>{title}</h3>
         <div class={`${baseClassName}-content`}>
           {colors.map(item => {
-            const themeKey = genThemeToString(item.key)
-            const check = value === item.key || genThemeToString(value) === item.key
+            const themeKey = genThemeToString(item.key);
+            const check = value === item.key || genThemeToString(value) === item.key;
             return (
               <Tooltip
                 key={item.color}
@@ -61,13 +65,12 @@ const ThemeColor = {
                   onClick={() => handleChange(item.key)}
                 />
               </Tooltip>
-            )
+            );
           })}
         </div>
       </div>
-    )
+    );
   }
-}
+};
 
-export default ThemeColor
-
+export default ThemeColor;

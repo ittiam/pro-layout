@@ -12,8 +12,9 @@ export const TOGGLE_HIDE_HEADER = 'auto_hide_header';
 export const TOGGLE_COLOR = 'color';
 export const TOGGLE_WEAK = 'weak';
 export const APP_LANGUAGE = 'app_language';
+export const APP_THEME = 'app_theme';
 
 export const CONTENT_WIDTH_TYPE = {
   Fluid: 'Fluid',
-  Fixed: 'Fixed',
+  Fixed: 'Fixed'
 };

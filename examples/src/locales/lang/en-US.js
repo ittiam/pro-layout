@@ -1,51 +1,52 @@
 export default {
   navBar: {
-    lang: 'Language',
+    lang: 'Language'
   },
   layouts: {
     usermenu: {
       dialog: {
         title: 'Log-out',
-        content: 'Do you want log-out?',
-      },
-    },
+        content: 'Do you want log-out?'
+      }
+    }
   },
   menu: {
     home: 'Home',
     dashboard: {
       default: 'Dashboard',
       analysis: 'Analysis',
-      workplace: 'Workplace',
+      workplace: 'Workplace'
     },
     form: {
       default: 'Form',
       basicform: 'Basic Form',
       stepform: 'Step Form',
-      advancedform: 'Advanced Form',
+      advancedform: 'Advanced Form'
     },
     nav1: 'Nav 1',
     nav2: 'Nav 2',
-    nav3: 'Nav 3',
+    nav3: 'Nav 3'
   },
 
   pages: {
     form: {
       basicform: {
         headers: {
-          btn1: 'Button1',
+          btn1: 'Button1'
         },
         content:
           'Form pages are used to collect or verify information to users, and basic forms are common in scenarios where there are fewer data items.',
         tabs: {
           tab1: 'Tab1',
           tab2: 'Tab2',
-          tab3: 'Tab3',
-        },
-      },
-    },
+          tab3: 'Tab3'
+        }
+      }
+    }
   },
 
   'navBar.lang': 'Language',
+  'navBar.theme': 'Theme',
 
   'app.setting.pagestyle': 'Page style setting',
   'app.setting.pagestyle.light': 'Light style',
@@ -66,5 +67,5 @@ export default {
   'app.setting.copy': 'Copy Setting',
   'app.setting.loading': 'Loading theme',
   'app.setting.copyinfo': 'copy success，please replace defaultSettings in src/models/setting.js',
-  'app.setting.production.hint': 'Setting panel shows in development environment only, please manually modify',
+  'app.setting.production.hint': 'Setting panel shows in development environment only, please manually modify'
 };

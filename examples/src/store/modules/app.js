@@ -12,7 +12,7 @@ import {
   TOGGLE_COLOR,
   TOGGLE_WEAK,
   // i18n
-  APP_LANGUAGE,
+  APP_LANGUAGE
 } from '../mutation-types';
 import { loadLanguageAsync } from '@/locales';
 
@@ -29,7 +29,7 @@ const App = {
     autoHideHeader: false,
     color: '',
     weak: false,
-    lang: 'en-US',
+    lang: 'en-US'
   },
   mutations: {
     [SIDEBAR_TYPE]: (state, type) => {
@@ -79,7 +79,7 @@ const App = {
       console.log('lang', lang);
       state.lang = lang;
       Vue.ls.set(APP_LANGUAGE, lang);
-    },
+    }
   },
   actions: {
     setLang({ commit }, lang) {
@@ -93,8 +93,8 @@ const App = {
             reject(e);
           });
       });
-    },
-  },
+    }
+  }
 };
 
 export default App;

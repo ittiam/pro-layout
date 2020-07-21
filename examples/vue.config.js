@@ -15,7 +15,7 @@ const assetsCDN = {
     vue: 'Vue',
     'vue-router': 'VueRouter',
     vuex: 'Vuex',
-    axios: 'axios',
+    axios: 'axios'
   },
   assets: {
     css: [],
@@ -24,9 +24,9 @@ const assetsCDN = {
       '//cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js',
       '//cdn.jsdelivr.net/npm/vue-router@3.1.3/dist/vue-router.min.js',
       '//cdn.jsdelivr.net/npm/vuex@3.1.1/dist/vuex.min.js',
-      '//cdn.jsdelivr.net/npm/axios@0.19.0/dist/axios.min.js',
-    ],
-  },
+      '//cdn.jsdelivr.net/npm/axios@0.19.0/dist/axios.min.js'
+    ]
+  }
 };
 
 // vue.config
@@ -34,14 +34,14 @@ const defaultConfig = {
   configureWebpack: {
     plugins: [
       // Ignore all locale files of moment.js
-      new IgnorePlugin(/^\.\/locale$/, /moment$/),
+      new IgnorePlugin(/^\.\/locale$/, /moment$/)
     ],
     resolve: {
       alias: {
-        '@ant-design/icons/lib/dist$': resolve('./src/core/antd/icons.js'),
-      },
+        '@ant-design/icons/lib/dist$': resolve('./src/core/antd/icons.js')
+      }
     },
-    externals: isProd ? assetsCDN.externals : {},
+    externals: isProd ? assetsCDN.externals : {}
   },
   chainWebpack: config => {
     config.resolve.alias.set('@config', resolve('./config')).set('@ant-design-vue/pro-layout', resolve('../src'));
@@ -57,8 +57,8 @@ const defaultConfig = {
     isAnalyz &&
       config.plugin('webpack-report').use(BundleAnalyzerPlugin, [
         {
-          analyzerMode: 'static',
-        },
+          analyzerMode: 'static'
+        }
       ]);
 
     const svgRule = config.module.rule('svg');
@@ -75,7 +75,7 @@ const defaultConfig = {
       .use('file-loader')
       .loader('file-loader')
       .options({
-        name: 'assets/[name].[hash:8].[ext]',
+        name: 'assets/[name].[hash:8].[ext]'
       });
   },
   css: {
@@ -86,15 +86,17 @@ const defaultConfig = {
           // 'primary-color': '#F5222D',
           // 'link-color': '#F5222D',
           // 'border-radius-base': '4px'
+          'layout-header-height': '45px',
+          'menu-collapsed-width': '50px'
         },
         // DO NOT REMOVE THIS LINE
-        javascriptEnabled: true,
-      },
-    },
+        javascriptEnabled: true
+      }
+    }
   },
   devServer: {
     // default development server port 8000
-    port: 9001,
+    port: 9001
     // If you want to turn on the proxy, please remove the mockjs /src/main.jsL11
     // proxy: {
     //   '/api': {
@@ -109,7 +111,7 @@ const defaultConfig = {
   productionSourceMap: false,
   lintOnSave: false,
   // babel-loader no-ignore node_modules/*
-  transpileDependencies: [],
+  transpileDependencies: []
 };
 
 if (!isProd) {

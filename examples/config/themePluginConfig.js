@@ -1,115 +1,60 @@
 export default {
   theme: [
     {
-      key: 'dark',
-      fileName: 'dark.css',
-      theme: 'dark'
+      name: '深奥蓝',
+      key: 'deep-blue',
+      circular: 'images/theme/deep-blue/circular.png',
+      preview: 'images/theme/deep-blue/preview.png',
+      active: 'images/theme/deep-blue/preview-on.png',
+      fileName: 'deep-blue.css'
     },
     {
-      key: '#F5222D',
-      fileName: '#F5222D.css',
-      modifyVars: {
-        '@primary-color': '#F5222D'
-      }
+      name: '星空蓝',
+      key: 'star-blue',
+      circular: 'images/theme/star-blue/circular.png',
+      fileName: 'star-blue.css'
     },
     {
-      key: '#FA541C',
-      fileName: '#FA541C.css',
-      modifyVars: {
-        '@primary-color': '#FA541C'
-      }
+      name: 'WPG红',
+      key: 'wpg-red',
+      circular: 'images/theme/wpg-red/circular.png',
+      fileName: 'wpg-red.css'
     },
     {
-      key: '#FAAD14',
-      fileName: '#FAAD14.css',
-      modifyVars: {
-        '@primary-color': '#FAAD14'
-      }
+      name: '阳光橙',
+      key: 'sunny-orange',
+      circular: 'images/theme/sunny-orange/circular.png',
+      fileName: 'sunny-orange.css'
     },
     {
-      key: '#13C2C2',
-      fileName: '#13C2C2.css',
-      modifyVars: {
-        '@primary-color': '#13C2C2'
-      }
+      name: '海洋蓝',
+      key: 'sea-blue',
+      circular: 'images/theme/sea-blue/circular.png',
+      fileName: 'sea-blue.css'
     },
     {
-      key: '#52C41A',
-      fileName: '#52C41A.css',
-      modifyVars: {
-        '@primary-color': '#52C41A'
-      }
+      name: '骑士黑',
+      key: 'knight-black',
+      circular: 'images/theme/knight-black/circular.png',
+      fileName: 'knight-black.css'
     },
     {
-      key: '#2F54EB',
-      fileName: '#2F54EB.css',
-      modifyVars: {
-        '@primary-color': '#2F54EB'
-      }
+      name: '晴空蓝',
+      key: 'sunny-blue',
+      circular: 'images/theme/sunny-blue/circular.png',
+      fileName: 'sunny-blue.css'
     },
     {
-      key: '#722ED1',
-      fileName: '#722ED1.css',
-      modifyVars: {
-        '@primary-color': '#722ED1'
-      }
-    },
-
-    {
-      key: '#F5222D',
-      theme: 'dark',
-      fileName: 'dark-#F5222D.css',
-      modifyVars: {
-        '@primary-color': '#F5222D'
-      }
+      name: '玉石白',
+      key: 'stone-white',
+      circular: 'images/theme/stone-white/circular.png',
+      fileName: 'stone-white.css'
     },
     {
-      key: '#FA541C',
-      theme: 'dark',
-      fileName: 'dark-#FA541C.css',
-      modifyVars: {
-        '@primary-color': '#FA541C'
-      }
-    },
-    {
-      key: '#FAAD14',
-      theme: 'dark',
-      fileName: 'dark-#FAAD14.css',
-      modifyVars: {
-        '@primary-color': '#FAAD14'
-      }
-    },
-    {
-      key: '#13C2C2',
-      theme: 'dark',
-      fileName: 'dark-#13C2C2.css',
-      modifyVars: {
-        '@primary-color': '#13C2C2'
-      }
-    },
-    {
-      key: '#52C41A',
-      theme: 'dark',
-      fileName: 'dark-#52C41A.css',
-      modifyVars: {
-        '@primary-color': '#52C41A'
-      }
-    },
-    {
-      key: '#2F54EB',
-      theme: 'dark',
-      fileName: 'dark-#2F54EB.css',
-      modifyVars: {
-        '@primary-color': '#2F54EB'
-      }
-    },
-    {
-      key: '#722ED1',
-      theme: 'dark',
-      fileName: 'dark-#722ED1.css',
-      modifyVars: {
-        '@primary-color': '#722ED1'
-      }
+      name: '罗兰紫',
+      key: 'roland-purple',
+      circular: 'images/theme/roland-purple/circular.png',
+      fileName: 'roland-purple.css'
     }
   ]
-}
+};

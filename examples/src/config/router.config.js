@@ -1,10 +1,10 @@
 // eslint-disable-next-line
-import BasicLayout from '../layouts/BasicLayout'
+import BasicLayout from '../layouts/BasicLayout';
 
 const RouteView = {
   name: 'RouteView',
-  render: (h) => h('router-view')
-}
+  render: h => h('router-view')
+};
 
 const asyncRouterMap = [
   {
@@ -29,7 +29,8 @@ const asyncRouterMap = [
               icon: 'smile',
               title: 'menu.dashboard.analysis'
             },
-            component: () => import(/* webpackChunkName: "dashboard" */ '../views/dashboard/analysis')
+            component: () =>
+              import(/* webpackChunkName: "dashboard" */ '../views/dashboard/analysis')
           },
           {
             path: '/dashboard/workplace/:id?',
@@ -118,6 +119,6 @@ const asyncRouterMap = [
       }
     ]
   }
-]
+];
 
-export { asyncRouterMap }
+export { asyncRouterMap };

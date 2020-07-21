@@ -1,10 +1,12 @@
 import './BasicLayout.less';
+import '@/themes/register.less';
 
 import { Avatar, Dropdown, Menu, Icon, Modal } from 'ant-design-vue';
 import { asyncRouterMap } from '../config/router.config.js';
 import { i18nRender } from '../locales';
 import ProLayout, { GlobalFooter, SettingDrawer } from '@ant-design-vue/pro-layout';
 import SelectLang from '../components/SelectLang';
+import SwitchThem from '../components/SwitchTheme';
 import LogoSvg from '../assets/logo.svg?inline';
 // import defaultSettings from '@config/defaultSettings'
 
@@ -33,7 +35,7 @@ const Account = {
                   setTimeout(Math.random() > 0.5 ? resolve : reject, 1500);
                 }).catch(() => console.log('Oops errors!'));
               },
-              onCancel() {},
+              onCancel() {}
             });
           }}
         >
@@ -54,7 +56,7 @@ const Account = {
         </span>
       </Dropdown>
     );
-  },
+  }
 };
 
 // render logo and title
@@ -71,10 +73,11 @@ const rightContentRender = (h, props) => {
   const cls = {
     'ant-pro-global-header-index-right': true,
     'ant-pro-global-header-topmenu': props.isTop,
-    [`ant-pro-global-header-index-${props.theme}`]: true,
+    [`ant-pro-global-header-index-${props.theme}`]: true
   };
   return (
     <div class={cls}>
+      <SwitchThem class={'ant-pro-global-header-index-action'} />
       <Account class={'ant-pro-global-header-index-action'} />
       <SelectLang class={'ant-pro-global-header-index-action'} />
     </div>
@@ -123,10 +126,10 @@ export default {
         colorWeak: false,
 
         hideHintAlert: false,
-        hideCopyButton: false,
+        hideCopyButton: false
       },
       // 是否手机模式
-      isMobile: false,
+      isMobile: false
     };
   },
   render(h) {
@@ -190,8 +193,8 @@ export default {
         breadcrumbRender,
 
         logo: LogoSvg,
-        title: 'Ant Design Pro',
-      },
+        title: 'Ant Design Pro'
+      }
     };
 
     return (
@@ -200,5 +203,5 @@ export default {
         <router-view />
       </ProLayout>
     );
-  },
+  }
 };

@@ -1,6 +1,7 @@
 export default {
   navBar: {
-    lang: '语言'
+    lang: '语言',
+    theme: '主题'
   },
   layouts: {
     usermenu: {
@@ -43,4 +44,4 @@ export default {
       }
     }
   }
-}
+};

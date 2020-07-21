@@ -15,14 +15,15 @@ export const SiderMenuProps = {
   collapsed: PropTypes.bool,
   handleCollapse: PropTypes.func,
   menus: PropTypes.array,
-  siderWidth: PropTypes.number.def(256),
+  siderWidth: PropTypes.number.def(180),
+  collapsedWidth: PropTypes.number.def(50),
   isMobile: PropTypes.bool,
   layout: PropTypes.string.def('inline'),
   fixSiderbar: PropTypes.bool,
   headerSticky: PropTypes.bool,
   logo: PropTypes.any,
   title: PropTypes.string.def(''),
-  menuHeaderRender: PropTypes.func,
+  menuHeaderRender: PropTypes.func
 };
 
 export const defaultRenderLogo = (h, logo) => {
@@ -59,7 +60,7 @@ const SiderMenu = {
   name: 'SiderMenu',
   model: {
     prop: 'collapsed',
-    event: 'collapse',
+    event: 'collapse'
   },
   props: SiderMenuProps,
   render(h) {
@@ -67,6 +68,7 @@ const SiderMenu = {
       collapsible,
       collapsed,
       siderWidth,
+      collapsedWidth,
       fixSiderbar,
       headerSticky,
       mode,
@@ -77,7 +79,7 @@ const SiderMenu = {
       handleCollapse,
       onMenuHeaderClick = () => null,
       i18nRender,
-      menuHeaderRender,
+      menuHeaderRender
     } = this;
     const siderCls = ['ant-pro-sider-menu-sider'];
     if (fixSiderbar) siderCls.push('fix-sider-bar');
@@ -91,7 +93,7 @@ const SiderMenu = {
       logo,
       title,
       menuHeaderRender,
-      collapsed,
+      collapsed
     });
 
     return (
@@ -100,6 +102,7 @@ const SiderMenu = {
         breakpoint={'lg'}
         trigger={null}
         width={siderWidth}
+        collapsedWidth={collapsedWidth}
         theme={theme}
         collapsible={collapsible}
         collapsed={collapsed}
@@ -117,7 +120,7 @@ const SiderMenu = {
         <BaseMenu collapsed={collapsed} menus={menus} mode={mode} theme={theme} i18nRender={i18nRender} />
       </Sider>
     );
-  },
+  }
 };
 
 export default SiderMenu;

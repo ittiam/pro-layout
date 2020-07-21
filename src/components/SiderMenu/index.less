@@ -1,32 +1,32 @@
-@import "~ant-design-vue/es/style/themes/default.less";
+@import '~ant-design-vue/es/style/themes/default.less';
 
 @sider-menu-prefix-cls: ~'@{ant-prefix}-pro-sider-menu';
 
 @nav-header-height: @layout-header-height;
 .@{sider-menu-prefix-cls} {
-
   &-logo {
     position: relative;
-    height: 64px;
-    padding-left: 24px;
+    height: @nav-header-height;
+    padding-left: 14px;
     overflow: hidden;
-    transition: all .3s;
+    transition: all 0.3s;
     line-height: @nav-header-height;
     background: @layout-sider-background;
 
-    svg, h1 {
+    svg,
+    h1 {
       display: inline-block;
     }
 
     svg {
-      height: 32px;
-      width: 32px;
+      height: 22px;
+      width: 22px;
       vertical-align: middle;
     }
 
     h1 {
       color: @white;
-      font-size: 20px;
+      font-size: 16px;
       margin: 0 0 0 12px;
       font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
       font-weight: 600;
@@ -96,20 +96,15 @@
 
   .ant-menu-inline-collapsed {
     & > .ant-menu-item .sider-menu-item-img + span,
-    &
-    > .ant-menu-item-group
-    > .ant-menu-item-group-list
-    > .ant-menu-item
-    .sider-menu-item-img
-    + span,
-    &
-    > .ant-menu-submenu
-    > .ant-menu-submenu-title
-    .sider-menu-item-img
-    + span {
+    & > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item .sider-menu-item-img + span,
+    & > .ant-menu-submenu > .ant-menu-submenu-title .sider-menu-item-img + span {
       display: inline-block;
       max-width: 0;
       opacity: 0;
+    }
+
+    & > .ant-menu-submenu > .ant-menu-submenu-title {
+      padding: 0 17px !important;
     }
   }
 

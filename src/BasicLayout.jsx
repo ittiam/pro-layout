@@ -19,37 +19,37 @@ export const BasicLayoutProps = {
   disableMobile: PropTypes.bool.def(false),
   mediaQuery: PropTypes.object.def({}),
   handleMediaQuery: PropTypes.func,
-  footerRender: PropTypes.func,
+  footerRender: PropTypes.func
 };
 
 const MediaQueryEnum = {
   'screen-xs': {
-    maxWidth: 575,
+    maxWidth: 575
   },
   'screen-sm': {
     minWidth: 576,
-    maxWidth: 767,
+    maxWidth: 767
   },
   'screen-md': {
     minWidth: 768,
-    maxWidth: 991,
+    maxWidth: 991
   },
   'screen-lg': {
     minWidth: 992,
-    maxWidth: 1199,
+    maxWidth: 1199
   },
   'screen-xl': {
     minWidth: 1200,
-    maxWidth: 1599,
+    maxWidth: 1599
   },
   'screen-xxl': {
-    minWidth: 1600,
-  },
+    minWidth: 1600
+  }
 };
 
 const getPaddingLeft = (hasLeftPadding, collapsed = undefined, siderWidth) => {
   if (hasLeftPadding) {
-    return collapsed ? 80 : siderWidth;
+    return collapsed ? 50 : siderWidth;
   }
   return 0;
 };
@@ -81,7 +81,7 @@ const BasicLayout = {
       siderWidth,
       fixSiderbar,
       headerSticky,
-      i18nRender = defaultI18nRender,
+      i18nRender = defaultI18nRender
     } = props;
 
     const footerRender = getComponentFromProp(content, 'footerRender');
@@ -102,7 +102,7 @@ const BasicLayout = {
       menuHeaderRender,
       rightContentRender,
       collapsedButtonRender,
-      breadcrumbRender,
+      breadcrumbRender
     };
 
     return (
@@ -112,7 +112,7 @@ const BasicLayout = {
             class={{
               'ant-pro-basicLayout': true,
               'ant-pro-topmenu': isTopMenu,
-              ...mediaQuery,
+              ...mediaQuery
             }}
           >
             <SiderMenuWrapper {...{ props: cdProps }} collapsed={collapsed} onCollapse={handleCollapse} />
@@ -120,12 +120,12 @@ const BasicLayout = {
               class={[layout]}
               style={{
                 paddingLeft: hasSiderMenu ? `${getPaddingLeft(!!hasLeftPadding, collapsed, siderWidth)}px` : undefined,
-                minHeight: '100vh',
+                minHeight: '100vh'
               }}
             >
               {headerRender(h, {
                 ...cdProps,
-                mode: 'horizontal',
+                mode: 'horizontal'
               })}
               <WrapContent class="ant-pro-basicLayout-content" contentWidth={contentWidth}>
                 {children}
@@ -152,7 +152,7 @@ const BasicLayout = {
         </ContainerQuery>
       </ConfigProvider>
     );
-  },
+  }
 };
 
 export default BasicLayout;

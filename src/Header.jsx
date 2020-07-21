@@ -21,7 +21,7 @@ export const HeaderViewProps = {
   menuRender: PropTypes.any,
   headerRender: PropTypes.any,
   rightContentRender: PropTypes.any,
-  visible: PropTypes.bool.def(true),
+  visible: PropTypes.bool.def(true)
 };
 
 const renderContent = (h, props) => {
@@ -68,7 +68,7 @@ const HeaderView = {
       fixedHeader,
       headerSticky,
       autoHideHeader,
-      hasSiderMenu,
+      hasSiderMenu
     } = this.$props;
     const props = this.$props;
     const isTop = layout === 'topmenu';
@@ -77,7 +77,7 @@ const HeaderView = {
 
     const className = {
       'ant-pro-fixed-header': fixedHeader,
-      'ant-pro-top-menu': isTop,
+      'ant-pro-top-menu': isTop
     };
 
     // 没有 <></> 暂时代替写法
@@ -87,9 +87,9 @@ const HeaderView = {
         <Header
           style={{
             padding: 0,
-            width: needSettingWidth ? `calc(100% - ${collapsed ? 80 : siderWidth}px)` : '100%',
+            width: needSettingWidth ? `calc(100% - ${collapsed ? 50 : siderWidth}px)` : '100%',
             zIndex: headerSticky ? 11 : 9,
-            right: fixedHeader ? 0 : undefined,
+            right: fixedHeader ? 0 : undefined
           }}
           class={className}
         >
@@ -97,7 +97,7 @@ const HeaderView = {
         </Header>
       </VueFragment>
     ) : null;
-  },
+  }
 };
 
 export default HeaderView;
