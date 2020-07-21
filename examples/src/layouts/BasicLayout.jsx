@@ -1,5 +1,4 @@
 import './BasicLayout.less';
-import '@/themes/register.less';
 
 import { Avatar, Dropdown, Menu, Icon, Modal } from 'ant-design-vue';
 import { asyncRouterMap } from '../config/router.config.js';

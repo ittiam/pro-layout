@@ -12,7 +12,7 @@ import './core/library';
 import { PageHeaderWrapper } from '@ant-design-vue/pro-layout';
 import initializer from './core/bootstrap';
 import './global.less';
-import themePluginConfig from '@config/themePluginConfig';
+import themePluginConfig from '@/config/themePluginConfig';
 
 Vue.config.productionTip = false;
 

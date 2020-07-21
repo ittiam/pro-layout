@@ -41,6 +41,7 @@
     line-height: @layout-header-height;
     vertical-align: top;
     cursor: pointer;
+
     img,
     svg {
       display: inline-block;
@@ -50,9 +51,9 @@
     }
 
     h1 {
-      padding: 0 0 0 20px;
       display: inline-block;
       margin-bottom: 0;
+      padding: 0 0 0 20px;
       font-size: 16px;
     }
   }
@@ -61,6 +62,7 @@
     .anticon {
       margin-right: 8px;
     }
+
     .ant-dropdown-menu-item {
       min-width: 160px;
     }
@@ -72,6 +74,7 @@
     font-size: 20px;
     cursor: pointer;
     transition: all 0.3s, padding 0s;
+
     &:hover {
       background: @pro-header-hover-trigger-action-bg;
     }
@@ -79,15 +82,19 @@
 
   .dark {
     height: @layout-header-height;
+
     .action {
       color: rgba(255, 255, 255, 0.85);
+
       > i {
         color: rgba(255, 255, 255, 0.85);
       }
+
       &:hover,
       &.opened {
         background: @primary-color;
       }
+
       .ant-badge {
         color: rgba(255, 255, 255, 0.85);
       }
