@@ -4,7 +4,7 @@
       <h1>Test Page2 keepAlive: {{ $route.meta.keepAlive }}</h1>
       <div class="box">
         <div style="margin: 1em 0">
-          <a-input v-model="newVal" placeholder="..."/>
+          <a-input v-model="newVal" placeholder="..." />
         </div>
         <a-button @click="handleClick">Click Me!</a-button>
         <a-divider />
@@ -15,24 +15,24 @@
 </template>
 
 <script>
-import ProLayout, { PageHeaderWrapper } from '@ant-design-vue/pro-layout'
+import ProLayout, { PageHeaderWrapper } from '@ant-design-vue/pro-layout';
 
 export default {
-  data () {
-    return {
-      newVal: ''
-    }
-  },
-  methods: {
-    handleClick (e) {
-      this.$router.push({ path: '/dashboard/analysis' })
-    }
-  },
   components: {
     ProLayout,
     PageHeaderWrapper
+  },
+  data() {
+    return {
+      newVal: ''
+    };
+  },
+  methods: {
+    handleClick(e) {
+      this.$router.push({ path: '/dashboard/analysis' });
+    }
   }
-}
+};
 </script>
 
 <style lang="less" scoped>

@@ -1,8 +1,192 @@
 .theme-@{theme-name} {
-  background: #000;
-
   .ant-pro-global-header {
     color: @theme-header-item-color;
     background: @theme-header-background;
+
+    h1 {
+      color: @theme-header-item-color;
+    }
+  }
+
+  /* ------- 顶部主题样式 ------ */
+  .ant-layout-header {
+    color: @ft-8-cls;
+    background: @bg-6-cls;
+
+    .global-header-menu {
+      .ant-menu-horizontal {
+        color: @ft-8-cls !important;
+        background-color: transparent !important;
+
+        > .ant-menu-submenu-selected {
+          color: @ft-1-av-cls;
+          border-bottom: 2px solid @ft-1-av-cls;
+        }
+
+        .ant-menu-submenu {
+          top: 0;
+
+          .ant-menu-submenu-title {
+            height: calc(@layout_header - 2px);
+            line-height: calc(@layout_header - 2px);
+          }
+
+          &:hover {
+            color: @ft-1-av-cls;
+            border-bottom: 2px solid @ft-1-av-cls;
+          }
+        }
+      }
+    }
+  }
+
+  /* ------- 底部主题样式 ------ */
+  .ant-layout-footer {
+    color: @ft-9-cls;
+    background: @bg-19-cls;
+  }
+
+  /* ------ 定义收缩菜单栏按钮样式 ------ */
+
+  .sider.wbgc-menu {
+    background: @bg-5-cls !important;
+  }
+  /* Menu 正常状态 */
+  ul.ant-menu {
+    color: @ft-6-cls;
+    background-color: @bg-5-cls;
+    border: none;
+
+    /* 一级菜单 (不可展开) */
+    .ant-menu-item {
+      color: @ft-6-cls;
+
+      .anticon {
+        color: @mic-1-cls;
+      }
+
+      &:hover {
+        // 一级菜单 (不可展开) hover
+        color: @ft-1-hv-cls;
+
+        .anticon {
+          color: @ft-1-hv-cls;
+        }
+      }
+
+      &.ant-menu-item-selected {
+        // 一级菜单 (不可展开) 选中
+        color: @ft-1-av-cls;
+        background-color: transparent;
+
+        .anticon {
+          color: @ft-1-hv-cls;
+        }
+      }
+    }
+
+    /* 一级菜单(可展开) */
+    .ant-menu-submenu {
+      .ant-menu-submenu-title {
+        .title-icon > * {
+          &.icon {
+            //color: @mic-1-cls;
+          }
+        }
+
+        .ant-menu-submenu-arrow {
+          // 箭头
+          opacity: 1;
+
+          &::before,
+          &::after {
+            background: @ft-6-cls;
+          }
+        }
+
+        &:hover {
+          // 一级菜单(可展开) hover 状态
+          color: @ft-1-hv-cls;
+
+          .ant-menu-submenu-arrow::before,
+          .ant-menu-submenu-arrow::after {
+            background: @ft-1-hv-cls;
+          }
+
+          .title-icon > .icon,
+          .anticon {
+            color: @ft-1-hv-cls;
+          }
+        }
+      }
+
+      &.ant-menu-submenu-open {
+        // 一级菜单展开状态
+        .ant-menu-submenu-title {
+          color: @ft-1-av-cls;
+
+          .ant-menu-submenu-arrow::before,
+          .ant-menu-submenu-arrow::after {
+            background: @ft-1-av-cls;
+          }
+
+          .title-icon > .icon,
+          .anticon {
+            color: @ft-1-hv-cls;
+          }
+        }
+      }
+
+      & > .ant-menu {
+        //二级菜单
+        color: @ft-7-cls;
+        background-color: @bg-14-cls;
+        box-shadow: unset;
+
+        .ant-menu-item {
+          // 二级菜单(不可展开)
+          &:hover {
+            // 二级菜单 hover
+            color: @ft-2-hv-cls;
+            background-color: @bg-12-hv-cls;
+          }
+
+          &.ant-menu-item-selected {
+            // 二级菜单选中
+            color: @ft-2-av-cls;
+            background-color: @bg-4-av-cls;
+            border-right: 2px solid @mbd-6-cls;
+
+            &::after {
+              border-right: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* 菜单缩起弹出框样式 */
+  .ant-menu-submenu.ant-menu-submenu-popup {
+    .ant-menu-vertical.ant-menu,
+    .ant-menu-submenu-content.ant-menu {
+      background-color: @bg-20-cls;
+      box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+
+      .ant-menu-item {
+        &:hover {
+          // 收缩状态 二级菜单 hover
+          color: @mft-2-hv-cls;
+          background-color: @bg-15-hv-cls;
+        }
+
+        &.ant-menu-item-selected {
+          // 收缩状态 二级菜单选中
+          color: @ft-2-av-cls;
+          background-color: unset;
+          border: none;
+        }
+      }
+    }
   }
 }

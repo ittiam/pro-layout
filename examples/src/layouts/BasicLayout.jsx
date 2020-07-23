@@ -115,9 +115,9 @@ export default {
         layout: 'sidemenu', // 'sidemenu', 'topmenu'
         // 定宽: true / 流式: false
         contentWidth: false,
-        fixedHeader: false,
-        fixSiderbar: false,
-        headerSticky: false,
+        fixedHeader: true,
+        fixSiderbar: true,
+        headerSticky: true,
         // 主题 'dark' | 'light'
         theme: 'dark',
         // 主色调

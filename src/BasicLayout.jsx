@@ -80,7 +80,6 @@ const BasicLayout = {
       contentWidth,
       siderWidth,
       fixSiderbar,
-      headerSticky,
       i18nRender = defaultI18nRender
     } = props;
 
@@ -106,7 +105,11 @@ const BasicLayout = {
     };
 
     return (
-      <ConfigProvider i18nRender={i18nRender} contentWidth={contentWidth} breadcrumbRender={breadcrumbRender}>
+      <ConfigProvider
+        i18nRender={i18nRender}
+        contentWidth={contentWidth}
+        breadcrumbRender={breadcrumbRender}
+      >
         <ContainerQuery query={MediaQueryEnum} onChange={handleMediaQuery}>
           <Layout
             class={{
@@ -115,11 +118,17 @@ const BasicLayout = {
               ...mediaQuery
             }}
           >
-            <SiderMenuWrapper {...{ props: cdProps }} collapsed={collapsed} onCollapse={handleCollapse} />
+            <SiderMenuWrapper
+              {...{ props: cdProps }}
+              collapsed={collapsed}
+              onCollapse={handleCollapse}
+            />
             <Layout
               class={[layout]}
               style={{
-                paddingLeft: hasSiderMenu ? `${getPaddingLeft(!!hasLeftPadding, collapsed, siderWidth)}px` : undefined,
+                paddingLeft: hasSiderMenu
+                  ? `${getPaddingLeft(!!hasLeftPadding, collapsed, siderWidth)}px`
+                  : undefined,
                 minHeight: '100vh'
               }}
             >

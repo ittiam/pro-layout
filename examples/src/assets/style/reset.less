@@ -1,0 +1,398 @@
+html,
+body,
+body div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+figure,
+footer,
+header,
+menu,
+nav,
+section,
+time,
+mark,
+audio,
+video,
+details,
+summary {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  font-family: PingFangSC-Regular, Microsoft YaHei, Helvetica Neue, Helvetica, Hiragino Sans GB,
+    SimSun, sans-serif;
+  vertical-align: baseline;
+  background: transparent;
+  border: 0;
+}
+
+html {
+  overflow: hidden;
+}
+
+main,
+article,
+aside,
+figure,
+footer,
+header,
+nav,
+section,
+details,
+summary {
+  display: block;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+object,
+embed {
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote::before,
+blockquote::after,
+q::before,
+u,
+q::after {
+  content: none;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title],
+dfn[title] {
+  border-bottom: 1px dotted #000;
+  cursor: help;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+th {
+  font-weight: bold;
+  vertical-align: bottom;
+}
+
+td {
+  font-weight: normal;
+  vertical-align: top;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  margin: 1em 0;
+  padding: 0;
+  border: 0;
+  border-top: 1px solid #ccc;
+}
+
+input,
+select {
+  vertical-align: middle;
+}
+
+pre {
+  white-space: pre; /* CSS2 */
+  white-space: pre-wrap; /* CSS 2.1 */
+  white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
+  word-wrap: break-word; /* IE */
+}
+
+input[type='radio'] {
+  vertical-align: text-bottom;
+}
+
+input[type='checkbox'] {
+  vertical-align: bottom;
+}
+
+.ie7 input[type='checkbox'] {
+  vertical-align: baseline;
+}
+
+.ie6 input {
+  vertical-align: text-bottom;
+}
+
+select,
+input,
+textarea {
+  font: 99% sans-serif;
+}
+
+table {
+  font-size: inherit;
+}
+
+small {
+  font-size: 85%;
+}
+
+strong {
+  font-weight: bold;
+}
+
+td,
+td img {
+  vertical-align: top;
+}
+
+/* hand cursor on clickable elements */
+.clickable,
+label,
+input[type='button'],
+input[type='submit'],
+input[type='file'],
+button {
+  cursor: pointer;
+}
+
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+button,
+input,
+select,
+textarea {
+  margin: 0;
+}
+
+/* make buttons play nice in IE */
+button,
+input[type='button'] {
+  width: auto;
+  overflow: visible;
+}
+
+/* scale images in IE7 more attractively */
+.ie7 img {
+  -ms-interpolation-mode: bicubic;
+}
+
+/* let's clear some floats */
+.clearfix::before,
+.clearfix::after {
+  display: block;
+  height: 0;
+  overflow: hidden;
+  content: '\0020';
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+.form-control {
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px transparent;
+  box-shadow: inset 0 1px 1px transparent;
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+.form-control:focus {
+  border-color: transparent;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px transparent, 0 0 8px transparent;
+  box-shadow: inset 0 1px 1px transparent, 0 0 8px transparent;
+}
+
+/* 定义默认的 icon 图标样式 */
+.wpgicon {
+  font-size: 24px;
+}
+
+/* 去掉百度地图左下脚图标 */
+.anchorBL {
+  display: none;
+}
+
+.tips-hide {
+  display: none;
+}
+
+.BMap_contextMenu {
+  border: 0 !important;
+  border-radius: 4px;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.wheader-h {
+  height: @layout_header;
+}
+
+.wfooter-h {
+  height: @layout_footer;
+}
+
+.wcside-w {
+  width: @layout-sider-collapsed;
+}
+
+.wfs10 {
+  font-size: @fs10;
+}
+
+.wfs12 {
+  font-size: @fs12;
+}
+
+.wfs14 {
+  font-size: @fs14;
+}
+
+.wfs16 {
+  font-size: @fs16;
+}
+
+.wfs18 {
+  font-size: @fs18;
+}
+
+.wfs20 {
+  font-size: @fs20;
+}
+
+.wfs22 {
+  font-size: @fs22;
+}
+
+.wfs24 {
+  font-size: @fs24;
+}
+
+.wfs26 {
+  font-size: @fs26;
+}
+
+.wfs28 {
+  font-size: @fs28;
+}
+
+.wfs30 {
+  font-size: @fs30;
+}
+
+.wfs32 {
+  font-size: @fs32;
+}
+
+.wfs34 {
+  font-size: @fs34;
+}
+
+.wfs36 {
+  font-size: @fs36;
+}
+
+.wfs38 {
+  font-size: @fs38;
+}
+
+.wfs40 {
+  font-size: @fs40;
+}
+
+.wfs42 {
+  font-size: @fs42;
+}
+
+.wfs48 {
+  font-size: @fs48;
+}
+
+.wfs60 {
+  font-size: @fs60;
+}

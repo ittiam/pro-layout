@@ -16,10 +16,12 @@ export const GlobalHeaderProps = {
   title: PropTypes.any,
   menuRender: PropTypes.any,
   collapsedButtonRender: PropTypes.any,
-  rightContentRender: PropTypes.any,
+  rightContentRender: PropTypes.any
 };
 
-const defaultRenderCollapsedButton = (h, collapsed) => <Icon type={collapsed ? 'menu-unfold' : 'menu-fold'} />;
+const defaultRenderCollapsedButton = (h, collapsed) => (
+  <Icon type={collapsed ? 'menu-unfold' : 'menu-fold'} />
+);
 
 const GlobalHeader = {
   name: 'GlobalHeader',
@@ -32,11 +34,16 @@ const GlobalHeader = {
       this.triggerResizeEvent();
     };
     const renderCollapsedButton = () => {
-      const { collapsed, collapsedButtonRender = defaultRenderCollapsedButton, menuRender } = this.$props;
+      const {
+        collapsed,
+        collapsedButtonRender = defaultRenderCollapsedButton,
+        menuRender
+      } = this.$props;
       if (collapsedButtonRender !== false && menuRender !== false) {
         return (
           <span class="ant-pro-global-header-trigger" onClick={toggle}>
-            {(isFun(collapsedButtonRender) && collapsedButtonRender(h, collapsed)) || collapsedButtonRender}
+            {(isFun(collapsedButtonRender) && collapsedButtonRender(h, collapsed)) ||
+              collapsedButtonRender}
           </span>
         );
       }
@@ -54,7 +61,9 @@ const GlobalHeader = {
         )}
         {renderCollapsedButton()}
         {headerSticky && !isMobile && (
-          <div class={`${headerCls}-logo`}>{defaultRenderLogoAntTitle(h, { logo, title, menuHeaderRender: null })}</div>
+          <div class={`${headerCls}-logo`}>
+            {defaultRenderLogoAntTitle(h, { logo, title, menuHeaderRender: null })}
+          </div>
         )}
         {(isFun(rightContentRender) && rightContentRender(h, this.$props)) || rightContentRender}
       </div>
@@ -63,11 +72,11 @@ const GlobalHeader = {
   methods: {
     triggerResizeEvent: debounce(() => {
       inBrowser && triggerEvent(window, 'resize');
-    }),
+    })
   },
   beforeDestroy() {
     this.triggerResizeEvent.cancel && this.triggerResizeEvent.cancel();
-  },
+  }
 };
 
 export default GlobalHeader;

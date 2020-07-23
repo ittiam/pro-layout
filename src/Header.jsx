@@ -44,7 +44,8 @@ const renderContent = (h, props) => {
           <div class={`${baseCls}-menu`} style={{ maxWidth: `${maxWidth}px`, flex: 1 }}>
             <BaseMenu {...{ props: props }} />
           </div>
-          {(isFun(rightContentRender) && rightContentRender(h, rightContentProps)) || rightContentRender}
+          {(isFun(rightContentRender) && rightContentRender(h, rightContentProps)) ||
+            rightContentRender}
         </div>
       </div>
     );
@@ -67,7 +68,6 @@ const HeaderView = {
       siderWidth,
       fixedHeader,
       headerSticky,
-      autoHideHeader,
       hasSiderMenu
     } = this.$props;
     const props = this.$props;

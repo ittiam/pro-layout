@@ -11,7 +11,7 @@ import {
   TOGGLE_HIDE_HEADER,
   TOGGLE_LAYOUT,
   TOGGLE_NAV_THEME,
-  TOGGLE_WEAK,
+  TOGGLE_WEAK
 } from '../store/mutation-types';
 
 export default function initializer() {
@@ -23,12 +23,12 @@ export default function initializer() {
   store.commit(TOGGLE_FIXED_HEADER, Vue.ls.get(TOGGLE_FIXED_HEADER, defaultSettings.fixedHeader));
   store.commit(
     TOGGLE_HEADER_STICKY,
-    Vue.ls.get(TOGGLE_HEADER_STICKY, defaultSettings.headerSticky),
+    Vue.ls.get(TOGGLE_HEADER_STICKY, defaultSettings.headerSticky)
   );
   store.commit(TOGGLE_FIXED_SIDEBAR, Vue.ls.get(TOGGLE_FIXED_SIDEBAR, defaultSettings.fixSiderbar));
   store.commit(
     TOGGLE_CONTENT_WIDTH,
-    Vue.ls.get(TOGGLE_CONTENT_WIDTH, defaultSettings.contentWidth),
+    Vue.ls.get(TOGGLE_CONTENT_WIDTH, defaultSettings.contentWidth)
   );
   store.commit(TOGGLE_HIDE_HEADER, Vue.ls.get(TOGGLE_HIDE_HEADER, defaultSettings.autoHideHeader));
   store.commit(TOGGLE_NAV_THEME, Vue.ls.get(TOGGLE_NAV_THEME, defaultSettings.navTheme));

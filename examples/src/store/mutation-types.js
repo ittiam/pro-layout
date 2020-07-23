@@ -13,6 +13,7 @@ export const TOGGLE_COLOR = 'color';
 export const TOGGLE_WEAK = 'weak';
 export const APP_LANGUAGE = 'app_language';
 export const APP_THEME = 'app_theme';
+export const APP_THEME_MODE = 'app_theme_mode';
 
 export const CONTENT_WIDTH_TYPE = {
   Fluid: 'Fluid',

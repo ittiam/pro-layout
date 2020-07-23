@@ -13,7 +13,7 @@ import CopyToClipboard from 'vue-copy-to-clipboard';
 const baseClassName = 'ant-pro-setting-drawer';
 
 const BodyProps = {
-  title: PropTypes.string.def(''),
+  title: PropTypes.string.def('')
 };
 
 const Body = {
@@ -27,7 +27,7 @@ const Body = {
         {this.$slots.default}
       </div>
     );
-  },
+  }
 };
 
 const defaultI18nRender = t => t;
@@ -39,29 +39,29 @@ const getThemeList = i18nRender => {
     {
       key: 'light',
       url: 'https://gw.alipayobjects.com/zos/antfincdn/NQ%24zoisaD2/jpRkZQMyYRryryPNtyIC.svg',
-      title: i18nRender('app.setting.pagestyle.light'),
+      title: i18nRender('app.setting.pagestyle.light')
     },
     {
       key: 'dark',
       url: 'https://gw.alipayobjects.com/zos/antfincdn/XwFOFbLkSM/LCkqqYNmvBEbokSDscrm.svg',
-      title: i18nRender('app.setting.pagestyle.dark'),
-    },
+      title: i18nRender('app.setting.pagestyle.dark')
+    }
   ];
 
   const darkColorList = [
     {
       key: '#1890ff',
       color: '#1890ff',
-      theme: 'dark',
-    },
+      theme: 'dark'
+    }
   ];
 
   const lightColorList = [
     {
       key: '#1890ff',
       color: '#1890ff',
-      theme: 'dark',
-    },
+      theme: 'dark'
+    }
   ];
 
   if (list.find(item => item.theme === 'dark')) {
@@ -70,7 +70,7 @@ const getThemeList = i18nRender => {
       disable: true,
       key: 'realDark',
       url: 'https://gw.alipayobjects.com/zos/antfincdn/hmKaLQvmY2/LCkqqYNmvBEbokSDscrm.svg',
-      title: i18nRender('app.setting.pagestyle.realdark'),
+      title: i18nRender('app.setting.pagestyle.realdark')
     });
   }
   // insert  theme color List
@@ -79,13 +79,13 @@ const getThemeList = i18nRender => {
     if (item.theme === 'dark' && color) {
       darkColorList.push({
         color,
-        ...item,
+        ...item
       });
     }
     if (!item.theme || item.theme === 'light') {
       lightColorList.push({
         color,
-        ...item,
+        ...item
       });
     }
   });
@@ -93,9 +93,9 @@ const getThemeList = i18nRender => {
   return {
     colorList: {
       dark: darkColorList,
-      light: lightColorList,
+      light: lightColorList
     },
-    themeList,
+    themeList
   };
 };
 
@@ -114,12 +114,12 @@ const genCopySettingJson = settings =>
     omit(
       {
         ...settings,
-        primaryColor: genStringToTheme(settings.primaryColor),
+        primaryColor: genStringToTheme(settings.primaryColor)
       },
-      ['colorWeak'],
+      ['colorWeak']
     ),
     null,
-    2,
+    2
   );
 
 export const settings = {
@@ -132,14 +132,13 @@ export const settings = {
   fixSiderbar: PropTypes.bool,
   headerSticky: PropTypes.bool,
   hideHintAlert: PropTypes.bool.def(false),
-  hideCopyButton: PropTypes.bool.def(false),
+  hideCopyButton: PropTypes.bool.def(false)
 };
 
 export const SettingDrawerProps = {
   getContainer: PropTypes.func,
   settings: PropTypes.objectOf(settings),
-
-  i18nRender: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]).def(false),
+  i18nRender: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]).def(false)
 };
 
 const SettingDrawer = {
@@ -148,7 +147,7 @@ const SettingDrawer = {
   inject: ['locale'],
   data() {
     return {
-      show: false,
+      show: false
     };
   },
   render(h) {
@@ -164,7 +163,7 @@ const SettingDrawer = {
       contentWidth = false,
       hideHintAlert,
       hideCopyButton,
-      colorWeak,
+      colorWeak
     } = settings;
 
     const i18n = this.$props.i18nRender || this.locale || defaultI18nRender;
@@ -173,7 +172,7 @@ const SettingDrawer = {
 
     const iconStyle = {
       color: '#fff',
-      fontSize: 20,
+      fontSize: 20
     };
 
     const changeSetting = (type, value) => {
@@ -188,21 +187,25 @@ const SettingDrawer = {
         onClose={() => setShow(false)}
         placement="right"
         getContainer={getContainer}
-        /*handle={
+        /* handle={
           <div class="ant-pro-setting-drawer-handle" onClick={() => setShow(!this.show)}>
             {this.show
               ? (<Icon type="close" style={iconStyle} />)
               : (<Icon type="setting" style={iconStyle} />)
             }
           </div>
-        }*/
+        } */
         style={{
-          zIndex: 999,
+          zIndex: 999
         }}
       >
         <template slot="handle">
           <div class={`${baseClassName}-handle`} onClick={() => setShow(!this.show)}>
-            {this.show ? <Icon type="close" style={iconStyle} /> : <Icon type="setting" style={iconStyle} />}
+            {this.show ? (
+              <Icon type="close" style={iconStyle} />
+            ) : (
+              <Icon type="setting" style={iconStyle} />
+            )}
           </div>
         </template>
         <div class={`${baseClassName}-content`}>
@@ -265,8 +268,8 @@ const SettingDrawer = {
                       checked={!!colorWeak}
                       onChange={checked => changeSetting('colorWeak', checked)}
                     />
-                  ),
-                },
+                  )
+                }
               ]}
             />
           </Body>
@@ -301,8 +304,8 @@ const SettingDrawer = {
   methods: {
     setShow(flag) {
       this.show = flag;
-    },
-  },
+    }
+  }
 };
 
 export default SettingDrawer;

@@ -2,17 +2,23 @@
   <page-header-wrapper
     :tab-list="tabList"
     :tab-active-key="tabActiveKey"
-    :tab-change="(key) => {
-      this.tabActiveKey = key
-      console.log('PageHeader::tabChange', key)
-    }"
-    @back="() => {
-      console.log('PageHeader::@back')
-    }"
-    :back="() => {
-      // 自定义 back，不会覆盖 onBack 事件
-      console.log('PageHeader::.back')
-    }"
+    :tab-change="
+      key => {
+        this.tabActiveKey = key;
+        console.log('PageHeader::tabChange', key);
+      }
+    "
+    :back="
+      () => {
+        // 自定义 back，不会覆盖 onBack 事件
+        console.log('PageHeader::.back');
+      }
+    "
+    @back="
+      () => {
+        console.log('PageHeader::@back');
+      }
+    "
   >
     <template v-slot:extra>
       <a-button-group style="margin-right: 4px;">
@@ -20,7 +26,7 @@
         <a-button>操作</a-button>
         <a-button><a-icon type="ellipsis"/></a-button>
       </a-button-group>
-      <a-button type="primary" >主操作</a-button>
+      <a-button type="primary">主操作</a-button>
     </template>
     <template v-slot:extraContent>
       <a-row class="status-list">
@@ -69,7 +75,7 @@
 <script>
 export default {
   name: 'Analysis',
-  data () {
+  data() {
     return {
       console: window.console,
       tabList: [
@@ -78,17 +84,15 @@ export default {
         { tab: 'pages.form.basicform.tabs.tab3', key: 'tab3' }
       ],
       tabActiveKey: 'tab1'
-    }
+    };
   },
   methods: {
-    handleTabChange (key) {
-      this.tabActiveKey = key
-      console.log('PageHeader::tabChange', key)
+    handleTabChange(key) {
+      this.tabActiveKey = key;
+      console.log('PageHeader::tabChange', key);
     }
   }
-}
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

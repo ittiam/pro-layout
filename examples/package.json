@@ -1,6 +1,7 @@
 {
   "name": "ant-design-pro-example",
   "version": "0.1.1",
+  "author": "vueComponent",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -9,12 +10,6 @@
     "analyz": "vue-cli-service build --mode analyz"
   },
   "main": "./src/index.js",
-  "author": "vueComponent",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/vueComponent/pro-layout"
-  },
-  "license": "MIT",
   "dependencies": {
     "@ant-design/icons": "^4.0.0-alpha.11",
     "ant-design-vue": "^1.5.4",
@@ -43,10 +38,17 @@
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
     "prettier-eslint": "^11.0.0",
+    "style-resources-loader": "^1.3.2",
     "stylelint-config-mixup": "^2.3.14",
+    "vue-cli-plugin-style-resources-loader": "~0.1.4",
     "vue-svg-icon-loader": "^2.1.1",
     "vue-template-compiler": "^2.6.10",
     "webpack-bundle-analyzer": "^3.6.0",
     "webpack-theme-color-replacer": "^1.3.11"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vueComponent/pro-layout"
   }
 }

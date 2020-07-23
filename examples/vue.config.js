@@ -43,8 +43,11 @@ const defaultConfig = {
     },
     externals: isProd ? assetsCDN.externals : {}
   },
+
   chainWebpack: config => {
-    config.resolve.alias.set('@config', resolve('./config')).set('@ant-design-vue/pro-layout', resolve('../src'));
+    config.resolve.alias
+      .set('@config', resolve('./config'))
+      .set('@ant-design-vue/pro-layout', resolve('../src'));
 
     // if `production` env require on cdn assets
     isProd &&
@@ -78,6 +81,7 @@ const defaultConfig = {
         name: 'assets/[name].[hash:8].[ext]'
       });
   },
+
   css: {
     loaderOptions: {
       less: {
@@ -94,6 +98,7 @@ const defaultConfig = {
       }
     }
   },
+
   devServer: {
     // default development server port 8000
     port: 9001
@@ -109,9 +114,18 @@ const defaultConfig = {
 
   // disable source map in production
   productionSourceMap: false,
+
   lintOnSave: false,
+
   // babel-loader no-ignore node_modules/*
-  transpileDependencies: []
+  transpileDependencies: [],
+
+  pluginOptions: {
+    'style-resources-loader': {
+      preProcessor: 'less',
+      patterns: [path.resolve(__dirname, './src/assets/style/variable.less')]
+    }
+  }
 };
 
 if (!isProd) {

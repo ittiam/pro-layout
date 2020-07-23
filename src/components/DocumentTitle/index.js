@@ -1,5 +1,5 @@
 // import SideEffect from './SideEffect'
-import { setDocumentTitle } from './util'
+import { setDocumentTitle } from './util';
 
 // const sideEffect = new SideEffect({
 //   propsToState (propsList) {
@@ -18,11 +18,11 @@ import { setDocumentTitle } from './util'
 // })
 
 const handleStateChange = (title, prefix) => {
-  const nextTitle = `${(title || '')} - ${prefix}`
+  const nextTitle = `${title || ''} - ${prefix}`;
   if (nextTitle !== document.title) {
-    setDocumentTitle(nextTitle)
+    setDocumentTitle(nextTitle);
   }
-}
+};
 
 const DocumentTitle = {
   name: 'DocumentTitle',
@@ -40,13 +40,13 @@ const DocumentTitle = {
   },
   // { props, data, children }
   // eslint-disable-next-line
-  render (createElement, { props, data, children }) {
-    handleStateChange(props.title, props.prefix)
-    return children
+  render(createElement, { props, data, children }) {
+    handleStateChange(props.title, props.prefix);
+    return children;
   }
-}
+};
 
-DocumentTitle.install = function (Vue) {
+DocumentTitle.install = function(Vue) {
   // const mountedInstances = []
   // let state
 
@@ -83,7 +83,7 @@ DocumentTitle.install = function (Vue) {
   //   }
   // })
 
-  Vue.component(DocumentTitle.name, DocumentTitle)
-}
+  Vue.component(DocumentTitle.name, DocumentTitle);
+};
 
-export default DocumentTitle
+export default DocumentTitle;

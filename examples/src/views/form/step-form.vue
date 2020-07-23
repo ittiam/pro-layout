@@ -2,20 +2,26 @@
   <page-header-wrapper
     :tab-list="tabList"
     :tab-active-key="tabActiveKey"
-    :tab-change="(key) => {
-      this.tabActiveKey = key
-      console.log('PageHeader::tabChange', key)
-    }"
-    @back="(e) => {
-      console.log('PageHeader::back', e)
-    }"
+    :tab-change="
+      key => {
+        tabActiveKey = key;
+        console.log('PageHeader::tabChange', key);
+      }
+    "
     :breadcrumb="customBreadcrumb"
+    @back="
+      e => {
+        console.log('PageHeader::back', e);
+      }
+    "
   >
     <template v-slot:content>
       <span>{{ $t('pages.form.basicform.content') }}</span>
     </template>
     <template v-slot:extraContent>
-      <div><a-button>{{ $t('pages.form.basicform.headers.btn1') }}</a-button></div>
+      <div>
+        <a-button>{{ $t('pages.form.basicform.headers.btn1') }}</a-button>
+      </div>
     </template>
     <div>
       <strong>Step Form</strong>
@@ -26,7 +32,7 @@
 <script>
 export default {
   name: 'StepForm',
-  data () {
+  data() {
     return {
       console: window.console,
       tabList: [
@@ -35,38 +41,38 @@ export default {
         { tab: 'pages.form.basicform.tabs.tab3', key: 'tab3' }
       ],
       tabActiveKey: 'tab1'
-    }
+    };
   },
   computed: {
-    customBreadcrumb () {
+    customBreadcrumb() {
       return {
         props: {
           routes: this.$route.matched.concat().map(route => {
             return {
               path: route.path,
               breadcrumbName: this.$t(route.meta.title)
-            }
+            };
           }),
           itemRender: ({ route, params, routes, paths, h }) => {
-            return routes.indexOf(route) === routes.length - 1 && (
-              <span>{route.breadcrumbName}</span>
-            ) || (
-              <router-link to={{ path: route.path || '/' }}>{route.breadcrumbName}</router-link>
-            )
+            return (
+              (routes.indexOf(route) === routes.length - 1 && (
+                <span>{route.breadcrumbName}</span>
+              )) || (
+                <router-link to={{ path: route.path || '/' }}>{route.breadcrumbName}</router-link>
+              )
+            );
           }
         }
-      }
+      };
     }
   },
   methods: {
-    handleTabChange (key) {
-      this.tabActiveKey = key
-      console.log('PageHeader::tabChange', key)
+    handleTabChange(key) {
+      this.tabActiveKey = key;
+      console.log('PageHeader::tabChange', key);
     }
   }
-}
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
