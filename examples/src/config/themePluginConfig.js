@@ -16,8 +16,7 @@ export default {
       key: 'star-blue',
       circular: 'images/theme/star-blue/circular.png',
       fileName: 'star-blue.css',
-      dark: true,
-      mode: () => import('@/themes/dark/index.less'),
+      mode: () => import('@/themes/light/index.less'),
       theme: () => import('@/themes/star-blue/index.less')
     },
     {
@@ -33,7 +32,7 @@ export default {
       key: 'sunny-orange',
       circular: 'images/theme/sunny-orange/circular.png',
       fileName: 'sunny-orange.css',
-      mode: () => import('@/themes/dark/index.less'),
+      mode: () => import('@/themes/light/index.less'),
       theme: () => import('@/themes/sunny-orange/index.less')
     },
     {
@@ -49,8 +48,7 @@ export default {
       key: 'knight-black',
       circular: 'images/theme/knight-black/circular.png',
       fileName: 'knight-black.css',
-      dark: true,
-      mode: () => import('@/themes/dark/index.less'),
+      mode: () => import('@/themes/light/index.less'),
       theme: () => import('@/themes/knight-black/index.less')
     },
     {

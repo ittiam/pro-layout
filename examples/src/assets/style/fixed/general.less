@@ -926,29 +926,4 @@
       color: @theme;
     }
   }
-  /* chrome & safari 浏览器 重置滚动条样式 */
-  ::-webkit-scrollbar {
-    /* 滚动条整体样式 */
-    width: 10px; /* 高宽分别对应横竖滚动条的尺寸 */
-    height: 10px;
-    background: @mbg-15-cls;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    /* 滚动条里面小方块 */
-    background: @mbg-16-cls;
-    border: 2px solid @mbg-15-cls;
-    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
-  }
-
-  ::-webkit-scrollbar-corner {
-    background-color: @mbg-15-cls;
-  }
-  /* IE 浏览器 重置滚动条样式 */
-  body {
-    scrollbar-face-color: @mbg-16-cls; /* 滚动条颜色 */
-    scrollbar-shadow-color: @mbg-15-cls; /* 滚动条的边框 */
-    scrollbar-track-color: @mbg-15-cls; /* 浏览器滚动条背景色 */
-    scrollbar-arrow-color: @mbg-16-cls; /* 上下箭头颜色 */
-  }
 }
