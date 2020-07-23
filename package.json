@@ -1,5 +1,5 @@
 {
-  "name": "@ant-design-vue/pro-layout",
+  "name": "pro-layout",
   "version": "0.3.3",
   "description": "ant-design-vue-pro layout, easy to use pro scaffolding.",
   "scripts": {
@@ -8,6 +8,9 @@
     "compile": "vc-tools run compile --babel-runtime",
     "start": "vc-tools run server",
     "test": "cross-env NODE_ENV=test jest --config .jest.js"
+  },
+  "publishConfig":{
+    "registry":"https://npm.cloud4water.com/repository/wpg-npm-3rd/"
   },
   "main": "./lib/index.js",
   "module": "./es/index.js",

@@ -37,7 +37,11 @@ export const defaultRenderLogo = (h, logo) => {
 };
 
 export const defaultRenderLogoAntTitle = (h, props) => {
-  const { logo = 'https://gw.alipayobjects.com/zos/antfincdn/PmY%24TNNDBI/logo.svg', title, menuHeaderRender } = props;
+  const {
+    logo = 'https://gw.alipayobjects.com/zos/antfincdn/PmY%24TNNDBI/logo.svg',
+    title,
+    menuHeaderRender
+  } = props;
 
   if (menuHeaderRender === false) {
     return null;
@@ -72,7 +76,6 @@ const SiderMenu = {
       fixSiderbar,
       headerSticky,
       mode,
-      theme,
       menus,
       logo,
       title,
@@ -83,7 +86,7 @@ const SiderMenu = {
     } = this;
     const siderCls = ['ant-pro-sider-menu-sider'];
     if (fixSiderbar) siderCls.push('fix-sider-bar');
-    if (theme === 'light') siderCls.push('light');
+    // if (theme === 'light') siderCls.push('light');
     //
     // const handleCollapse = (collapsed, type) => {
     //   this.$emit('collapse', collapsed)
@@ -103,7 +106,6 @@ const SiderMenu = {
         trigger={null}
         width={siderWidth}
         collapsedWidth={collapsedWidth}
-        theme={theme}
         collapsible={collapsible}
         collapsed={collapsed}
         onCollapse={handleCollapse}
@@ -117,7 +119,7 @@ const SiderMenu = {
             </div>
           )
         )}
-        <BaseMenu collapsed={collapsed} menus={menus} mode={mode} theme={theme} i18nRender={i18nRender} />
+        <BaseMenu collapsed={collapsed} menus={menus} mode={mode} i18nRender={i18nRender} />
       </Sider>
     );
   }

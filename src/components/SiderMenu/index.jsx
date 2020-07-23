@@ -7,11 +7,11 @@ const SiderMenuWrapper = {
   name: 'SiderMenuWrapper',
   model: {
     prop: 'collapsed',
-    event: 'collapse',
+    event: 'collapse'
   },
   props: SiderMenuProps,
   render(h) {
-    const { layout, isMobile, collapsed, headerSticky } = this;
+    const { layout, isMobile, collapsed } = this;
     const isTopMenu = layout === 'topmenu';
     const handleCollapse = e => {
       this.$emit('collapse', true);
@@ -26,7 +26,7 @@ const SiderMenuWrapper = {
         onClose={handleCollapse}
         bodyStyle={{
           padding: 0,
-          height: '100vh',
+          height: '100vh'
         }}
       >
         <SiderMenu {...{ props: { ...this.$props, collapsed: isMobile ? false : collapsed } }} />
@@ -34,7 +34,7 @@ const SiderMenuWrapper = {
     ) : (
       !isTopMenu && <SiderMenu class="ant-pro-sider-menu" {...{ props: this.$props }} />
     );
-  },
+  }
 };
 
 SiderMenuWrapper.install = function(Vue) {

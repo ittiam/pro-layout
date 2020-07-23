@@ -8,38 +8,6 @@
     }
   }
 
-  /* ------- 顶部主题样式 ------ */
-  .ant-layout-header {
-    color: @ft-8-cls;
-    background: @bg-6-cls;
-
-    .global-header-menu {
-      .ant-menu-horizontal {
-        color: @ft-8-cls !important;
-        background-color: transparent !important;
-
-        > .ant-menu-submenu-selected {
-          color: @ft-1-av-cls;
-          border-bottom: 2px solid @ft-1-av-cls;
-        }
-
-        .ant-menu-submenu {
-          top: 0;
-
-          .ant-menu-submenu-title {
-            height: calc(@layout_header - 2px);
-            line-height: calc(@layout_header - 2px);
-          }
-
-          &:hover {
-            color: @ft-1-av-cls;
-            border-bottom: 2px solid @ft-1-av-cls;
-          }
-        }
-      }
-    }
-  }
-
   /* ------- 底部主题样式 ------ */
   .ant-layout-footer {
     color: @ft-9-cls;
@@ -47,12 +15,12 @@
   }
 
   /* ------ 定义收缩菜单栏按钮样式 ------ */
-
-  .sider.wbgc-menu {
-    background: @bg-5-cls !important;
+  .ant-pro-sider-menu {
+    background: @bg-5-cls;
   }
+
   /* Menu 正常状态 */
-  ul.ant-menu {
+  .ant-menu {
     color: @ft-6-cls;
     background-color: @bg-5-cls;
     border: none;
@@ -60,6 +28,10 @@
     /* 一级菜单 (不可展开) */
     .ant-menu-item {
       color: @ft-6-cls;
+
+      a {
+        color: @ft-6-cls;
+      }
 
       .anticon {
         color: @mic-1-cls;
