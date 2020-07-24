@@ -14,6 +14,7 @@ export default {
   autoHideHeader: false,
   fixSiderbar: true,
   headerSticky: true,
+  fixMultiTab: true,
   colorWeak: false,
   menu: {
     locale: true

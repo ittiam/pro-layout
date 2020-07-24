@@ -1,4 +1,4 @@
-import { PageHeaderWrapper } from './components'
+import { PageHeaderWrapper } from './components';
 
 const PageView = {
   name: 'PageView',
@@ -7,8 +7,8 @@ const PageView = {
       <PageHeaderWrapper>
         <router-view />
       </PageHeaderWrapper>
-    )
+    );
   }
-}
+};
 
-export default PageView
+export default PageView;

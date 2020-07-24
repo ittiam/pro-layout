@@ -4,7 +4,7 @@ import PropTypes from 'ant-design-vue/es/_util/vue-types';
 
 import { Layout } from 'ant-design-vue';
 import { ContainerQuery } from 'vue-container-query';
-import { SiderMenuWrapper, GlobalFooter } from './components';
+import { SiderMenuWrapper, GlobalFooter, MultiTab } from './components';
 import { getComponentFromProp, isFun } from './utils/util';
 import { SiderMenuProps } from './components/SiderMenu';
 import HeaderView, { HeaderViewProps } from './Header';
@@ -61,6 +61,26 @@ const headerRender = (h, props) => {
   return <HeaderView {...{ props }} />;
 };
 
+const multiTabRender = (h, props) => {
+  if (props.multiTabRender === false) {
+    return null;
+  }
+
+  let {
+    fixMultiTab, hasLeftPadding, collapsed, siderWidth
+  } = props;
+  let left = getPaddingLeft(!!hasLeftPadding, collapsed, siderWidth);
+  let style = {};
+  if (fixMultiTab) {
+    style = {
+      width: `calc(100% - ${left}px)`,
+      left: `${left}px`
+    };
+  }
+
+  return <MultiTab {...{ props }} style={style} />;
+};
+
 const defaultI18nRender = key => key;
 
 const BasicLayout = {
@@ -80,6 +100,7 @@ const BasicLayout = {
       contentWidth,
       siderWidth,
       fixSiderbar,
+      fixMultiTab,
       i18nRender = defaultI18nRender
     } = props;
 
@@ -136,8 +157,19 @@ const BasicLayout = {
                 ...cdProps,
                 mode: 'horizontal'
               })}
-              <WrapContent class="ant-pro-basicLayout-content" contentWidth={contentWidth}>
-                {children}
+              <WrapContent
+                class={{
+                  'ant-pro-basicLayout-content': true,
+                  'ant-pro-basicLayout-content-tab': true,
+                  'ant-pro-basicLayout-content-tab-fix': fixMultiTab
+                }}
+                contentWidth={contentWidth}
+              >
+                {multiTabRender(h, {
+                  ...cdProps,
+                  hasLeftPadding
+                })}
+                <div class="ant-pro-basicLayout-content-main">{children}</div>
               </WrapContent>
               <Layout.Footer>
                 {(footerRender && ((isFun(footerRender) && footerRender(h)) || footerRender)) || (

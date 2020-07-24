@@ -3,8 +3,7 @@ import './BasicLayout.less';
 import { Avatar, Dropdown, Menu, Icon, Modal } from 'ant-design-vue';
 import { asyncRouterMap } from '../config/router.config.js';
 import { i18nRender } from '../locales';
-// import ProLayout, { GlobalFooter, SettingDrawer } from '@ant-design-vue/pro-layout';
-import ProLayout, { GlobalFooter, SettingDrawer } from '../../../src';
+import ProLayout, { GlobalFooter, SettingDrawer } from 'pro-layout';
 import SelectLang from '../components/SelectLang';
 import SwitchThem from '../components/SwitchTheme';
 import LogoSvg from '../assets/logo.svg?inline';
@@ -118,6 +117,7 @@ export default {
         contentWidth: false,
         fixedHeader: true,
         fixSiderbar: true,
+        fixMultiTab: true,
         headerSticky: true,
         // 主题 'dark' | 'light'
         theme: 'dark',

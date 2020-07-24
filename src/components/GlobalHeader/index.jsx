@@ -11,6 +11,7 @@ export const GlobalHeaderProps = {
   handleCollapse: PropTypes.func,
   isMobile: PropTypes.bool.def(false),
   fixedHeader: PropTypes.bool.def(false),
+  fixMultiTab: PropTypes.bool.def(false),
   headerSticky: PropTypes.bool.def(false),
   logo: PropTypes.any,
   title: PropTypes.any,
@@ -27,7 +28,9 @@ const GlobalHeader = {
   name: 'GlobalHeader',
   props: GlobalHeaderProps,
   render(h) {
-    const { isMobile, headerSticky, logo, title, rightContentRender } = this.$props;
+    const {
+      isMobile, headerSticky, logo, title, rightContentRender
+    } = this.$props;
     const toggle = () => {
       const { collapsed, handleCollapse } = this.$props;
       if (handleCollapse) handleCollapse(!collapsed);

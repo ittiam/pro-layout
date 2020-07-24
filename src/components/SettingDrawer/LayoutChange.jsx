@@ -1,5 +1,7 @@
 import PropTypes from 'ant-design-vue/es/_util/vue-types';
-import { List, Tooltip, Select, Switch } from 'ant-design-vue';
+import {
+  List, Tooltip, Select, Switch
+} from 'ant-design-vue';
 
 export const renderLayoutSettingItem = (h, item) => {
   const action = { ...item.action };
@@ -16,10 +18,11 @@ export const LayoutSettingProps = {
   contentWidth: PropTypes.bool,
   fixedHeader: PropTypes.bool,
   fixSiderbar: PropTypes.bool,
+  fixMultiTab: PropTypes.bool,
   headerSticky: PropTypes.bool,
   layout: PropTypes.oneOf(['sidemenu', 'topmenu']),
 
-  i18nRender: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]).def(false),
+  i18nRender: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]).def(false)
 };
 
 export default {
@@ -27,7 +30,9 @@ export default {
   inject: ['locale'],
   render(h) {
     const i18n = this.$props.i18nRender || this.locale;
-    const { contentWidth, fixedHeader, headerSticky, layout, fixSiderbar } = this;
+    const {
+      contentWidth, fixedHeader, headerSticky, layout, fixSiderbar, fixMultiTab
+    } = this;
 
     const handleChange = (type, value) => {
       this.$emit('change', { type, value });
@@ -47,17 +52,25 @@ export default {
                 style={{ width: '80px' }}
               >
                 {layout === 'sidemenu' ? null : (
-                  <Select.Option value="Fixed">{i18n('app.setting.content-width.fixed')}</Select.Option>
+                  <Select.Option value="Fixed">
+                    {i18n('app.setting.content-width.fixed')}
+                  </Select.Option>
                 )}
-                <Select.Option value="Fluid">{i18n('app.setting.content-width.fluid')}</Select.Option>
+                <Select.Option value="Fluid">
+                  {i18n('app.setting.content-width.fluid')}
+                </Select.Option>
               </Select>
-            ),
+            )
           },
           {
             title: i18n('app.setting.fixedheader'),
             action: (
-              <Switch size="small" checked={!!fixedHeader} onChange={checked => handleChange('fixedHeader', checked)} />
-            ),
+              <Switch
+                size="small"
+                checked={!!fixedHeader}
+                onChange={checked => handleChange('fixedHeader', checked)}
+              />
+            )
           },
           {
             title: i18n('app.setting.headersticky'),
@@ -67,7 +80,7 @@ export default {
                 checked={!!headerSticky}
                 onChange={checked => handleChange('headerSticky', checked)}
               />
-            ),
+            )
           },
           {
             title: i18n('app.setting.fixedsidebar'),
@@ -80,11 +93,22 @@ export default {
                 checked={!!fixSiderbar}
                 onChange={checked => handleChange('fixSiderbar', checked)}
               />
-            ),
+            )
           },
+          {
+            title: i18n('app.setting.fixmultitab'),
+            disabled: !fixedHeader,
+            action: (
+              <Switch
+                size="small"
+                checked={!!fixMultiTab}
+                onChange={checked => handleChange('fixMultiTab', checked)}
+              />
+            )
+          }
         ]}
         renderItem={(item, index) => renderLayoutSettingItem(h, item)}
       />
     );
-  },
+  }
 };

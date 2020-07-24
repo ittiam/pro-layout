@@ -45,9 +45,7 @@ const defaultConfig = {
   },
 
   chainWebpack: config => {
-    config.resolve.alias
-      .set('@config', resolve('./config'))
-      .set('@ant-design-vue/pro-layout', resolve('../src'));
+    config.resolve.alias.set('@config', resolve('./config')).set('pro-layout', resolve('../src'));
 
     // if `production` env require on cdn assets
     isProd &&

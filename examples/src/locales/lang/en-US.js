@@ -58,6 +58,7 @@ export default {
   'app.setting.fixedheader': 'Fixed Header',
   'app.setting.fixedsidebar': 'Fixed Sidebar',
   'app.setting.headersticky': 'Sticky Header',
+  'app.setting.fixmultitab': 'Fixed MultiTab',
   'app.setting.sidemenu': 'Side Menu Layout',
   'app.setting.topmenu': 'Top Menu Layout',
   'app.setting.content-width.fixed': 'Fixed',

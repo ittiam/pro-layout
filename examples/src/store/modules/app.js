@@ -6,6 +6,7 @@ import {
   TOGGLE_LAYOUT,
   TOGGLE_FIXED_HEADER,
   TOGGLE_FIXED_SIDEBAR,
+  TOGGLE_FIXED_MULTITAB,
   TOGGLE_HEADER_STICKY,
   TOGGLE_CONTENT_WIDTH,
   TOGGLE_HIDE_HEADER,
@@ -25,6 +26,7 @@ const App = {
     contentWidth: '',
     fixedHeader: false,
     fixedSidebar: false,
+    fixMultiTab: false,
     headerSticky: false,
     autoHideHeader: false,
     color: '',
@@ -54,6 +56,10 @@ const App = {
     [TOGGLE_FIXED_SIDEBAR]: (state, mode) => {
       state.fixedSidebar = mode;
       Vue.ls.set(TOGGLE_FIXED_SIDEBAR, mode);
+    },
+    [TOGGLE_FIXED_MULTITAB]: (state, mode) => {
+      state.fixMultiTab = mode;
+      Vue.ls.set(TOGGLE_FIXED_MULTITAB, mode);
     },
     [TOGGLE_HEADER_STICKY]: (state, mode) => {
       state.headerSticky = mode;

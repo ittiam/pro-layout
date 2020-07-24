@@ -1,5 +1,5 @@
-import request, { extend } from 'umi-request'
-import { notification } from 'ant-design-vue'
+import request, { extend } from 'umi-request';
+import { notification } from 'ant-design-vue';
 
 const codeMessage = {
   200: '服务器成功返回请求的数据。',
@@ -17,26 +17,26 @@ const codeMessage = {
   502: '网关错误。',
   503: '服务不可用，服务器暂时过载或维护。',
   504: '网关超时。'
-}
+};
 
 const errorHandler = (error) => {
-  const { response = {} } = error
-  const errortext = codeMessage[response.status] || response.statusText
-  const { status, url } = response
+  const { response = {} } = error;
+  const errortext = codeMessage[response.status] || response.statusText;
+  const { status, url } = response;
 
   notification.error({
     message: `请求错误 ${status}: ${url}`,
     description: errortext
-  })
-}
+  });
+};
 
-export const BASE_URL = process.env.VUE_APP_API_URL || '/api/v1'
+export const BASE_URL = process.env.VUE_APP_API_URL || '/api/v1';
 
 const customRequest = extend({
   prefix: BASE_URL,
   timeout: 1000,
   errorHandler
-})
+});
 
 // request 拦截器
 customRequest.interceptors.request.use((url, options) => {
@@ -45,18 +45,18 @@ customRequest.interceptors.request.use((url, options) => {
       url: `${url}&interceptors=yes`,
       options: { ...options, interceptors: true }
     }
-  )
-})
+  );
+});
 
 // response 拦截器
 customRequest.interceptors.response.use((response, options) => {
-  response.headers.append('interceptors', 'yes yo')
-  return response
-})
+  response.headers.append('interceptors', 'yes yo');
+  return response;
+});
 
 export {
   request,
   extend
-}
+};
 
-export default customRequest
+export default customRequest;

@@ -9,7 +9,7 @@ import i18n from './locales';
 
 import './router/router-guards';
 import './core/library';
-import { PageHeaderWrapper } from '@ant-design-vue/pro-layout';
+import { PageHeaderWrapper } from 'pro-layout';
 import initializer from './core/bootstrap';
 import './global.less';
 import themePluginConfig from '@/config/themePluginConfig';

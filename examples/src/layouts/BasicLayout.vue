@@ -18,7 +18,7 @@
       <div
         :class="[
           'ant-pro-global-header-index-right',
-          layout === 'topmenu' && `ant-pro-global-header-index-${theme}`,
+          layout === 'topmenu' && `ant-pro-global-header-index-${theme}`
         ]"
       >
         rightContentRender
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import ProLayout from '@ant-design-vue/pro-layout';
+import ProLayout from 'pro-layout';
 import { asyncRouterMap } from '../config/router.config';
 import { i18nRender } from '../locales';
 import LogoSvg from '../assets/logo.svg?inline';
@@ -40,7 +40,7 @@ import LogoSvg from '../assets/logo.svg?inline';
 export default {
   name: 'BasicLayout',
   components: {
-    ProLayout,
+    ProLayout
   },
   data() {
     return {
@@ -59,7 +59,7 @@ export default {
       // 主题 'dark' | 'light'
       theme: 'dark',
       // 是否手机模式
-      isMobile: false,
+      isMobile: false
     };
   },
   created() {
@@ -86,8 +86,8 @@ export default {
     },
     footerRender() {
       return <div>custom footer</div>;
-    },
-  },
+    }
+  }
 };
 </script>
 

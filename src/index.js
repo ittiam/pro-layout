@@ -15,7 +15,7 @@ export {
   SettingDrawer,
   DocumentTitle,
   BasicLayoutProps,
-  updateTheme,
+  updateTheme
 };
 
 export default BasicLayout;

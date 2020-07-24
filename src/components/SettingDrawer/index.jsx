@@ -2,7 +2,9 @@ import './index.less';
 
 import omit from 'omit.js';
 import PropTypes from 'ant-design-vue/es/_util/vue-types';
-import { Divider, Drawer, List, Switch, Button, Icon, Alert, message } from 'ant-design-vue';
+import {
+  Divider, Drawer, List, Switch, Button, Icon, Alert, message
+} from 'ant-design-vue';
 import BlockCheckbox from './BlockCheckbox';
 import ThemeColor from './ThemeColor';
 import LayoutSetting, { renderLayoutSettingItem } from './LayoutChange';
@@ -159,6 +161,7 @@ const SettingDrawer = {
       layout = 'sidemenu',
       fixedHeader = false,
       fixSiderbar = false,
+      fixMultiTab = false,
       headerSticky = false,
       contentWidth = false,
       hideHintAlert,
@@ -248,6 +251,7 @@ const SettingDrawer = {
             fixedHeader={fixedHeader}
             headerSticky={headerSticky}
             fixSiderbar={isTopMenu ? false : fixSiderbar}
+            fixMultiTab={fixMultiTab && fixedHeader}
             layout={layout}
             onChange={({ type, value }) => {
               changeSetting(type, value);

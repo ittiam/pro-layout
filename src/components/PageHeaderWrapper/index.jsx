@@ -168,7 +168,9 @@ const PageHeaderWrapper = {
         };
       });
 
-      const defaultItemRender = ({ route, params, routes, paths, h }) => {
+      const defaultItemRender = ({
+        route, params, routes, paths, h
+      }) => {
         return (
           (routes.indexOf(route) === routes.length - 1 && <span>{route.breadcrumbName}</span>) || (
             <router-link to={{ path: route.path || '/', params }}>

@@ -2,8 +2,8 @@ const BlockLayout = {
   name: 'BlockLayout',
   functional: true,
   render (createElement, content) {
-    return content.children
+    return content.children;
   }
-}
+};
 
-export default BlockLayout
+export default BlockLayout;

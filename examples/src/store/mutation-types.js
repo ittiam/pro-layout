@@ -6,6 +6,7 @@ export const TOGGLE_NAV_THEME = 'nav_theme';
 export const TOGGLE_LAYOUT = 'layout';
 export const TOGGLE_FIXED_HEADER = 'fixed_header';
 export const TOGGLE_FIXED_SIDEBAR = 'fixed_sidebar';
+export const TOGGLE_FIXED_MULTITAB = 'fixed_multitab';
 export const TOGGLE_HEADER_STICKY = 'header_sticky';
 export const TOGGLE_CONTENT_WIDTH = 'content_width';
 export const TOGGLE_HIDE_HEADER = 'auto_hide_header';

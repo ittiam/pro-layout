@@ -8,6 +8,7 @@ import {
   TOGGLE_FIXED_HEADER,
   TOGGLE_HEADER_STICKY,
   TOGGLE_FIXED_SIDEBAR,
+  TOGGLE_FIXED_MULTITAB,
   TOGGLE_HIDE_HEADER,
   TOGGLE_LAYOUT,
   TOGGLE_NAV_THEME,
@@ -24,6 +25,10 @@ export default function initializer() {
   store.commit(
     TOGGLE_HEADER_STICKY,
     Vue.ls.get(TOGGLE_HEADER_STICKY, defaultSettings.headerSticky)
+  );
+  store.commit(
+    TOGGLE_FIXED_MULTITAB,
+    Vue.ls.get(TOGGLE_FIXED_MULTITAB, defaultSettings.fixMultiTab)
   );
   store.commit(TOGGLE_FIXED_SIDEBAR, Vue.ls.get(TOGGLE_FIXED_SIDEBAR, defaultSettings.fixSiderbar));
   store.commit(

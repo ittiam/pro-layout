@@ -1,14 +1,14 @@
-import triggerEvent from 'ant-design-vue/es/_util/triggerEvent'
-import { inBrowser } from 'ant-design-vue/es/_util/env'
+import triggerEvent from 'ant-design-vue/es/_util/triggerEvent';
+import { inBrowser } from 'ant-design-vue/es/_util/env';
 
 const getComponentFromProp = (instance, prop) => {
-  const slots = instance.slots && instance.slots()
-  return slots[prop] || instance.props[prop]
-}
+  const slots = instance.slots && instance.slots();
+  return slots[prop] || instance.props[prop];
+};
 
 const isFun = (func) => {
-  return typeof func === 'function'
-}
+  return typeof func === 'function';
+};
 
 const themeConfig = {
   daybreak: 'daybreak',
@@ -19,21 +19,21 @@ const themeConfig = {
   '#13C2C2': 'cyan',
   '#52C41A': 'green',
   '#2F54EB': 'geekblue',
-  '#722ED1': 'purple',
-}
+  '#722ED1': 'purple'
+};
 
 const invertKeyValues = (obj) =>
   Object.keys(obj).reduce((acc, key) => {
-    acc[obj[key]] = key
-    return acc
-  }, {})
+    acc[obj[key]] = key;
+    return acc;
+  }, {});
 
 /**
  * #1890ff -> daybreak
  * @param val
  */
 export function genThemeToString (val) {
-  return val && themeConfig[val] ? themeConfig[val] : val
+  return val && themeConfig[val] ? themeConfig[val] : val;
 }
 
 /**
@@ -41,8 +41,8 @@ export function genThemeToString (val) {
  * @param val
  */
 export function genStringToTheme(val) {
-  const stringConfig = invertKeyValues(themeConfig)
-  return val && stringConfig[val] ? stringConfig[val] : val
+  const stringConfig = invertKeyValues(themeConfig);
+  return val && stringConfig[val] ? stringConfig[val] : val;
 }
 
 
@@ -51,4 +51,4 @@ export {
   inBrowser,
   getComponentFromProp,
   isFun
-}
+};

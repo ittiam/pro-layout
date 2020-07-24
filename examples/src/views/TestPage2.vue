@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import ProLayout, { PageHeaderWrapper } from '@ant-design-vue/pro-layout';
+import ProLayout, { PageHeaderWrapper } from 'pro-layout';
 
 export default {
   components: {
