@@ -1,6 +1,6 @@
 import './index.less';
 
-import PropTypes from './node_modules/ant-design-vue/es/_util/vue-types';
+import PropTypes from 'ant-design-vue/es/_util/vue-types';
 
 const IFrameContent = {
   name: 'IFrameContent',
