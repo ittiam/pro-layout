@@ -41,7 +41,8 @@
         // 一级菜单 (不可展开) hover
         color: @ft-1-hv-cls;
 
-        .anticon {
+        .anticon,
+        a {
           color: @ft-1-hv-cls;
         }
       }
@@ -119,8 +120,13 @@
           // 二级菜单(不可展开)
           &:hover {
             // 二级菜单 hover
-            color: @ft-2-hv-cls;
+            color: @mft-1-cls;
             background-color: @bg-12-hv-cls;
+
+            a,
+            .anticon {
+              color: @mft-1-cls;
+            }
           }
 
           &.ant-menu-item-selected {

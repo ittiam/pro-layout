@@ -12,4 +12,31 @@
       background: @mbg-1-cls;
     }
   }
+
+  .ant-pro-multi-tab {
+    background-color: @mbg-8-cls;
+
+    .ant-tabs {
+      .ant-tabs-nav {
+        .ant-tabs-tab {
+          color: @mft-3-cls;
+          background: @mbg-5-av-cls;
+
+          .ant-tabs-close-x {
+            color: @mic-1-cls;
+          }
+
+          &:hover {
+            color: @mft-2-cls;
+            background: @mbg-14-hv-cls;
+          }
+
+          &.ant-tabs-tab-active {
+            color: @theme;
+            background: @mbg-5-av-cls;
+          }
+        }
+      }
+    }
+  }
 }
