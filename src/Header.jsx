@@ -20,6 +20,7 @@ export const HeaderViewProps = {
   autoHideHeader: PropTypes.bool,
   menuRender: PropTypes.any,
   headerRender: PropTypes.any,
+  multiTabRender: PropTypes.any,
   rightContentRender: PropTypes.any,
   visible: PropTypes.bool.def(true)
 };
@@ -29,9 +30,7 @@ const renderContent = (h, props) => {
   const maxWidth = 1200 - 280 - 120;
   const contentWidth = props.contentWidth;
   const baseCls = 'ant-pro-top-nav-header';
-  const {
-    logo, title, theme, isMobile, headerRender, rightContentRender
-  } = props;
+  const { logo, title, theme, isMobile, headerRender, rightContentRender } = props;
   const rightContentProps = { theme, isTop, isMobile };
   let defaultDom = <GlobalHeader {...{ props: props }} />;
   if (isTop && !isMobile) {

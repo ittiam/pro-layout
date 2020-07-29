@@ -61,14 +61,12 @@ const headerRender = (h, props) => {
   return <HeaderView {...{ props }} />;
 };
 
-const multiTabRender = (h, props) => {
+const defaultRenderMultiTab = (h, props) => {
   if (props.multiTabRender === false) {
     return null;
   }
 
-  let {
-    fixMultiTab, hasLeftPadding, collapsed, siderWidth
-  } = props;
+  let { fixMultiTab, hasLeftPadding, collapsed, siderWidth, multiTabRender } = props;
   let left = getPaddingLeft(!!hasLeftPadding, collapsed, siderWidth);
   let style = {};
   if (fixMultiTab) {
@@ -76,6 +74,10 @@ const multiTabRender = (h, props) => {
       width: `calc(100% - ${left}px)`,
       left: `${left}px`
     };
+  }
+
+  if (multiTabRender) {
+    return (isFun(multiTabRender) && multiTabRender(h, left)) || multiTabRender;
   }
 
   return <MultiTab {...{ props }} style={style} />;
@@ -109,6 +111,7 @@ const BasicLayout = {
     const collapsedButtonRender = getComponentFromProp(content, 'collapsedButtonRender');
     const menuHeaderRender = getComponentFromProp(content, 'menuHeaderRender');
     const breadcrumbRender = getComponentFromProp(content, 'breadcrumbRender');
+    const multiTabRender = getComponentFromProp(content, 'multiTabRender');
 
     const isTopMenu = layout === 'topmenu';
     const hasSiderMenu = !isTopMenu;
@@ -121,6 +124,7 @@ const BasicLayout = {
       footerRender,
       menuHeaderRender,
       rightContentRender,
+      multiTabRender,
       collapsedButtonRender,
       breadcrumbRender
     };
@@ -165,7 +169,7 @@ const BasicLayout = {
                 }}
                 contentWidth={contentWidth}
               >
-                {multiTabRender(h, {
+                {defaultRenderMultiTab(h, {
                   ...cdProps,
                   hasLeftPadding
                 })}
