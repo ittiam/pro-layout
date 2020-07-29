@@ -1,5 +1,5 @@
-<script>
 import events from './events';
+
 export default {
   name: 'MultiTab',
   props: {
@@ -148,6 +148,7 @@ export default {
       fixMultiTab,
       $data: { pages }
     } = this;
+
     const panes = pages.map(page => {
       return (
         <a-tab-pane
@@ -178,4 +179,3 @@ export default {
     );
   }
 };
-</script>
