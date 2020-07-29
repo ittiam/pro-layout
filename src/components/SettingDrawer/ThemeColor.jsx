@@ -17,8 +17,7 @@ const Tag = {
   render(h, content) {
     const {
       props: { color, check },
-      data,
-      ...rest
+      data
     } = content;
     return (
       <div {...data} style={{ backgroundColor: color }}>

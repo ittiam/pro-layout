@@ -90,6 +90,7 @@ const renderPageHeader = (h, content, extraContent) => {
   );
 };
 
+// eslint-disable-next-line max-params
 const defaultPageHeaderRender = (h, props, pageMeta, i18nRender) => {
   const {
     title,

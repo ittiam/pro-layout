@@ -34,7 +34,7 @@ MultiTab.install = function(Vue) {
   }
   api.instance = events;
   Vue.prototype.$multiTab = api;
-  Vue.component('multi-tab', MultiTab);
+  Vue.component('MultiTab', MultiTab);
 };
 
 export default MultiTab;

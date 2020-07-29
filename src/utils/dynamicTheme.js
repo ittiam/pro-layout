@@ -3,7 +3,7 @@ import generate from '@ant-design/colors/lib/generate';
 import { message } from 'ant-design-vue';
 
 export const themeColor = {
-  getAntdSerials (color) {
+  getAntdSerials(color) {
     // 淡化（即less的tint）
     const lightens = new Array(9).fill().map((t, i) => {
       return client.varyColor.lighten(color, i / 10);
@@ -13,10 +13,11 @@ export const themeColor = {
     const rgb = client.varyColor.toNum3(color.replace('#', '')).join(',');
     return lightens.concat(colorPalettes).concat(rgb);
   },
-  changeColor (newColor) {
+  changeColor(newColor) {
     const options = {
-      newColors: this.getAntdSerials(newColor), // new colors array, one-to-one corresponde with `matchColors`
-      changeUrl (cssUrl) {
+      // new colors array, one-to-one corresponde with `matchColors`
+      newColors: this.getAntdSerials(newColor),
+      changeUrl(cssUrl) {
         return `/${cssUrl}`; // while router is not `hash` mode, it needs absolute path
       }
     };
