@@ -13,6 +13,8 @@
     width: @menu-collapsed-width;
 
     .ant-menu-item {
+      margin-top: 0;
+      margin-bottom: 0;
       // 收缩状态 一级菜单(不可展开)
       padding: 0 0 0 15px !important;
 
@@ -717,11 +719,19 @@
 
       .ant-tooltip-arrow {
         border-top-color: @mbg-9-cls;
+
+        &::before {
+          background-color: @mbg-9-cls;
+        }
       }
 
       .ant-tooltip-inner {
         color: @mft-2-cls;
         background-color: @mbg-9-cls;
+
+        a {
+          color: @mft-2-cls;
+        }
       }
     }
   }

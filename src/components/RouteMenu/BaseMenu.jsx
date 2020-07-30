@@ -11,10 +11,10 @@ export const RouteMenuProps = {
   i18nRender: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]).def(false)
 };
 
-const renderMenu = (h, item, i18nRender) => {
+const renderMenu = (h, item, isRoot, i18nRender) => {
   if (item && !item.hidden) {
     const bool = item.children && !item.hideChildrenInMenu;
-    return bool ? renderSubMenu(h, item, i18nRender) : renderMenuItem(h, item, i18nRender);
+    return bool ? renderSubMenu(h, item, i18nRender) : renderMenuItem(h, item, isRoot, i18nRender);
   }
   return null;
 };
@@ -30,17 +30,20 @@ const renderSubMenu = (h, item, i18nRender) => {
         </span>
       }
     >
-      {!item.hideChildrenInMenu && item.children.map(cd => renderMenu(h, cd, i18nRender))}
+      {!item.hideChildrenInMenu && item.children.map(cd => renderMenu(h, cd, false, i18nRender))}
     </SubMenu>
   );
 };
 
-const renderMenuItem = (h, item, i18nRender) => {
+const renderMenuItem = (h, item, isRoot, i18nRender) => {
   const meta = { ...item.meta };
   const target = meta.target || null;
   const CustomTag = (target && 'a') || 'router-link';
   const props = { to: { name: item.name } };
   const attrs = { href: item.path, target: target };
+  const classNames = {
+    'ant-menu-rootmenu': isRoot
+  };
   if (item.children && item.hideChildrenInMenu) {
     // 把有子菜单的 并且 父菜单是要隐藏子菜单的
     // 都给子菜单增加一个 hidden 属性
@@ -50,7 +53,7 @@ const renderMenuItem = (h, item, i18nRender) => {
     });
   }
   return (
-    <MenuItem key={item.path}>
+    <MenuItem key={item.path} class={classNames}>
       <CustomTag {...{ props, attrs }}>
         {renderIcon(h, meta.icon)}
         {renderTitle(h, meta.title, i18nRender)}
@@ -117,7 +120,7 @@ const RouteMenu = {
       if (item.hidden) {
         return null;
       }
-      return renderMenu(h, item, i18nRender);
+      return renderMenu(h, item, true, i18nRender);
     });
     return <Menu {...dynamicProps}>{menuItems}</Menu>;
   },

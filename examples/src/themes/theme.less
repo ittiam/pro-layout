@@ -156,6 +156,10 @@
           // 收缩状态 二级菜单 hover
           color: @mft-2-hv-cls;
           background-color: @bg-15-hv-cls;
+
+          a {
+            color: @mft-2-hv-cls;
+          }
         }
 
         &.ant-menu-item-selected {
@@ -163,6 +167,31 @@
           color: @ft-2-av-cls;
           background-color: unset;
           border: none;
+
+          a {
+            color: @ft-2-av-cls;
+          }
+        }
+      }
+    }
+  }
+
+  .ant-tooltip.ant-menu-inline-collapsed-tooltip {
+    .ant-tooltip-content {
+      .ant-tooltip-arrow {
+        border-top-color: @bg-20-cls;
+
+        &::before {
+          background-color: @bg-20-cls;
+        }
+      }
+
+      .ant-tooltip-inner {
+        color: @ft-2-av-cls;
+        background-color: @bg-20-cls;
+
+        a {
+          color: @ft-2-av-cls;
         }
       }
     }

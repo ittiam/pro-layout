@@ -4,6 +4,8 @@
 
 @nav-header-height: @layout-header-height;
 
+@sider-menu-item-height: 48px;
+
 .@{sider-menu-prefix-cls} {
   &-logo {
     position: relative;
@@ -62,10 +64,15 @@
         }
 
         .ant-menu-submenu-title {
-          height: 48px;
+          height: @sider-menu-item-height;
           margin-top: 0;
           margin-bottom: 0;
-          line-height: 48px;
+          line-height: @sider-menu-item-height;
+        }
+
+        .ant-menu-rootmenu {
+          height: @sider-menu-item-height;
+          line-height: @sider-menu-item-height;
         }
 
         .ant-menu-item,
@@ -105,11 +112,16 @@
     }
 
     & > .ant-menu-submenu > .ant-menu-submenu-title {
-      height: 48px;
+      height: @sider-menu-item-height;
       margin-top: 0;
       margin-bottom: 0;
       padding: 0 17px !important;
-      line-height: 48px;
+      line-height: @sider-menu-item-height;
+    }
+
+    .ant-menu-rootmenu {
+      height: @sider-menu-item-height;
+      line-height: @sider-menu-item-height;
     }
   }
 
