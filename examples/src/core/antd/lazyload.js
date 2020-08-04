@@ -37,6 +37,7 @@ import {
   Menu,
   Drawer,
   Tooltip,
+  Tree,
   Alert,
   Tag,
   Divider,
@@ -47,7 +48,7 @@ import {
   Skeleton,
   Popconfirm,
   message,
-  notification,
+  notification
 } from 'ant-design-vue';
 
 Vue.use(ConfigProvider);
@@ -78,6 +79,7 @@ Vue.use(Spin);
 Vue.use(Menu);
 Vue.use(Drawer);
 Vue.use(Tooltip);
+Vue.use(Tree);
 Vue.use(Alert);
 Vue.use(Tag);
 Vue.use(Divider);

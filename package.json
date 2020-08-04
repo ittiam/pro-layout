@@ -52,7 +52,7 @@
     "prettier-stylelint": "^0.4.2",
     "style-resources-loader": "^1.3.2",
     "stylelint-config-mixup": "^2.3.14",
-    "vc-tools": "^2.0.0",
+    "vc-tools": "^1.0.3",
     "vue": ">=2.5.0",
     "vue-cli-plugin-style-resources-loader": "~0.1.4",
     "vue-eslint-parser": "^7.1.0",

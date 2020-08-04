@@ -14,14 +14,35 @@
         <a-button @click="handleChangeLang('en-US')">Lang en-US</a-button>
         <a-divider />
       </div>
+      <a-row>
+        <a-col class="tree-wrap">
+          <STree
+            :treeData="treeData"
+            :addExpandedKeys="expandedKeys"
+            @updateNode="updateTreeNode"
+            @selectNode="onSelectNode"
+          ></STree>
+        </a-col>
+      </a-row>
     </div>
   </document-title>
 </template>
 
 <script>
 import { loadLanguageAsync } from '@/locales';
+import STree from '@/components/Tree';
+import treeData from '@/config/tree.config';
 
 export default {
+  components: {
+    STree
+  },
+  data() {
+    return {
+      treeData,
+      expandedKeys: []
+    };
+  },
   methods: {
     handleClick(e) {
       this.$router.push({ path: '/page2' });
@@ -36,7 +57,9 @@ export default {
     },
     handleChangeLang(lang) {
       loadLanguageAsync(lang);
-    }
+    },
+    updateTreeNode() {},
+    onSelectNode() {}
   }
 };
 </script>

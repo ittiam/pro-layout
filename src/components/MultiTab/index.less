@@ -4,10 +4,10 @@
 @multi-tab-wrapper-prefix-cls: ~'@{ant-prefix}-pro-multi-tab-wrapper';
 
 .@{multi-tab-prefix-cls} {
-  .@{multi-tab-wrapper-prefix-cls} {
-    margin: 0 12px;
-    padding: 6px 0;
-  }
+  // .@{multi-tab-wrapper-prefix-cls} {
+  //   margin: 0 12px;
+  //   padding: 6px 0;
+  // }
 
   &-fix {
     position: fixed;
@@ -25,17 +25,13 @@
         }
 
         .ant-tabs-tab {
-          height: 32px;
-          margin-right: 6px;
-          padding: 5px 16px 4px;
+          height: 28px;
+          margin-right: 0;
+          padding: 0 8px;
           font-weight: 400;
-          line-height: 1.5;
+          line-height: 26px;
           border: 0;
-          border-radius: 3px;
-        }
-
-        .ant-tabs-tab-active {
-          height: 32px;
+          border-radius: 4px 4px 0 0;
         }
       }
     }
