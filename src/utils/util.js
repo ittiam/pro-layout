@@ -1,54 +1,20 @@
-import triggerEvent from 'ant-design-vue/es/_util/triggerEvent';
-import { inBrowser } from 'ant-design-vue/es/_util/env';
-
-const getComponentFromProp = (instance, prop) => {
-  const slots = instance.slots && instance.slots();
-  return slots[prop] || instance.props[prop];
-};
-
-const isFun = (func) => {
-  return typeof func === 'function';
-};
-
-const themeConfig = {
-  daybreak: 'daybreak',
-  '#1890ff': 'daybreak',
-  '#F5222D': 'dust',
-  '#FA541C': 'volcano',
-  '#FAAD14': 'sunset',
-  '#13C2C2': 'cyan',
-  '#52C41A': 'green',
-  '#2F54EB': 'geekblue',
-  '#722ED1': 'purple'
-};
-
-const invertKeyValues = (obj) =>
-  Object.keys(obj).reduce((acc, key) => {
-    acc[obj[key]] = key;
-    return acc;
-  }, {});
-
-/**
- * #1890ff -> daybreak
- * @param val
- */
-export function genThemeToString (val) {
-  return val && themeConfig[val] ? themeConfig[val] : val;
+/* eslint-disable max-params */
+export function exportFile(data, filename, ext = 'xlsx', type = 'application/vnd.ms-excel') {
+  let blob = new Blob([data], { type });
+  if (window.navigator.msSaveBlob) {
+    try {
+      // ie浏览器自带下载文件的方法
+      window.navigator.msSaveBlob(data, filename);
+    } catch (e) {}
+  } else {
+    let elink = document.createElement('a');
+    elink.download = filename + '.' + ext;
+    elink.style.display = 'none';
+    let href = window.URL.createObjectURL(blob);
+    elink.href = href;
+    document.body.appendChild(elink);
+    elink.click();
+    document.body.removeChild(elink);
+    window.URL.revokeObjectURL(href); // 释放掉blob对象
+  }
 }
-
-/**
- * daybreak-> #1890ff
- * @param val
- */
-export function genStringToTheme(val) {
-  const stringConfig = invertKeyValues(themeConfig);
-  return val && stringConfig[val] ? stringConfig[val] : val;
-}
-
-
-export {
-  triggerEvent,
-  inBrowser,
-  getComponentFromProp,
-  isFun
-};

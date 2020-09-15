@@ -1,0 +1,312 @@
+.@{baseTheme} {
+  @bdc: @mbd-1-cls; //  边框色
+  @fc: @mft-11-cls; //  字体色
+  @fc-nochecked: @mft-4-cls; // 未选中字体色
+  @ic: @mic-2-cls; //  icon色
+  @active-fc: @mft-4-av-cls; //  激活字体色
+  @active-bgc: @mbg-6-av-cls; //  激活背景色
+  @active-sc: #6fa2f8; //  激活侧边色
+  @hover-bgc: @mbg-13-hv-cls; // 悬浮背景色
+  @root-height: 48px; // 根节点高度
+  @child-height: 40px; // 子节点高度
+  @root-fz: 14px; // 根字体大小
+  @child-fz: 12px; // 子字体大小
+  @tooltip-fc: @mft-2-cls; // 提示框字体色
+  @tooltip-bgc: @mbg-9-cls; // 提示框背景色
+
+  .el-tree {
+    position: relative;
+    color: @fc;
+    background: @mbg-7-cls !important;
+    cursor: default;
+
+    .ant-checkbox-inner {
+      width: 8px !important;
+      height: 8px !important;
+      border: 1px solid @theme !important;
+      border-radius: 4px !important;
+    }
+
+    .ant-checkbox-checked .ant-checkbox-inner::after {
+      width: 8px !important;
+      height: 8px !important;
+      background: transparent;
+      border: 0;
+      border-radius: 4px !important;
+    }
+
+    .ant-checkbox-indeterminate .ant-checkbox-inner {
+      background-color: transparent;
+
+      &::after {
+        width: 80% !important;
+        background-color: @theme;
+      }
+    }
+  }
+
+  .el-tree__empty-block {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 60px;
+    text-align: center;
+  }
+
+  .el-tree__empty-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: @mft-3-cls;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+  .el-tree__drop-indicator {
+    position: absolute;
+    right: 0;
+    left: 0;
+    height: 1px;
+    background-color: @theme;
+  }
+
+  .el-tree-node {
+    white-space: nowrap;
+    outline: 0;
+  }
+
+  .el-tree-node:focus > .el-tree-node__content {
+    background-color: @active-bgc;
+  }
+
+  .el-tree-node.is-drop-inner > .el-tree-node__content .el-tree-node__label {
+    color: @mft-1-cls;
+    background-color: @theme;
+  }
+
+  .el-tree-node__content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+    cursor: pointer;
+  }
+
+  .el-tree-node__content {
+    &-left {
+      display: flex;
+      align-items: center;
+    }
+
+    &-right {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .el-tree-node__content label.el-checkbox {
+    margin-right: 8px;
+  }
+
+  .el-tree-node__content:hover {
+    color: @mft-3-hv-cls;
+    background-color: @hover-bgc;
+  }
+
+  .el-tree.is-dragging .el-tree-node__content {
+    cursor: move;
+  }
+
+  .el-tree.is-dragging.is-drop-not-allow .el-tree-node__content {
+    cursor: not-allowed;
+  }
+
+  .el-tree-node__expand-icon {
+    font-size: 24px;
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+    cursor: pointer;
+    -webkit-transition: -webkit-transform 0.3s ease-in-out;
+    transition: -webkit-transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  }
+
+  .el-tree-node__expand-icon.expanded {
+    -webkit-transform: scaleY(-1);
+    transform: scaleY(-1);
+  }
+
+  .el-tree-node__expand-icon.is-leaf {
+    color: transparent;
+    cursor: default;
+  }
+
+  .el-tree-node__label {
+    font-size: 14px;
+  }
+
+  .el-tree-node__loading-icon {
+    margin: 0 6px;
+    color: @mic-2-cls;
+    font-size: 16px;
+  }
+
+  .el-tree-node > .el-tree-node__children {
+    overflow: hidden;
+    background-color: transparent;
+  }
+
+  .el-tree-node.is-expanded > .el-tree-node__children {
+    display: block;
+  }
+
+  .el-tree--highlight-current .el-tree-node.is-current > .el-tree-node__content {
+    color: @active-fc;
+    background-color: @active-bgc;
+  }
+  // tree样式自定义
+  .el-tree {
+    border: 1px solid @bdc;
+
+    &-node {
+      // 基本样式
+      &__content {
+        &-left {
+          padding-left: 15px;
+          overflow: hidden;
+        }
+
+        &-right {
+          padding-right: 15px;
+        }
+
+        &:hover {
+          background-color: @hover-bgc;
+        }
+      }
+
+      &__label {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      &__expand-icon {
+        color: @ic;
+      }
+
+      &__level1 > &__content {
+        height: @root-height;
+      }
+
+      &__level1 > &__content & {
+        color: @fc;
+        font-size: @root-fz;
+      }
+
+      &__level2 &__content {
+        height: @child-height;
+
+        &:hover {
+          .el-tree-node__label {
+            color: @mft-3-hv-cls !important;
+          }
+        }
+      }
+
+      &__level2 &__content & {
+        &__label {
+          color: @fc;
+          font-size: @child-fz;
+        }
+      }
+
+      &.is-leaf & {
+        &__content {
+          border-right: 4px solid transparent;
+        }
+      }
+      // 选中样式
+      &.is-leaf.is-current & {
+        &__content {
+          background-color: @active-bgc;
+          border-color: @active-sc;
+        }
+
+        &__label {
+          color: @active-fc;
+        }
+      }
+    }
+
+    &.show-checked &-node {
+      &.is-leaf {
+        .ant-checkbox-wrapper {
+          visibility: hidden;
+        }
+
+        .el-tree-node {
+          &__label {
+            color: @fc-nochecked;
+          }
+        }
+      }
+
+      &.is-leaf.is-checked {
+        .ant-checkbox-wrapper {
+          visibility: visible;
+        }
+
+        .el-tree-node {
+          &__label {
+            color: @fc;
+          }
+        }
+      }
+
+      &.is-leaf.is-current {
+        .el-tree-node {
+          &__content {
+            background-color: transparent;
+            border-color: transparent;
+          }
+        }
+      }
+
+      &.is-leaf:hover {
+        .ant-checkbox-inner {
+          background-color: @active-fc;
+          border-color: @active-fc;
+        }
+
+        .el-tree-node {
+          &__content {
+            background-color: @hover-bgc;
+          }
+
+          &__label {
+            color: @mft-3-hv-cls;
+          }
+        }
+      }
+    }
+  }
+  // tooltip样式自定义
+  .ant-tooltip {
+    pointer-events: none;
+
+    &-inner {
+      color: @tooltip-fc;
+      background-color: @tooltip-bgc;
+    }
+
+    .ant-tooltip-placement-top &-arrow {
+      border-top-color: @tooltip-bgc;
+    }
+  }
+}

@@ -1,0 +1,72 @@
+/**
+ * @DATE:  2019/6/28 16:05
+ * @Version: 0.0.1
+ * @Author: yunchangJia
+ * @Description: 重置公共组件  -- color一般来源于深浅同一变量不同颜色值（与主题有关）
+ * @Update: 更新内容 by huhaiou 2019/11/29 11:33 AM
+ * @Update: 修改换肤悬浮样式 by liuct 2019-12-13 13:55
+ * @Update: 设置顶部菜单样式 by huhaiou 2020/3/5 2:52 PM
+ */
+
+@import './cpts/menu'; //   引入菜单重置样式
+
+.@{themeType} {
+  /*------- 顶部主题样式 ------*/
+  .ant-layout-header {
+    color: @ft-8-cls;
+    background: @bg-6-cls;
+
+    .global-header-menu {
+      .ant-menu-horizontal {
+        color: @ft-8-cls !important;
+        background-color: transparent !important;
+
+        > .ant-menu-submenu-selected {
+          color: @ft-1-av-cls;
+          border-bottom: 2px solid @ft-1-av-cls;
+        }
+
+        .ant-menu-submenu {
+          top: 0;
+
+          .ant-menu-submenu-title {
+            height: calc(@layout_header - 2px);
+            line-height: calc(@layout_header - 2px);
+          }
+
+          &:hover {
+            color: @ft-1-av-cls;
+            border-bottom: 2px solid @ft-1-av-cls;
+          }
+        }
+      }
+    }
+
+    .global-header-right {
+      .ant-dropdown-link,
+      .ant-dropdown-trigger:hover,
+      .ant-dropdown-open {
+        color: @ft-8-cls !important;
+      }
+    }
+  }
+
+  /*------- 底部主题样式 ------*/
+  .ant-layout-footer {
+    color: @ft-9-cls;
+    background: @bg-19-cls;
+  }
+
+  /*------ 定义收缩菜单栏按钮样式 ------*/
+  .anticon-menu-fold,
+  .sidemenu-header,
+  .sidemenu-footer,
+  .sidemenu-fold {
+    color: @ft-8-cls !important;
+  }
+
+  .anticon-menu-unfold {
+    color: @ft-6-cls !important;
+    background: @bg-5-cls;
+  }
+}

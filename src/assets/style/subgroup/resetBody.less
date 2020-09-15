@@ -1,0 +1,129 @@
+/**
+ * @DATE:  2019/6/28 16:05
+ * @Version: 0.0.1
+ * @Author: yunchangJia
+ * @Description: 重置主体内容 -- color一般来源于深浅同一变量不同颜色值（与主题有关）
+ * @Update: 左侧菜单外部容器高度设置 by huhaiou 2020/3/5 2:51 PM
+ */
+
+.@{baseTheme} #app .ant-layout {
+  &.basic-layout {
+    &.default-color {
+      .ant-layout-header,
+      .ant-layout-footer {
+        color: @mft-1-cls;
+        background: @mbg-2-cls;
+        box-shadow: 0 4px 20px 0 rgba(109, 125, 136, 0.1);
+
+        .global-header-right {
+          .ant-dropdown-link,
+          .ant-dropdown-trigger:hover,
+          .ant-dropdown-open {
+            color: @mft-1-cls !important;
+          }
+        }
+      }
+      /*------ 定义菜单导航头部和底部样式 ------*/
+      .sidemenu-header,
+      .sidemenu-footer {
+        color: @mft-8-cls !important;
+      }
+    }
+  }
+  /*
+    * 主体布局--底部不展示
+    */
+  .content-box {
+    height: calc(100vh - @layout_header);
+
+    .ant-layout-sider-children {
+      display: flex;
+      flex-direction: column;
+
+      .ant-menu {
+        height: 100%;
+      }
+    }
+  }
+
+  .seatBox {
+    height: calc(100vh - @layout_header - @layout_slideMenu);
+    background: @mbg-1-cls;
+  }
+
+  /*------ 重置tab-nav ------*/
+  .ant-tabs.ant-tabs-card {
+    .ant-tabs-card-bar {
+      // 标签卡头部切换部分
+      .ant-tabs-nav-container {
+        .ant-tabs-nav > div {
+          background-color: @mbg-8-cls !important;
+        }
+
+        .ant-tabs-tab {
+          color: @mft-3-cls !important;
+          font-size: @fs12;
+          background: @mbg-8-cls !important;
+          border: 1px solid @mbd-2-cls !important;
+
+          &:first-child {
+            color: @mft-2-cls;
+            pointer-events: none;
+          }
+
+          .ant-tabs-close-x {
+            display: inline-block !important;
+            color: @mic-1-cls !important;
+          }
+
+          &:hover {
+            color: @mft-2-cls !important;
+            background: @mbg-14-hv-cls !important;
+          }
+
+          &.ant-tabs-tab-active {
+            color: @mft-2-cls !important;
+            background: @mbg-5-av-cls !important;
+          }
+        }
+      }
+    }
+  }
+  /*
+     * 滚动条
+     */
+  /*::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+        background-color: @mbd-2-cls!important;
+    }
+    // 定义滚动条轨道 内阴影+圆角
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 1px @mbd-2-cls!important;
+        -webkit-box-shadow: inset 0 0 1px @mbd-2-cls!important;
+        border-radius: 3px;
+        background-color: @mbd-2-cls!important;
+    }
+
+    // 定义滑块 内阴影+圆角
+    ::-webkit-scrollbar-thumb {
+        border-radius: 3px;
+        box-shadow: inset 0 0 1px @mbd-2-cls!important;
+        -webkit-box-shadow: inset 0 0 1px @mbd-2-cls!important;
+        background-color: @mbd-4-cls!important;
+    }*/
+}
+
+.@{baseTheme} {
+  // 游离在#app之外的元素颜色定义可以定在这里
+  .theme-ul li {
+    &[active-bg='active'] {
+      color: @mft-2-cls;
+      background-color: @mbg-1-av-cls !important;
+    }
+
+    &[current-theme='deepBlue'] {
+      border-bottom: 1px solid @mbd-2-cls !important;
+    }
+  }
+}

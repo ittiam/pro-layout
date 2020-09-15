@@ -1,0 +1,147 @@
+/**
+ * @DATE: 2019-10-12 14:15
+ * @Version: 0.0.1
+ * @Author:
+ * @Description: 重置ant design 组件--布局等不包括颜色和图片等区分主题的重定义
+ * @Update: 更新内容 by yunchangJia 2019-10-12 14:15
+ * @Update: 添加头部导航背景样式 by liuct 2019-12-13 13:45
+ * @Update: 1、去掉允余的注释代码 2、将头部导航样式设置从组件迁移过来 by huhaiou 2020/3/5 9:15 AM
+ */
+@import './data-entry';
+@import './data-display';
+@import './tip';
+@import './ctree';
+
+/*重置ant-layout-head头部导航*/
+.head {
+  .ant-layout-header {
+    .global-header-wide {
+      display: flex;
+    }
+  }
+}
+
+.ant-layout-header {
+  position: relative;
+  height: @layout_header;
+  padding: 0 12px 0 0;
+  line-height: @layout_header;
+  -webkit-box-shadow: 0 1px 4px @mbg-1-sd-cls;
+  box-shadow: 0 1px 4px @mbg-1-sd-cls;
+
+  .global-header-wide {
+    .trigger {
+      display: block;
+      flex: none;
+      float: left;
+      padding: 12px 15px;
+      color: #fff;
+      cursor: pointer;
+      -webkit-transition: color 0.3s;
+      transition: color 0.3s;
+    }
+
+    .logo {
+      display: inline-block;
+      flex: none;
+      height: @layout_header;
+      padding: 0 10px 0 12px;
+      line-height: @layout_header;
+
+      img {
+        width: auto;
+        height: 20px;
+        margin-top: -2px;
+        margin-right: 16px;
+        vertical-align: middle;
+      }
+
+      span {
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+    }
+
+    .global-header-menu {
+      width: calc(100% - 248px);
+      margin-top: -2px;
+
+      .ant-menu-horizontal {
+        max-width: 1400px;
+        margin: auto;
+      }
+    }
+
+    .global-header-right {
+      flex: none;
+      float: right;
+
+      .header-item {
+        display: block;
+        float: left;
+        height: @layout_header;
+        padding: 0 12px;
+        line-height: @layout_header;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .ant-menu {
+    background-color: transparent !important;
+  }
+}
+
+/* 重置ant-layout-sider侧边导航 */
+.ant-layout-sider {
+  // 整体背景
+  &.ant-layout-sider-collapsed {
+    flex: 0 0 @menu-collapsed-width !important;
+    width: @menu-collapsed-width !important;
+    min-width: @menu-collapsed-width !important;
+    max-width: @menu-collapsed-width !important;
+  }
+}
+
+/* 重置tab */
+.ant-tabs.ant-tabs-card {
+  flex: none;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding-right: 80px;
+
+  .ant-tabs-card-bar {
+    margin: 0;
+    border: none;
+
+    .ant-tabs-nav-container {
+      height: @layout_slideMenu;
+      margin: 0;
+
+      .ant-tabs-tab {
+        margin-right: 0;
+        margin-left: -1px;
+        padding-right: 10px !important;
+        line-height: @layout_slideMenu;
+        border-radius: 0;
+
+        &:first-child {
+          margin-left: 0;
+          padding: 0 8px;
+          pointer-events: none;
+
+          .homePageIcon {
+            i {
+              margin: 0;
+            }
+          }
+        }
+
+        .tab-title {
+          font-size: @fs12;
+        }
+      }
+    }
+  }
+}
