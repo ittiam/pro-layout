@@ -1,0 +1,39 @@
+.beauty-scroll {
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.06);
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.08);
+  }
+  /* 滚动条滑块 */
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.12);
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.split-right {
+  &:not(:last-child) {
+    border-right: 1px solid rgba(98, 98, 98, 0.2);
+  }
+}
+
+.disabled {
+  color: @disabled-color;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+}
+
+.admin-layout {
+  height: 100%;
+}

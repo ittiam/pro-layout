@@ -18,7 +18,7 @@
         </span>
         <div :class="{ hide: !iscode }">
           <!-- 用户名或手机号登录 -->
-          <div class="name-ipone-login" :class="{ hide: !isphone }">
+          <div v-if="isphone" class="name-ipone-login">
             <a-form :form="form" class="login-form">
               <a-tabs defaultActiveKey="1" @change="Loginmethod">
                 <a-tab-pane key="1" tab="用户名">
@@ -105,22 +105,24 @@
                   </div>
                 </a-tab-pane>
               </a-tabs>
+              <div class="submit">
+                <a-form-item>
+                  <a-checkbox
+                    v-decorator="['remember', { valuePropName: 'checked' }]"
+                    class="remb-Pswd"
+                  >
+                    记住密码
+                  </a-checkbox>
+                </a-form-item>
+                <a-button type="primary" class="login-form-button" @click="handleSubmit">
+                  登录
+                </a-button>
+              </div>
             </a-form>
-            <div class="submit">
-              <a-checkbox
-                v-decorator="['remember', { valuePropName: 'checked' }]"
-                class="remb-Pswd"
-              >
-                记住密码
-              </a-checkbox>
-              <a-button type="primary" class="login-form-button" @click="handleSubmit">
-                登录
-              </a-button>
-            </div>
           </div>
 
           <!-- 用户名登录 -->
-          <div :class="{ 'name-login': true, hide: isphone }">
+          <div v-if="!isphone" class="name-login">
             <div class="title-con">
               用户名登录
               <img :src="bottomsrc" />
@@ -160,15 +162,19 @@
                   </a-input>
                 </a-form-item>
               </div>
+              <div class="submit">
+                <a-form-item>
+                  <a-checkbox
+                    v-decorator="['remember', { valuePropName: 'checked' }]"
+                    class="remb-Pswd"
+                    >记住密码
+                  </a-checkbox>
+                </a-form-item>
+                <a-button type="primary" class="login-form-button" @click="handleSubmit"
+                  >登录</a-button
+                >
+              </div>
             </a-form>
-            <div class="submit">
-              <a-checkbox v-decorator="['remember', { valuePropName: 'checked' }]" class="remb-Pswd"
-                >记住密码
-              </a-checkbox>
-              <a-button type="primary" class="login-form-button" @click="handleSubmit"
-                >登录</a-button
-              >
-            </div>
           </div>
         </div>
 
@@ -191,6 +197,7 @@
 <script>
 import { mapActions } from 'vuex';
 import { Base64 } from 'js-base64';
+import storage from '@/utils/storage';
 import { APP_LOGIN_INFO } from '@/store/mutation-types';
 
 export default {
@@ -218,7 +225,7 @@ export default {
     this.restore();
   },
   methods: {
-    ...mapActions(['Login']),
+    ...mapActions('account', ['Login']),
     /**
      * 提交登录
      * @param e
@@ -235,7 +242,7 @@ export default {
             };
 
             this.Login(loginParams).then(() => {
-              this.remember();
+              values.remember && this.remember(loginParams);
 
               this.$router.push(this.$route.query.redirect || '/');
             });
@@ -244,22 +251,16 @@ export default {
       });
     },
 
-    remember(data = {}) {
-      let loginInfo = data;
-
-      if (!loginInfo.remember) {
-        loginInfo = { ...loginInfo, loginName: '', password: '' };
-      }
-
+    remember(loginInfo = {}) {
       let info = Base64.encode(JSON.stringify(loginInfo));
-      this.$ls.set(APP_LOGIN_INFO, info);
+      storage.set(APP_LOGIN_INFO, info);
     },
 
     restore() {
-      let info = this.$ls.get(APP_LOGIN_INFO);
+      let info = storage.get(APP_LOGIN_INFO);
 
       if (info) {
-        let loginInfo = Base64.decode(info);
+        let loginInfo = JSON.parse(Base64.decode(info));
 
         this.form.setFieldsValue(loginInfo);
       }
@@ -462,7 +463,6 @@ export default {
     .login-form-button {
       width: 100%;
       height: 50px;
-      margin-top: 40px;
       color: #85b4ff;
       font-size: 20px;
       background: none;

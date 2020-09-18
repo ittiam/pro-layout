@@ -1,54 +1,46 @@
 <template>
-  <page-layout :desc="desc" :title="title" :linkList="linkList">
-    <div slot="extra" class="extraImg">
+  <page-layout :desc="desc" :linkList="linkList">
+    <div v-if="this.extraImage && !isMobile" slot="extra" class="extraImg">
       <img :src="extraImage"/>
     </div>
-    <transition name="page-toggle">
-      <keep-alive v-if="multipage">
+    <page-toggle-transition :disabled="animate.disabled" :animate="animate.name" :direction="animate.direction">
         <router-view ref="page" />
-      </keep-alive>
-      <router-view ref="page" v-else />
-    </transition>
+    </page-toggle-transition>
   </page-layout>
 </template>
 
 <script>
-import PageHeader from '@components/page/PageHeader';
-import PageLayout from './PageLayout';
+import PageLayout from './PageLayout'
+import PageToggleTransition from '../components/transition/PageToggleTransition';
+import {mapState} from 'vuex'
+
 export default {
-    name: 'PageView',
-    components: {PageLayout, PageHeader},
-    data () {
-        return {
-            title: '',
-            desc: '',
-            linkList: [],
-            extraImage: ''
-        };
-    },
-    computed: {
-        multipage () {
-            return this.$store.state.setting.multipage;
-        }
-    },
-    mounted () {
-        this.getPageHeaderInfo();
-    },
-    updated () {
-        this.getPageHeaderInfo();
-    },
-    methods: {
-        getPageHeaderInfo () {
-            this.title = this.$route.name;
-            const page = this.$refs.page;
-            if (page) {
-                this.desc = page.desc;
-                this.linkList = page.linkList;
-                this.extraImage = page.extraImage;
-            }
-        }
+  name: 'PageView',
+  components: {PageToggleTransition, PageLayout},
+  data () {
+    return {
+      page: {}
     }
-};
+  },
+  computed: {
+    ...mapState('setting', ['isMobile', 'multiPage', 'animate']),
+    desc() {
+      return this.page.desc
+    },
+    linkList() {
+      return this.page.linkList
+    },
+    extraImage() {
+      return this.page.extraImage
+    }
+  },
+  mounted () {
+    this.page = this.$refs.page
+  },
+  updated () {
+    this.page = this.$refs.page
+  }
+}
 </script>
 
 <style lang="less" scoped>

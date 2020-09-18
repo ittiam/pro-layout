@@ -18,6 +18,7 @@ module.exports = {
   },
   rules: {
     // 自定义你的规则
-    'vue/no-deprecated-slot-attribute': 'off'
+    'vue/no-deprecated-slot-attribute': 'off',
+    indent: 'off'
   }
 };

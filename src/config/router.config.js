@@ -43,3 +43,14 @@ export const dynamicRouterMap = [
     ]
   }
 ];
+
+export const pageOpened = [
+  {
+    name: 'index',
+    fullPath: '/dashboard',
+    meta: {
+      closable: false,
+      title: '工作台'
+    }
+  }
+];

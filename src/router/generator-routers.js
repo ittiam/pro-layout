@@ -1,4 +1,4 @@
-import loginService from '@/api/login';
+import * as loginService from '@/api/login';
 
 // 前端未找到页面路由（固定不用改）
 const notFoundRouter = {
@@ -39,7 +39,16 @@ export const generatorDynamicRouter = token => {
  */
 export const generator = routerMap => {
   return routerMap.map(item => {
-    const currentRouter = { ...item };
+    const currentRouter = {
+      ...item,
+      meta: {
+        ...item.meta,
+        icon: item.icon,
+        iconCls: item.iconCls,
+        title: item.name
+      }
+    };
+
     currentRouter.component = () => import(`@/views/${item.component}`);
     if (item.children) {
       currentRouter.children = generator(item.children);

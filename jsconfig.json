@@ -1,0 +1,10 @@
+{
+  "exclude": ["node_modules"],
+  "include": ["./src/**/*", "mock"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+}

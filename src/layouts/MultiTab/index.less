@@ -1,0 +1,70 @@
+@multi-tab-prefix-cls: ~'@{pro-prefix}-multi-tab';
+@multi-tab-wrapper-prefix-cls: ~'@{pro-prefix}-multi-tab-wrapper';
+@multi-tab-action-prefix-cls: ~'@{pro-prefix}-multi-tab-action';
+
+/*
+.topmenu .@{multi-tab-prefix-cls} {
+  max-width: 1200px;
+  margin: -23px auto 24px auto;
+}
+*/
+.@{multi-tab-prefix-cls} {
+  display: flex;
+  height: 26px;
+  overflow: hidden;
+  background: #f4f6f9;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+}
+
+.@{multi-tab-wrapper-prefix-cls} {
+  flex: 1;
+
+  .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab {
+    margin-right: -1px;
+    padding-right: 10px;
+    color: #999;
+    font-size: 12px;
+    line-height: 26px;
+    background: #f4f6f9;
+    border: 1px solid #dee2e7;
+    border-radius: 0;
+
+    &:hover,
+    &.ant-tabs-tab-active {
+      color: #666;
+      background: #fff;
+    }
+
+    &:first-child {
+      padding: 0 8px;
+      color: #666;
+
+      .anticon {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.@{multi-tab-action-prefix-cls} {
+  .wpgicon {
+    color: #999;
+    font-size: 24px;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+
+  .pro-multi-action-item {
+    margin: 0 8px;
+  }
+}
+
+.topmenu .@{multi-tab-wrapper-prefix-cls} {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.topmenu.content-width-Fluid .@{multi-tab-wrapper-prefix-cls} {
+  max-width: 100%;
+  margin: 0 auto;
+}

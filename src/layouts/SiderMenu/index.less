@@ -1,0 +1,143 @@
+.shadow {
+  box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
+}
+
+.side-menu {
+  z-index: 10;
+  min-height: 100vh;
+  overflow-y: auto;
+
+  .ant-layout-sider-children {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ant-menu {
+    &.ant-menu-inline-collapsed {
+      width: 50px;
+    }
+
+    .ant-menu-item .icon,
+    .ant-menu-submenu-title .icon {
+      font-size: 20px;
+    }
+  }
+
+  .sidemenu-main {
+    flex: 1;
+    overflow: auto;
+
+    .ant-menu {
+      .ant-menu-item {
+        &.ant-menu-item-selected {
+          color: #fff;
+          background-color: #11172b;
+          border-right: 0;
+
+          &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 40px;
+            border-left: 4px solid #5bceff;
+            content: '';
+          }
+        }
+      }
+
+      > .ant-menu-item,
+      > .ant-menu-submenu > .ant-menu-submenu-title {
+        height: 50px;
+        line-height: 50px;
+      }
+
+      > .ant-menu-submenu {
+        .ant-menu {
+          .ant-menu-item,
+          .ant-menu-submenu-title {
+            height: 40px;
+            color: #adb5bd;
+            font-size: 12px;
+            line-height: 40px;
+          }
+        }
+      }
+    }
+  }
+
+  .sidemenu-header,
+  .sidemenu-footer {
+    .logo {
+      display: inline-block;
+      height: 26px;
+      line-height: 26px;
+      white-space: nowrap;
+
+      img {
+        width: auto;
+        height: 26px;
+      }
+
+      * {
+        vertical-align: middle;
+      }
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .sidemenu-header {
+    padding: 22px 14px 0;
+
+    &.collapsed {
+      padding: 20px 5px 0;
+    }
+
+    .divider-border {
+      padding-top: 22px;
+      border-bottom: 1px solid #fff;
+      opacity: 0.1;
+    }
+
+    .logo {
+      > .logo-img {
+        width: 53px;
+        height: 20px;
+        margin-right: 2px;
+      }
+
+      > .title {
+        margin-left: 10px;
+        color: #fff;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .sidemenu-footer {
+    padding: 0 14px 11px;
+    color: #fff;
+
+    .logo {
+      cursor: pointer;
+    }
+
+    .sidemenu-icon {
+      margin-right: 2px;
+      font-size: 20px;
+    }
+
+    .sidemenu-text {
+      font-size: 14px;
+    }
+
+    .divider-border {
+      padding-bottom: 11px;
+      border-top: 1px solid #fff;
+      opacity: 0.1;
+    }
+  }
+}

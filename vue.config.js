@@ -2,6 +2,9 @@ let path = require('path');
 let webpack = require('webpack');
 let GitRevisionPlugin = require('git-revision-webpack-plugin');
 let gitRevisionPlugin = new GitRevisionPlugin();
+const ThemeColorReplacer = require('webpack-theme-color-replacer');
+const { getThemeColors, modifyVars } = require('./src/utils/theme');
+const { resolveCss } = require('./scripts/theme-color-replacer-extend');
 
 function resolve(dir) {
   return path.join(__dirname, dir);
@@ -41,7 +44,7 @@ module.exports = {
   pluginOptions: {
     'style-resources-loader': {
       preProcessor: 'less',
-      patterns: [resolve('./src/assets/style/base/color.less')]
+      patterns: [resolve('./src/theme/variable.less')]
     }
   },
   configureWebpack: {
@@ -51,6 +54,12 @@ module.exports = {
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
       new webpack.DefinePlugin({
         BUILD_INFO: JSON.stringify(getBuildInfo())
+      }),
+      new ThemeColorReplacer({
+        fileName: 'css/theme-colors-[contenthash:8].css',
+        matchColors: getThemeColors(),
+        injectCss: true,
+        resolveCss
       })
     ]
   },
@@ -61,6 +70,16 @@ module.exports = {
         args[0].cssnanoOptions.preset[1].colormin = false;
         return args;
       });
+    }
+  },
+  css: {
+    loaderOptions: {
+      less: {
+        lessOptions: {
+          modifyVars: modifyVars(),
+          javascriptEnabled: true
+        }
+      }
     }
   }
 };

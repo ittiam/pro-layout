@@ -1,50 +1,47 @@
-/**
- * @DATE:  2019/6/26 15:16
- * @Version: 0.0.1
- * @Author: yunchangJia
- * @Description: 设置页面信息
- * @Update: 主题禁止展示优化 by yunchangJia 2020-03-03 10:01
- */
-
-/**
- * config require project config
- */
-import config from '@/config/defaultSettings';
-
-/* 页面一些设置的状态管理 */
-const state = {
-  companyName: config.companyName,
-  isMobile: config.isMobile,
-  theme: config.theme,
-  darkTheme: config.darkTheme,
-  isShowTheme: config.isShowTheme,
-  layout: config.layout,
-  menuCollapsed: config.menuCollapsed,
-  systemName: config.systemName,
-  copyright: config.copyright,
-  sysMenuList: config.sysMenuList,
-  footerLinks: [
-    // {link: 'https://pro.ant.design', name: 'Pro首页'},
-    // {link: 'https://github.com/iczer/vue-antd-admin', icon: 'github'},
-    // {link: 'https://ant.design', name: 'Ant Design'}
-  ],
-  multipage: config.multipage
-};
-
-if (localStorage.getItem('theme') && config.theme !== '' && config.isShowTheme) {
-  state.theme = localStorage.getItem('theme');
-}
+import { constantRouterMap } from '@/config/router.config';
+import { generatorDynamicRouter } from '@/router/generator-routers';
+import { formatFullPath } from '@/utils/util';
+import config from '@/config/setting.config';
 
 export default {
   namespaced: true,
-  state,
+  state: {
+    isMobile: false,
+    routers: constantRouterMap,
+    addRouters: [],
+    activatedFirst: undefined,
+    ...config
+  },
+  getters: {
+    menuData(state) {
+      return state.addRouters;
+    },
+    firstMenu(state) {
+      const { addRouters: menuData } = state;
+      if (menuData.length > 0 && !menuData[0].fullPath) {
+        formatFullPath(menuData);
+      }
+      return menuData.map(item => {
+        const menuItem = { ...item };
+        delete menuItem.children;
+        return menuItem;
+      });
+    },
+    subMenu(state) {
+      const { addRouters: menuData, activatedFirst } = state;
+      if (!menuData[0].fullPath) {
+        formatFullPath(menuData);
+      }
+      const current = menuData.find(menu => menu.fullPath === activatedFirst);
+      return current && current.children ? current.children : [];
+    }
+  },
   mutations: {
     setDevice(state, isMobile) {
       state.isMobile = isMobile;
     },
     setTheme(state, theme) {
       state.theme = theme;
-      localStorage.setItem('theme', theme);
     },
     setLayout(state, layout) {
       state.layout = layout;
@@ -54,6 +51,24 @@ export default {
     },
     setMultipage(state, multipage) {
       state.multipage = multipage;
+    },
+    setRouters: (state, routers) => {
+      state.addRouters = routers;
+      state.routers = constantRouterMap.concat(routers);
+    },
+    setActiveedFirst: (state, fullPath) => {
+      state.activatedFirst = fullPath;
+    }
+  },
+  actions: {
+    GenerateRoutes({ commit }, data) {
+      return new Promise(resolve => {
+        const { token } = data;
+        generatorDynamicRouter(token).then(routers => {
+          commit('setRouters', routers);
+          resolve();
+        });
+      });
     }
   }
 };
