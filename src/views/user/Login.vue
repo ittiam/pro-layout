@@ -207,15 +207,15 @@ export default {
       username: true,
       phone: false,
       message: '发送验证码',
-      imgsrc: require('../assets/login/icon_code.png'),
-      coversrc: require('../assets/login/icon_uncover.png'),
-      ercode: require('../assets/login/qrcode.png'),
-      bottomsrc: require('../assets/login/Rectangle 2.png'),
+      imgsrc: require('@/assets/login/icon_code.png'),
+      coversrc: require('@/assets/login/icon_uncover.png'),
+      ercode: require('@/assets/login/qrcode.png'),
+      bottomsrc: require('@/assets/login/Rectangle 2.png'),
       isshow: false, // 是否可切换二维码
       isphone: true, // 是否显示手机号登录
       iscode: true, // 是否切换到二维码登录
-      logoImg: require('../assets/login/text.png'),
-      textImg: require('../assets/login/icon_font.png')
+      logoImg: require('@/assets/login/text.png'),
+      textImg: require('@/assets/login/icon_font.png')
     };
   },
   beforeCreate() {
@@ -310,9 +310,9 @@ export default {
     changeEqCode() {
       // 修改图片src
       if (this.ishide) {
-        this.imgsrc = require('../assets/login/icon_username.png');
+        this.imgsrc = require('@/assets/login/icon_username.png');
       } else {
-        this.imgsrc = require('../assets/login/icon_code.png');
+        this.imgsrc = require('@/assets/login/icon_code.png');
       }
       this.iscode = !this.iscode;
     }
@@ -323,7 +323,7 @@ export default {
 .login-container {
   width: 100%;
   height: 100%;
-  background: url('../assets/login/icon_bg.png') no-repeat;
+  background: url('~@/assets/login/icon_bg.png') no-repeat;
   background-size: cover;
 
   .middle-con {

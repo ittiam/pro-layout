@@ -19,7 +19,7 @@
 
     .ant-menu-item .icon,
     .ant-menu-submenu-title .icon {
-      font-size: 20px;
+      font-size: 18px;
     }
   }
 
@@ -28,20 +28,22 @@
     overflow: auto;
 
     .ant-menu {
-      .ant-menu-item {
-        &.ant-menu-item-selected {
-          color: #fff;
-          background-color: #11172b;
-          border-right: 0;
+      .ant-menu-sub {
+        .ant-menu-item {
+          &.ant-menu-item-selected {
+            color: #fff;
+            background-color: #11172b;
+            border-right: 0;
 
-          &::before {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 40px;
-            border-left: 4px solid #5bceff;
-            content: '';
+            &::before {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 4px;
+              height: 40px;
+              border-left: 4px solid #5bceff;
+              content: '';
+            }
           }
         }
       }
@@ -61,6 +63,14 @@
             font-size: 12px;
             line-height: 40px;
           }
+        }
+      }
+    }
+
+    .ant-menu-root {
+      > .ant-menu-item {
+        &.ant-menu-item-selected {
+          background-color: #303750;
         }
       }
     }

@@ -24,8 +24,10 @@ function getBuildInfo() {
   return buildInfo;
 }
 
+const publicPath = process.env.NODE_ENV === 'production' ? '' : '/';
+
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production' ? '/pro-layout/' : '/',
+  publicPath: publicPath,
   outputDir: 'release/pro-layout',
   assetsDir: 'static',
   productionSourceMap: false,
@@ -45,6 +47,9 @@ module.exports = {
     'style-resources-loader': {
       preProcessor: 'less',
       patterns: [resolve('./src/theme/variable.less')]
+    },
+    'wpg-server-config': {
+      publicPath: publicPath
     }
   },
   configureWebpack: {
@@ -56,7 +61,7 @@ module.exports = {
         BUILD_INFO: JSON.stringify(getBuildInfo())
       }),
       new ThemeColorReplacer({
-        fileName: 'css/theme-colors-[contenthash:8].css',
+        fileName: 'static/css/theme-colors-[contenthash:8].css',
         matchColors: getThemeColors(),
         injectCss: true,
         resolveCss

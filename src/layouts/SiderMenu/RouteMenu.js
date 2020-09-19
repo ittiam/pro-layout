@@ -122,7 +122,7 @@ export default {
     renderMenuItem: function(h, menu) {
       const title = (menu.meta && menu.meta.title) || menu.name;
       const iconCls = menu.meta && menu.meta.iconCls;
-
+      console.log(iconCls);
       return h(Item, { key: menu.fullPath }, [
         h('router-link', { props: { to: menu.fullPath } }, [
           iconCls

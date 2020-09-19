@@ -4,13 +4,12 @@ import storage from '@/utils/storage';
 import NProgress from 'nprogress'; // progress bar
 import notification from 'ant-design-vue/es/notification';
 import { ACCESS_TOKEN } from '@/store/mutation-types';
-import { dynamicRouterMap } from '@/config/router.config';
 
 NProgress.configure({ showSpinner: false }); // NProgress Configuration
 
 const whiteList = ['Login', 'Register', 'RegisterResult']; // no redirect whitelist
 const loginRoutePath = '/login';
-const defaultRoutePath = '/Button';
+const defaultRoutePath = '/';
 
 router.beforeEach((to, from, next) => {
   NProgress.start(); // start progress bar
@@ -27,11 +26,9 @@ router.beforeEach((to, from, next) => {
         store
           .dispatch('account/GetInfo')
           .then(res => {
-            const roles = res.result && res.result.role;
+            const token = res && res.token;
             // generate dynamic router
-            store.dispatch('setting/GenerateRoutes', { roles }).then(() => {
-              // 根据roles权限生成可访问的路由表
-              router.addRoutes(dynamicRouterMap);
+            store.dispatch('setting/GenerateRoutes', { token }).then(() => {
               // 动态添加可访问路由表
               router.addRoutes(store.getters.addRouters);
               // 请求带有 redirect 重定向时，登录自动重定向到该地址
@@ -74,5 +71,4 @@ router.beforeEach((to, from, next) => {
 
 router.afterEach(to => {
   NProgress.done(); // finish progress bar
-  // store.dispatch('page/open', to);
 });

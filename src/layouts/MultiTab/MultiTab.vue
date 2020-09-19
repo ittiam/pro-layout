@@ -1,11 +1,8 @@
 <script>
 import './index.less';
-import { mapGetters } from 'vuex';
+import { mapState, mapGetters, mapMutations, mapActions } from 'vuex';
 import events from './events';
 import FullScreen from './FullScreen';
-import storage from '@/utils/storage';
-
-const PAGE_OPENED = 'page_opened';
 
 export default {
   name: 'MultiTab',
@@ -14,8 +11,6 @@ export default {
   },
   data() {
     return {
-      current: '',
-      opened: storage.get(PAGE_OPENED, []),
       pool: [],
       menuEventEnum: [
         { action: 'closeThat', name: '关闭当前标签' },
@@ -26,7 +21,8 @@ export default {
     };
   },
   computed: {
-    ...mapGetters('setting', ['firstMenu', 'menuData'])
+    ...mapState('page', ['current', 'opened']),
+    ...mapGetters('setting', ['menuData'])
   },
   watch: {
     $route: function(newVal) {
@@ -60,8 +56,8 @@ export default {
       .$on('rename', ({ key, name }) => {
         try {
           const item = this.opened.find(item => item.path === key);
-          item.meta.customTitle = name;
 
+          this.editOpened({ fullPath: key, meta: { ...item.meta, customTitle: name } });
           this.opened2db();
           this.$forceUpdate();
         } catch (e) {}
@@ -71,6 +67,8 @@ export default {
     this.open(this.$route);
   },
   methods: {
+    ...mapMutations('page', ['setCurrent', 'addOpened', 'removeOpenen', 'editOpened']),
+    ...mapActions('page', ['opened2db']),
     init(routes) {
       const pool = [];
       const push = function(routes) {
@@ -90,46 +88,13 @@ export default {
     },
 
     /**
-     * @description 设置当前激活的页面 fullPath
-     * @param {String} fullPath new fullPath
-     */
-    setCurrent(fullPath) {
-      this.current = fullPath;
-    },
-
-    addOpened(newTag) {
-      this.opened.push(newTag);
-    },
-
-    removeOpenen(index) {
-      this.opened.splice(index, 1);
-    },
-
-    /**
-     * 将 opened 属性赋值并持久化 在这之前请先确保已经更新了 opened
-     * @param {Object} context
-     */
-    opened2db() {
-      return new Promise(resolve => {
-        // 设置数据
-        storage.set(PAGE_OPENED, this.opened);
-        // end
-        resolve();
-      });
-    },
-
-    /**
      * @description 更新页面列表上的某一项
      * @param {Object} context
      * @param {Object} payload { index, params, query, fullPath, meta } 路由信息
      */
-    async openedUpdate({ index, params, query, fullPath }) {
+    async openedUpdate({ params, query, fullPath }) {
       // 更新页面列表某一项
-      const page = this.opened[index];
-      page.params = params || page.params;
-      page.query = query || page.query;
-      page.fullPath = fullPath || page.fullPath;
-      this.opened.splice(index, 1, page);
+      this.editOpened({ params, query, fullPath });
       // 持久化
       await this.opened2db();
     },
@@ -169,7 +134,6 @@ export default {
 
       if (pageOpend) {
         await this.openedUpdate({
-          index: pageOpendIndex,
           params,
           query,
           fullPath
@@ -391,11 +355,7 @@ export default {
   },
 
   render() {
-    const {
-      onEdit,
-      onChange,
-      $data: { opened }
-    } = this;
+    const { onEdit, onChange, opened } = this;
 
     const panes = opened.map(page => {
       return (
@@ -416,7 +376,7 @@ export default {
           <a-tabs
             hideAdd
             type={'editable-card'}
-            v-model={this.current}
+            activeKey={this.current}
             tabBarStyle={{ margin: 0 }}
             {...{ on: { edit: onEdit, change: onChange } }}
           >

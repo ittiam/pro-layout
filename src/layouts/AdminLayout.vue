@@ -4,7 +4,7 @@
       v-if="layout === 'side' || layout === 'mix'"
       :class="[fixedSideBar ? 'fixed-side' : '']"
       :theme="theme.mode"
-      :menuData="sideMenuData"
+      :menuData="menus"
       :collapsed="collapsed"
       :collapsible="true"
       @toggleCollapse="toggleCollapse"
@@ -15,15 +15,11 @@
       class="virtual-side"
     ></div>
     <a-layout class="admin-layout-main beauty-scroll">
-      <admin-header
-        :menuData="headMenuData"
-        :collapsed="collapsed"
-        :sideMenuWidth="sideMenuWidth"
-      />
+      <admin-header :menuData="menus" :collapsed="collapsed" :sideMenuWidth="sideMenuWidth" />
       <a-layout-content class="admin-layout-content">
         <multi-tab v-if="multiPage" />
-        <div class="admin-layout-main">
-          <slot></slot>
+        <div class="admin-layout-body">
+          <router-view />
         </div>
       </a-layout-content>
       <a-layout-footer style="padding: 0">
@@ -38,19 +34,14 @@ import AdminHeader from './GlobalHeader/AdminHeader';
 import PageFooter from './GlobalFooter/PageFooter';
 import SiderMenu from './SiderMenu/SiderMenu';
 import MultiTab from './MultiTab';
-import { mapState, mapMutations, mapGetters } from 'vuex';
-
-const minHeight = window.innerHeight - 64 - 24 - 122;
+import { mapState, mapGetters } from 'vuex';
 
 export default {
   name: 'AdminLayout',
   components: { SiderMenu, PageFooter, AdminHeader, MultiTab },
   data() {
     return {
-      minHeight: minHeight,
-      collapsed: false,
-      showSetting: false,
-      drawerOpen: false
+      collapsed: false
     };
   },
   computed: {
@@ -69,52 +60,22 @@ export default {
     sideMenuWidth() {
       return this.collapsed ? '50px' : '216px';
     },
-    headMenuData() {
-      const { layout, menuData, firstMenu } = this;
-      return layout === 'mix' ? firstMenu : menuData;
-    },
-    sideMenuData() {
-      const { layout, menuData, subMenu } = this;
-      return layout === 'mix' ? subMenu : menuData;
-    }
-  },
-  watch: {
-    $route(val) {
-      this.setActivated(val);
-    },
-    layout() {
-      this.setActivated(this.$route);
-    },
-    isMobile(val) {
-      if (!val) {
-        this.drawerOpen = false;
-      }
+    menus() {
+      const routes = this.menuData.find(item => item.path === '/');
+      return (routes && routes.children) || [];
     }
   },
 
-  created() {
-    this.setActivated(this.$route);
+  mounted() {
+    console.log('admin laoyout');
   },
+
   methods: {
-    ...mapMutations('setting', ['setActivatedFirst']),
     toggleCollapse() {
       this.collapsed = !this.collapsed;
     },
     onMenuSelect() {
       this.toggleCollapse();
-    },
-    setActivated(route) {
-      if (this.layout === 'mix') {
-        let matched = route.matched;
-        matched = matched.slice(0, matched.length - 1);
-        const { firstMenu } = this;
-        for (let menu of firstMenu) {
-          if (matched.findIndex(item => item.path === menu.fullPath) !== -1) {
-            this.setActivatedFirst(menu.fullPath);
-            break;
-          }
-        }
-      }
     }
   }
 };
@@ -153,10 +114,12 @@ export default {
     min-height: auto;
   }
 
-  .admin-layout-main {
+  .admin-layout-body {
     position: relative;
     flex: 1;
-    overflow: 100%;
+    height: 100%;
+    padding: 12px;
+    overflow: auto;
   }
 }
 </style>

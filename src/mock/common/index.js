@@ -9,57 +9,49 @@ export const userInfo = {
 /* 菜单 */
 export const menu = [
   {
-    component: 'Main',
+    component: 'general/Button',
     iconCls: 'icon-ic_developer_board',
     id: '1',
     parentId: '',
-    name: 'General',
-    path: '/General',
-    children: [
-      {
-        component: 'General/Button',
-        id: '11',
-        parentId: '',
-        name: 'Button 按钮',
-        path: '/General/Button'
-      }
-    ]
+    name: 'Button 按钮',
+    path: '/general'
   },
   {
-    component: 'Main',
+    component: 'navigation/Breadcrumb',
+    iconCls: 'icon-ic_computer',
+    id: '21',
+    parentId: '',
+    name: 'Breadcrumb 面包屑',
+    path: '/breadcrumb'
+  },
+  {
+    component: 'RouteView',
     iconCls: 'icon-wpg_water_quality',
     id: '2',
     parentId: '',
     name: 'Navigation',
-    path: '/Navigation',
+    path: '/navigation',
     children: [
       {
-        component: 'Navigation/Breadcrumb',
-        id: '21',
-        parentId: '',
-        name: 'Breadcrumb 面包屑',
-        path: '/Navigation/Breadcrumb'
-      },
-      {
-        component: 'Navigation/Dropdown',
+        component: 'navigation/Dropdown',
         id: '22',
         parentId: '',
         name: 'Dropdown 下拉菜单',
-        path: '/Navigation/Dropdown'
+        path: '/navigation/dropdown'
       },
       {
-        component: 'Navigation/Menu',
+        component: 'navigation/Menu',
         id: '23',
         parentId: '',
         name: 'Menu 导航',
-        path: '/Navigation/Menu'
+        path: '/navigation/menu'
       },
       {
-        component: 'Navigation/Pagination',
+        component: 'navigation/Pagination',
         id: '24',
         parentId: '',
         name: 'Pagination 分页',
-        path: '/Navigation/Pagination'
+        path: '/navigation/pagination'
       }
     ]
   }
