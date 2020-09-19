@@ -12286,12 +12286,17 @@ vue-cli-plugin-style-resources-loader@~0.1.4:
   resolved "https://registry.npm.taobao.org/vue-cli-plugin-style-resources-loader/download/vue-cli-plugin-style-resources-loader-0.1.4.tgz#6087a86132ea8125aa89e5f8e0a978fbc8cf6f59"
   integrity sha1-YIeoYTLqgSWqieX44Kl4+8jPb1k=
 
-vue-cli-plugin-wpg-server-config@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/vue-cli-plugin-wpg-server-config/-/vue-cli-plugin-wpg-server-config-1.0.0.tgz#37d536d264647b9152fec0fbb740645f0fe39ce8"
-  integrity sha512-nQQ9TIQUXO1us+Uxaad0I/P6CJrc7wUD/0kX4pYVtfOFjZWEY2nEO+S7q8GpV0VvdkJDuAojA249TDwgmAkoBw==
+vue-cli-plugin-wpg-server-config@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/vue-cli-plugin-wpg-server-config/-/vue-cli-plugin-wpg-server-config-1.0.1.tgz#871f2b61acc1d708de3c065665fa3440a7934373"
+  integrity sha512-aOuQH1seAmqGTLl/Dz66aZK4EyEHmqgXauHTCjBxcXf6xBrGSkvxeuziCgTFJQ2XxZsxLf1pfkIAvGFF8l6SlQ==
   dependencies:
     js-beautify "^1.13.0"
+
+vue-cropper@^0.5.5:
+  version "0.5.5"
+  resolved "https://registry.npmjs.org/vue-cropper/-/vue-cropper-0.5.5.tgz#9bd1ba563c7faa268abd52fb2af4c6c28d33c962"
+  integrity sha512-5mGaBlS1EwLxUFwHHX2Q8zOZSiVfBUjOfolR+ZNKwu7Rh3u+GhwHYOyFkgZHhhoQBBNdyVB28O6W+MpMimhCbA==
 
 vue-enum@^1.0.5:
   version "1.0.5"
