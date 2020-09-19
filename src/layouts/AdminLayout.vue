@@ -66,10 +66,6 @@ export default {
     }
   },
 
-  mounted() {
-    console.log('admin laoyout');
-  },
-
   methods: {
     toggleCollapse() {
       this.collapsed = !this.collapsed;

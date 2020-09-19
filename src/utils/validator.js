@@ -603,3 +603,12 @@ export const MotorEfficiency = (rule, value, callback) => {
     callback();
   }
 };
+
+/**
+ * 校验密码
+ * 密码必须包含一个大写字母和一个小写字母和一个数字.
+ * 长度 >= 8位
+ */
+export const validPassword = pass => {
+  return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{8+}$/.test(pass);
+};

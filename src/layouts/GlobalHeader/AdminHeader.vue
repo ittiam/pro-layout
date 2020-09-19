@@ -32,9 +32,9 @@
           />
         </div>
         <div :class="['admin-header-right', headerTheme]">
-          <header-search class="header-item" @active="val => (searchActive = val)" />
+          <header-about class="header-item" />
           <a-tooltip class="header-item" title="帮助文档" placement="bottom">
-            <a href="https://iczer.github.io/vue-antd-admin/" target="_blank">
+            <a href="https://gitlab.cloud4water.com/WPG_SRC_WEB/pro-layout/" target="_blank">
               <a-icon type="question-circle-o" />
             </a>
           </a-tooltip>
@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import HeaderSearch from './HeaderSearch';
+import HeaderAbout from './HeaderAbout';
 import HeaderNotice from './HeaderNotice';
 import HeaderAvatar from './HeaderAvatar';
 import BaseMenu from '@/layouts/SiderMenu/RouteMenu';
@@ -55,7 +55,7 @@ import { mapState, mapMutations } from 'vuex';
 
 export default {
   name: 'AdminHeader',
-  components: { BaseMenu, HeaderAvatar, HeaderNotice, HeaderSearch },
+  components: { BaseMenu, HeaderAvatar, HeaderNotice, HeaderAbout },
   props: ['collapsed', 'menuData', 'fixed', 'sideMenuWidth'],
   data() {
     return {

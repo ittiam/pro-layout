@@ -15,7 +15,7 @@ const account = {
       state.token = token;
     },
     SET_INFO: (state, info) => {
-      state.info = info;
+      state.user = info;
     }
   },
 
