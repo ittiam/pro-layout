@@ -2,6 +2,8 @@
 
 @pro-prefix: pro;
 @pro-header-height: 50px;
+@font-family: PingFangSC-Regular, Microsoft YaHei, Helvetica Neue, Helvetica, Hiragino Sans GB,
+  SimSun, sans-serif;
 
 @gray-1: #fff;
 @gray-2: #fafafa;
@@ -23,16 +25,21 @@
 @error-color: @warning-color;
 
 @title-color: @heading-color;
-@text-color: @text-color;
-@text-color-primary: @text-color;
-@text-color-second: @text-color-secondary;
-// @text-color-regular:
+@text-color-primary: @text-color-primary; // 主要字体颜色
+@text-color: @text-color; // 一级字体颜色
+@text-color-second: @text-color-secondary; // 二级字体颜色
 
 @layout-bg-color: @layout-body-background;
 @base-bg-color: @body-background;
-@hover-bg-color: rgba(0, 0, 0, 0.025);
+@hover-bg-color: @background-hover-color;
 @border-color: @border-color-split;
 @shadow-color: @shadow-color;
+
+// 页签
+@multi-tab-bg-color: @background-color-multi-tab;
+@multi-tab-split-color: @border-color-line;
+
+@menu-header-text-color: @menu-header-text-color;
 
 @text-color-inverse: @text-color-inverse;
 @hover-bg-color-light: @hover-bg-color;

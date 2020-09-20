@@ -78,6 +78,8 @@
 
   .sidemenu-header,
   .sidemenu-footer {
+    color: @menu-header-text-color;
+
     .logo {
       display: inline-block;
       height: 26px;
@@ -108,7 +110,7 @@
 
     .divider-border {
       padding-top: 22px;
-      border-bottom: 1px solid #fff;
+      border-bottom: 1px solid @border-color-split;
       opacity: 0.1;
     }
 
@@ -121,7 +123,6 @@
 
       > .title {
         margin-left: 10px;
-        color: #fff;
         font-size: 14px;
       }
     }
@@ -129,7 +130,6 @@
 
   .sidemenu-footer {
     padding: 0 14px 11px;
-    color: #fff;
 
     .logo {
       cursor: pointer;
@@ -146,7 +146,7 @@
 
     .divider-border {
       padding-bottom: 11px;
-      border-top: 1px solid #fff;
+      border-top: 1px solid @border-color-split;
       opacity: 0.1;
     }
   }

@@ -22,7 +22,7 @@
           <router-view />
         </div>
       </a-layout-content>
-      <a-layout-footer style="padding: 0">
+      <a-layout-footer class="admin-layout-footer" style="padding: 5px 0;">
         <page-footer :link-list="footerLinks" :copyright="copyright" />
       </a-layout-footer>
     </a-layout>
@@ -79,6 +79,8 @@ export default {
 
 <style lang="less">
 .admin-layout {
+  height: 100%;
+
   .side-menu {
     &.fixed-side {
       position: fixed;
@@ -106,8 +108,10 @@ export default {
 
   .admin-layout-content {
     display: flex;
+    flex: 1;
     flex-direction: column;
     min-height: auto;
+    overflow: hidden;
   }
 
   .admin-layout-body {
@@ -116,6 +120,10 @@ export default {
     height: 100%;
     padding: 12px;
     overflow: auto;
+  }
+
+  .admin-layout-footer {
+    background: @component-background;
   }
 }
 </style>

@@ -23,13 +23,13 @@ export default {
 
 <style lang="less" scoped>
 .footer {
-  margin: 0 0 5px;
+  margin: 0;
   padding: 0 16px;
   text-align: center;
 
   .copyright {
     color: @text-color-second;
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .links {

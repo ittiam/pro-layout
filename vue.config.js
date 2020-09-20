@@ -4,7 +4,6 @@ let GitRevisionPlugin = require('git-revision-webpack-plugin');
 let gitRevisionPlugin = new GitRevisionPlugin();
 const ThemeColorReplacer = require('webpack-theme-color-replacer');
 const { getThemeColors, modifyVars } = require('./src/utils/theme');
-const { resolveCss } = require('./scripts/theme-color-replacer-extend');
 
 function resolve(dir) {
   return path.join(__dirname, dir);
@@ -63,8 +62,7 @@ module.exports = {
       new ThemeColorReplacer({
         fileName: 'static/css/theme-colors-[contenthash:8].css',
         matchColors: getThemeColors(),
-        injectCss: true,
-        resolveCss
+        injectCss: true
       })
     ]
   },

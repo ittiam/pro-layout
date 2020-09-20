@@ -76,10 +76,10 @@ export default {
     }
   },
   computed: {
+    ...mapState('setting', ['isMobile', 'companyName']),
     sideTheme() {
       return this.theme === 'light' ? this.theme : 'dark';
-    },
-    ...mapState('setting', ['isMobile', 'companyName'])
+    }
   },
   methods: {
     onSelect(obj) {
