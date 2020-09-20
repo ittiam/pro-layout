@@ -30,9 +30,9 @@ function getFunctionalColors(mode) {
 
 // 获取菜单色系
 function getMenuColors(color, mode) {
-  if (mode == themeMode.NIGHT) {
+  if (mode === themeMode.NIGHT) {
     return ANTD.primary.night.menuColors;
-  } else if (color == ANTD.primary.color) {
+  } else if (color === ANTD.primary.color) {
     return ANTD.primary.dark.menuColors;
   } else {
     return [

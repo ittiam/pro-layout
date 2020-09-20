@@ -10,7 +10,7 @@ import '@/utils/storage';
 import './permission'; // permission control
 
 import 'font-awesome/css/font-awesome.min.css';
-import './theme/index.less';
+import '@/assets/style/index.less';
 
 import store from './store';
 import router from './router';

@@ -111,9 +111,6 @@ export default {
       currUser: 'user'
     })
   },
-  created() {
-    console.log(this.currUser);
-  },
   methods: {
     ...mapActions('account', ['Logout', 'changePassword']),
     handleMenuClick(e) {
@@ -186,8 +183,7 @@ export default {
               let { status } = res;
               if (status === 'complete') {
                 this.$message.success('修改密码成功');
-                // let dsCount = JSON.stringify(values);
-                // document.cookie = `dsCount=${dsCount}`;
+
                 setTimeout(() => {
                   window.location.reload();
                 }, 500);

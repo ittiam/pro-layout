@@ -46,7 +46,7 @@ module.exports = {
   pluginOptions: {
     'style-resources-loader': {
       preProcessor: 'less',
-      patterns: [resolve('./src/theme/variable.less')]
+      patterns: [resolve('./src/assets/style/variable.less')]
     },
     'wpg-server-config': {
       publicPath: publicPath
@@ -69,6 +69,22 @@ module.exports = {
     ]
   },
   chainWebpack: config => {
+    const svgRule = config.module.rule('svg');
+    svgRule.uses.clear();
+    svgRule
+      .oneOf('inline')
+      .resourceQuery(/inline/)
+      .use('vue-svg-icon-loader')
+      .loader('vue-svg-icon-loader')
+      .end()
+      .end()
+      .oneOf('external')
+      .use('file-loader')
+      .loader('file-loader')
+      .options({
+        name: 'assets/[name].[hash:8].[ext]'
+      });
+
     // 生产环境下关闭css压缩的 colormin 项，因为此项优化与主题色替换功能冲突
     if (process.env.NODE_ENV === 'production') {
       config.plugin('optimize-css').tap(args => {

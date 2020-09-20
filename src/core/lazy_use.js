@@ -21,6 +21,7 @@ import {
   Icon,
   Badge,
   Popover,
+  Pagination,
   Dropdown,
   List,
   Avatar,
@@ -74,6 +75,7 @@ Vue.use(Tabs);
 Vue.use(Icon);
 Vue.use(Badge);
 Vue.use(Popover);
+Vue.use(Pagination);
 Vue.use(Dropdown);
 Vue.use(List);
 Vue.use(Avatar);
