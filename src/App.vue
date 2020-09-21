@@ -10,7 +10,6 @@
 <script>
 import { mapState, mapMutations } from 'vuex';
 import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN';
-import themeUtil from '@/utils/theme';
 
 export default {
   name: 'App',
@@ -24,20 +23,12 @@ export default {
 
   watch: {
     'theme.mode': function(val) {
-      let closeMessage = this.$message.loading(`您选择了主题模式 ${val}, 正在切换...`);
-      themeUtil
-        .changeThemeColor(this.theme.color, val)
-        .then(closeMessage)
-        .then(() => this.setThemeDom());
-    },
-    'theme.color': function(val) {
-      let closeMessage = this.$message.loading(`您选择了主题色 ${val}, 正在切换...`);
-      themeUtil.changeThemeColor(val, this.theme.mode).then(closeMessage);
+      this.setThemeDom(val);
     }
   },
 
   created() {
-    this.setThemeDom();
+    this.setThemeDom(this.theme.mode);
 
     // setTimeout(() => {
     //   this.setTheme({
@@ -45,6 +36,20 @@ export default {
     //     mode: 'night'
     //   });
     // }, 3000);
+
+    // setTimeout(() => {
+    //   this.setTheme({
+    //     ...this.theme,
+    //     mode: 'light'
+    //   });
+    // }, 6000);
+
+    // setTimeout(() => {
+    //   this.setTheme({
+    //     ...this.theme,
+    //     mode: 'dark'
+    //   });
+    // }, 10000);
   },
 
   methods: {
@@ -53,9 +58,16 @@ export default {
      * @description 将 vuex 中的主题应用到 dom
      * @param {Object} state state
      */
-    setThemeDom(state) {
-      document.body.className = `theme-${this.theme.mode}`;
+    setThemeDom(mode) {
+      document.body.className = `theme--${mode}`;
     }
   }
 };
 </script>
+
+<style lang="less">
+#app {
+  width: 100%;
+  height: 100%;
+}
+</style>

@@ -19,7 +19,7 @@
         }}
       </p>
       <template slot="footer">
-        <div class="modal-content-txt">{{ aboutInfo.copyright }}</div>
+        <div class="about-footer modal-content-txt">{{ aboutInfo.copyright }}</div>
       </template>
     </a-modal>
   </div>
@@ -89,7 +89,7 @@ export default {
 }
 
 .modal-content-txt {
-  color: #999;
+  color: @color-text-normal;
   font-size: 14px;
   line-height: 26px;
   letter-spacing: 1px;
@@ -98,7 +98,7 @@ export default {
 
   &.name {
     margin: 8px auto 20px;
-    color: #333;
+    color: @color-text-main;
     font-weight: 500;
     font-size: 24px;
     line-height: 33px;
@@ -106,11 +106,10 @@ export default {
 
   &.build {
     margin-bottom: 42px;
-    color: #666;
   }
 
-  &.version {
-    color: #666;
+  &.footer {
+    color: @color-text-second;
   }
 }
 </style>

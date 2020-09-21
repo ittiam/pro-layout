@@ -9,7 +9,7 @@
           :defaultSelectedKeys="['1']"
           :defaultOpenKeys="['sub1']"
           mode="inline"
-          theme="dark"
+          theme="light"
           :inlineCollapsed="collapsed"
         >
           <a-menu-item key="1">
@@ -68,6 +68,6 @@ export default {
 <style lang="less" scoped>
 .layout-page {
   padding: 12px;
-  background: @component-background;
+  background: #fff;
 }
 </style>

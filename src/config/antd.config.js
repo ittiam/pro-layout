@@ -3,7 +3,7 @@ const theme = require('../theme');
 
 const ANTD = {
   primary: {
-    color: '#1890ff',
+    color: '#4285f4',
     warning: '#faad14',
     success: '#52c41a',
     error: '#f5222d',

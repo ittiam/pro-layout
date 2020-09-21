@@ -97,7 +97,7 @@ export default {
   .ant-layout-header {
     height: @pro-header-height;
     line-height: @pro-header-height;
-    background: @component-background;
+    background: #fff;
 
     &.admin-header-fixed {
       position: fixed;
@@ -123,7 +123,7 @@ export default {
   }
 
   .admin-layout-footer {
-    background: @component-background;
+    background: #fff;
   }
 }
 </style>

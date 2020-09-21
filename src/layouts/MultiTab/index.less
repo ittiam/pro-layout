@@ -12,7 +12,7 @@
   display: flex;
   height: 26px;
   overflow: hidden;
-  background: @multi-tab-bg-color;
+  background: #f4f6f9;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
 }
 
@@ -22,22 +22,22 @@
   .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab {
     margin-right: -1px;
     padding-right: 10px;
-    color: @text-color-second;
+    color: @color-text-second;
     font-size: 12px;
     line-height: 26px;
-    background: @multi-tab-bg-color;
-    border: 1px solid @multi-tab-split-color;
+    background: #f4f6f9;
+    border: 1px solid #dee2e7;
     border-radius: 0;
 
     &:hover,
     &.ant-tabs-tab-active {
-      color: @text-color;
-      background: @hover-bg-color-light;
+      color: @color-text-normal;
+      background: #fff;
     }
 
     &:first-child {
       padding: 0 8px;
-      color: @text-color;
+      color: @color-text-normal;
 
       .anticon {
         margin-right: 0;
@@ -48,7 +48,7 @@
 
 .@{multi-tab-action-prefix-cls} {
   .wpgicon {
-    color: @text-color-second;
+    color: @color-text-second;
     font-size: 24px;
     vertical-align: middle;
     cursor: pointer;

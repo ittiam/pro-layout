@@ -100,9 +100,9 @@ export default {
 }
 
 .dropdown-tabs {
-  background-color: @base-bg-color;
+  background-color: @color-bg;
   border-radius: 4px;
-  box-shadow: 0 2px 8px @shadow-color;
+  box-shadow: 0 2px 8px @color-shadow;
 
   .tab-pane {
     min-height: 250px;

@@ -1,3 +1,7 @@
+body {
+  font-family: @font-family;
+}
+
 /* prettier-ignore */
 abbr, address, article, aside, audio,
 b, blockquote, body, body div, caption, cite, code,
@@ -30,21 +34,4 @@ table, tbody, td, tfoot, th, thead, time, tr, ul, var, video {
     border-radius: 3px;
     -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
   }
-}
-
-.split-right {
-  &:not(:last-child) {
-    border-right: 1px solid rgba(98, 98, 98, 0.2);
-  }
-}
-
-.disabled {
-  color: @disabled-color;
-  cursor: not-allowed;
-  pointer-events: none;
-}
-
-#app {
-  width: 100%;
-  height: 100%;
 }

@@ -10,27 +10,27 @@
   }
 
   &.dark {
-    color: white;
-    background: @header-bg-color-dark;
+    color: #fff;
+    background: #141414;
   }
 
   &.night {
     .head-menu {
-      background: @base-bg-color;
+      background: @color-bg;
     }
   }
 
   .admin-header-wide {
-    padding-left: 20px;
-    background: @base-bg-color;
     height: @header-height;
-    box-shadow: 0 4px 20px 0 rgba(109,125,136,.1);
+    padding-left: 20px;
+    background: @color-bg;
+    box-shadow: 0 4px 20px 0 rgba(109, 125, 136, 0.1);
 
     .admin-header-title {
-      font-weight: 700;
-      font-size: 16px;
       float: left;
       margin: 0;
+      font-weight: 700;
+      font-size: 16px;
     }
 
     &.side {
@@ -67,10 +67,10 @@
       font-size: 20px;
       line-height: @header-height;
       cursor: pointer;
-      transition: color .3s;
+      transition: color 0.3s;
 
       &:hover {
-        color: @primary-color;
+        color: @color-primary;
       }
     }
 
@@ -84,13 +84,13 @@
       color: inherit;
 
       .header-item {
+        display: flex;
+        align-items: center;
         align-self: center;
+        height: @header-height;
         padding: 0 12px;
         color: inherit;
         cursor: pointer;
-        display: flex;
-        align-items: center;
-        height: @header-height;
 
         a {
           color: inherit;
@@ -100,15 +100,6 @@
           }
         }
       }
-
-      each(@theme-list, {
-        &.@{value} .header-item {
-          &:hover{
-            @class: ~'hover-bg-color-@{value}';
-            background-color: @@class;
-          }
-        }
-      })
     }
   }
 }

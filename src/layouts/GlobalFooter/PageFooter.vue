@@ -28,7 +28,7 @@ export default {
   text-align: center;
 
   .copyright {
-    color: @text-color-second;
+    color: @color-text-second;
     font-size: 12px;
   }
 
@@ -40,7 +40,7 @@ export default {
     }
 
     a {
-      color: @text-color-second;
+      color: @color-text-second;
       -webkit-transition: all 0.3s;
       transition: all 0.3s;
     }
