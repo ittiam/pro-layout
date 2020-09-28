@@ -1,0 +1,102 @@
+.ant-btn {
+  height: 36px;
+  color: @mft-2-cls;
+  font-size: @fs14;
+  background-color: transparent;
+  border-color: @mbd-1-cls;
+
+  > [class^='icon-'] + span,
+  > [class*=' icon-'] + span {
+    margin-left: 6px;
+  }
+
+  > [class^='icon-'],
+  > [class*=' icon-'] {
+    margin-left: -4px;
+    vertical-align: -0.2em;
+  }
+
+  &.ant-btn-circle {
+    width: 36px;
+  }
+
+  &:hover,
+  &:focus {
+    color: @theme;
+    background-color: transparent;
+    border-color: @theme;
+  }
+
+  &.ant-btn-primary {
+    color: @mft-10-cls;
+    background-color: @theme;
+    border-color: @theme;
+
+    &.ant-btn-background-ghost {
+      color: @theme;
+    }
+
+    &:hover {
+      background-color: @mbg-1-hv-cls;
+    }
+  }
+
+  &.ant-btn-danger {
+    color: @mft-10-cls;
+    background-color: @alarm;
+    border-color: @alarm;
+
+    &.ant-btn-background-ghost {
+      color: @alarm;
+    }
+
+    &:hover {
+      background-color: @mbg-4-hv-cls;
+    }
+  }
+
+  &.ant-btn-link {
+    color: @theme;
+    border: none;
+
+    &.ant-btn-background-ghost {
+      color: @mft-2-cls;
+
+      &:hover {
+        color: @theme;
+      }
+    }
+  }
+
+  &.ant-btn-lg {
+    height: 42px;
+
+    &.ant-btn-circle {
+      width: 42px;
+    }
+  }
+
+  &.ant-btn-sm {
+    height: 28px;
+
+    &.ant-btn-circle {
+      width: 28px;
+    }
+  }
+}
+
+button.ant-btn[disabled],
+button.ant-btn[disabled].ant-btn-primary {
+  color: @mft-4-cls;
+  // 失效按钮
+  background-color: @mbg-11-cls;
+  border-color: @mbd-1-cls;
+}
+
+.ant-btn-group {
+  // 组合按钮
+  .ant-btn:focus {
+    color: @mft-1-cls;
+    background-color: @theme;
+  }
+}

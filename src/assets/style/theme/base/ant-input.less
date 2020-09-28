@@ -1,0 +1,141 @@
+//文本框
+textarea {
+  color: @mft-2-cls;
+  font-size: 14px;
+  background: @mbg-2-cls;
+  border: 1px solid @mbd-1-cls;
+  outline: none;
+}
+
+textarea:hover,
+textarea:focus {
+  color: @mft-1-cls;
+  border-color: @mbd-1-hv-cls;
+}
+
+//输入框
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: @mft-3-cls !important;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: @mft-3-cls !important;
+}
+
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: @mft-3-cls !important;
+}
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: @mft-3-cls !important;
+}
+
+input {
+  color: @mft-2-cls;
+  font-size: 14px;
+  font-family: PingFangSC-Regular;
+  background: @mbg-2-cls;
+  border: 1px solid @mbd-1-cls;
+  outline: none;
+}
+
+.ant-input-disabled,
+.ant-input-disabled:hover,
+.ant-input-disabled:focus {
+  background: @mbg-11-cls;
+  border-color: @mbd-1-cls !important;
+}
+
+.ant-input:focus,
+.ant-input:hover,
+input:hover {
+  color: @mft-1-cls;
+  border: 1px solid @mbd-1-hv-cls;
+}
+
+.ant-input-search {
+  .ant-input-search-icon {
+    color: @mft-2-cls;
+  }
+}
+//数字输入框
+.ant-input-number {
+  background-color: @mbg-2-cls;
+  border: 1px solid @mbd-1-cls;
+
+  .ant-input-number-input {
+    color: @mft-3-cls;
+    border: none;
+  }
+
+  .ant-input-number-input:focus {
+    color: @mft-1-cls;
+  }
+
+  .ant-input-number-handler-wrap {
+    background: transparent;
+    border-left: 0;
+
+    .ant-input-number-handler-up,
+    .ant-input-number-handler-down {
+      border: 0;
+
+      i {
+        color: @mft-2-cls;
+      }
+    }
+  }
+
+  .ant-input-number-input-wrap:focus {
+    border-color: @mbd-1-av-cls;
+  }
+}
+
+.ant-input-number-focused {
+  box-shadow: none;
+}
+
+.ant-input-number:hover,
+.ant-input-number:focus {
+  color: @mft-1-cls;
+  border-color: @mbd-1-hv-cls;
+
+  .ant-input-number-input {
+    color: @mft-1-cls;
+  }
+
+  .ant-input-number-handler-wrap {
+    background: transparent;
+    border-left: 0;
+
+    .ant-input-number-handler-up,
+    .ant-input-number-handler-down {
+      border-color: @mbd-1-cls;
+
+      i {
+        color: @mft-1-cls;
+      }
+    }
+  }
+}
+
+.ant-input-number-disabled,
+.ant-input-number-disabled:hover {
+  background: @mbg-11-cls;
+  border: 1px solid @mbd-1-cls;
+
+  .ant-input-number-input,
+  .ant-input-number-input:hover {
+    color: @mft-4-cls;
+    background: transparent;
+    border-color: @mbd-1-cls;
+  }
+}
+
+.ant-input-search:hover .ant-input {
+  border-color: @mbd-1-hv-cls;
+}

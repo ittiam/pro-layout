@@ -1,0 +1,41 @@
+.ant-collapse {
+  color: @mft-2-cls;
+  background-color: @mbg-3-cls;
+  border: 0;
+
+  .ant-collapse-item:not(:last-child) {
+    border-bottom: 0.083333rem solid @mbd-2-cls;
+  }
+
+  .ant-collapse-item:last-child {
+    border-bottom: 0 solid @mbd-2-cls;
+  }
+
+  .ant-collapse-item {
+    .ant-collapse-header {
+      color: @mft-2-cls;
+    }
+  }
+
+  .ant-collapse-item-disabled {
+    .ant-collapse-header {
+      color: @mft-4-cls;
+    }
+  }
+
+  .ant-collapse-content {
+    color: @mft-3-cls;
+    background: @mbg-2-cls;
+    border-top: 0;
+  }
+}
+/*无边框折叠面板重置*/
+.ant-collapse-borderless {
+  background: @mbg-2-cls;
+
+  .ant-collapse-item {
+    .ant-collapse-header {
+      background: @mbg-2-cls;
+    }
+  }
+}

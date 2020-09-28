@@ -1,0 +1,45 @@
+.ant-card {
+  background: @mbg-3-cls;
+  border: 0.083333rem solid @mbg-3-cls;
+
+  .ant-card-body {
+    color: @mft-3-cls !important;
+    font-size: @fs16;
+
+    p {
+      color: @mft-3-cls !important;
+    }
+  }
+
+  .ant-card-head {
+    color: @mft-1-cls;
+    font-size: @fs20;
+    border-bottom: 0.083333rem solid @mbd-2-cls;
+  }
+
+  &.ant-card-contain-tabs {
+    .ant-card-head {
+      .ant-tabs-bar {
+        border-bottom: 0 solid transparent;
+      }
+
+      .ant-tabs-tab-active {
+        color: @mft-3-av-cls;
+      }
+
+      .ant-tabs-ink-bar {
+        background-color: @mbd-1-av-cls;
+      }
+    }
+
+    .ant-card-body {
+      background: @mbg-2-cls;
+    }
+  }
+
+  .ant-card-extra {
+    a {
+      color: @theme;
+    }
+  }
+}

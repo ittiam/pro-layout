@@ -1,0 +1,173 @@
+//选择器
+.ant-select-selection {
+  color: @mft-2-cls;
+  background: @mbg-2-cls;
+  border: 1px solid @mbd-1-cls;
+  box-shadow: none;
+
+  .ant-select-selection__clear {
+    color: @mft-3-cls;
+    background: transparent;
+  }
+
+  .ant-select-arrow {
+    color: @mft-3-cls;
+  }
+
+  //多选样式
+  .ant-select-selection__choice {
+    color: @mft-1-cls;
+    background-color: @mbg-1-cls; //待定
+    border: none;
+    border-radius: 4px;
+
+    i {
+      color: @mft-3-cls;
+    }
+  }
+
+  .ant-select-search__field {
+    border: none;
+  }
+}
+
+.ant-select-selection:focus,
+.ant-select-selection:hover,
+.ant-select-open,
+.ant-select-focused {
+  color: @mft-1-cls;
+  border-color: @mbd-1-hv-cls;
+}
+
+//选择器失效样式
+.ant-select-disabled {
+  > div {
+    color: @mft-4-cls;
+    background-color: @mbg-11-cls;
+  }
+
+  > div:hover {
+    color: @mft-4-cls;
+    border-color: @mbd-1-cls;
+  }
+}
+
+//选择下拉
+.ant-select-dropdown {
+  background: @mbg-10-cls;
+  //选择器下拉框
+  .ant-select-dropdown-menu {
+    //普通
+    .ant-select-dropdown-menu-item {
+      color: @mft-2-cls;
+      font-size: 12px;
+    }
+    //悬浮
+    .ant-select-dropdown-menu-item:hover {
+      color: @theme;
+      background: transparent;
+    }
+    //选中
+    .ant-select-dropdown-menu-item-selected {
+      color: @mft-1-cls;
+      font-weight: normal;
+      background: @mbg-1-av-cls;
+    }
+    //禁用
+    .ant-select-dropdown-menu-item-disabled,
+    .ant-select-dropdown-menu-item-disabled:hover {
+      color: @mft-4-cls;
+      background: @mbg-11-cls;
+    }
+  }
+
+  input {
+    color: @mft-1-cls;
+    font-size: 14px;
+    background: transparent;
+    border: 1px solid @mbd-1-cls;
+    outline: none;
+  }
+
+  li {
+    //图标
+    .ant-select-tree-switcher {
+      color: @mft-2-cls;
+    }
+
+    .ant-select-tree-node-content-wrapper {
+      color: @mft-2-cls !important;
+    }
+
+    //选中
+    .ant-cascader-menu-item-active {
+      color: @mft-1-cls;
+      background: @mbg-1-av-cls;
+      box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+
+      .ant-cascader-menu-item-expand-icon {
+        color: @mft-1-cls !important;
+      }
+    }
+
+    .ant-select-tree-node-content-wrapper:hover {
+      color: @theme !important;
+      background: transparent !important;
+    }
+  }
+
+  .ant-select-tree {
+    li {
+      //选中
+      .ant-select-tree-checkbox-checked .ant-select-tree-checkbox-inner {
+        color: @mft-1-cls;
+        background: @theme;
+        border-color: @theme;
+      }
+      //禁用
+      .ant-select-tree-checkbox-disabled .ant-select-tree-checkbox-inner {
+        border: 1px solid @mbd-1-cls !important;
+      }
+
+      .ant-select-tree-node-selected {
+        color: @mft-1-cls !important;
+        background-color: @mbg-10-cls !important;
+      }
+
+      .ant-select-tree-checkbox-inner {
+        background-color: transparent;
+        border: 1px solid @mbd-1-cls;
+        border-radius: 4px;
+      }
+
+      .ant-select-tree-checkbox-indeterminate {
+        .ant-select-tree-checkbox-inner {
+          background-color: @theme;
+          border-color: @theme;
+        }
+
+        .ant-select-tree-checkbox-inner::after {
+          width: 60%;
+          height: 2px;
+          background-color: #fff;
+        }
+      }
+    }
+
+    .li.ant-select-tree-treenode-disabled > span:not(.ant-select-tree-switcher),
+    li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper,
+    li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper span {
+      color: @mft-4-cls;
+    }
+  }
+  //选择器搜索框
+  .ant-select-dropdown-search {
+    .ant-select-search__field {
+      border-color: @mbd-1-cls;
+    }
+  }
+}
+
+.ant-select-dropdown-menu-item-active {
+  background: @mbg-10-cls;
+}

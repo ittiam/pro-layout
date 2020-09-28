@@ -1,0 +1,479 @@
+.ant-calendar-picker:focus .ant-calendar-picker-input:not(.ant-input-disabled) {
+  border: 1px solid @mbd-1-cls;
+  box-shadow: none;
+}
+//日期选择
+.ant-calendar-picker,
+.ant-calendar-picker:hover {
+  background-color: @mbg-2-cls;
+
+  .ant-calendar-picker-icon {
+    color: @mft-3-cls;
+  }
+
+  .ant-calendar-picker-clear {
+    color: @mft-3-cls;
+    background: transparent;
+  }
+
+  .ant-calendar-range-picker-separator {
+    color: @mft-3-cls;
+  }
+
+  .ant-calendar-picker-input {
+    color: @mft-2-cls;
+    background: @mbg-2-cls;
+    border: 1px solid @mbd-1-cls;
+    box-shadow: none;
+
+    .ant-calendar-range-picker-input {
+      color: @mft-2-cls;
+      border: none;
+    }
+  }
+
+  .ant-calendar-picker-input:hover,
+  .ant-calendar-picker-input:focus {
+    color: @mft-1-cls;
+    border: 1px solid @mbd-1-hv-cls !important;
+
+    .ant-calendar-range-picker-input {
+      color: @mft-1-cls;
+    }
+
+    .ant-calendar-range-picker-separator {
+      color: @mft-1-cls;
+    }
+  }
+
+  .ant-input-disabled,
+  .ant-input-disabled:hover {
+    color: @mft-4-cls;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0;
+    background: @mbg-11-cls;
+    border: 1px solid @mbd-1-cls !important;
+
+    .ant-calendar-range-picker-input {
+      color: @mft-4-cls;
+      background: transparent;
+    }
+
+    .ant-calendar-range-picker-separator {
+      color: @mft-4-cls;
+    }
+  }
+}
+
+//日期选择
+.ant-calendar-picker-container {
+  background: @mbg-9-cls;
+
+  input {
+    border: none;
+  }
+  //日期
+  .ant-calendar {
+    background: transparent;
+    border: 0;
+
+    .ant-calendar-input-wrap {
+      border-bottom: 1px solid @mbd-5-cls;
+
+      .ant-calendar-input {
+        color: @mft-2-cls;
+        background: transparent;
+      }
+    }
+
+    .ant-calendar-range-middle {
+      color: @mft-2-cls;
+    }
+    //时间段选择的底部样式设置
+    .ant-calendar-footer {
+      border-top: 1px solid @mbd-5-cls;
+
+      .ant-calendar-footer-btn {
+        a:not(.ant-calendar-time-picker-btn-disabled) {
+          color: @theme;
+        }
+
+        a.ant-calendar-time-picker-btn-disabled {
+          color: @mft-4-cls;
+        }
+
+        .ant-calendar-ok-btn {
+          font-size: 14px;
+          line-height: 24px;
+          border: none;
+
+          &:not(.ant-calendar-ok-btn-disabled) {
+            color: @mft-10-cls;
+            background: @theme;
+          }
+
+          &.ant-calendar-ok-btn-disabled {
+            color: @mft-4-cls;
+            background: @mbg-11-cls;
+          }
+        }
+      }
+    }
+
+    .ant-calendar-today {
+      .ant-calendar-date {
+        color: @theme;
+        font-weight: normal;
+        border-color: @theme;
+        border-radius: 4px;
+      }
+    }
+
+    .ant-calendar-in-range-cell::before {
+      background: @mbg-2-av-cls !important;
+    }
+
+    .ant-calendar-in-range-cell {
+      background: @mbg-2-av-cls;
+
+      .ant-calendar-date {
+        background-color: @mbg-2-av-cls !important;
+      }
+    }
+  }
+  //时间选择容器
+  .ant-calendar-date-panel {
+    color: @mft-3-cls;
+    background: @mbg-9-cls;
+
+    a {
+      color: @mft-2-cls;
+    }
+
+    > div,
+    .ant-calendar-body {
+      border-color: @mbd-5-cls;
+    }
+
+    input {
+      border: none;
+    }
+
+    .ant-calendar-date {
+      color: @mft-2-cls;
+    }
+
+    .ant-calendar-date:hover {
+      color: @theme;
+      background: @mbg-6-hv-cls;
+    }
+
+    .ant-calendar-selected-date,
+    .ant-calendar-selected-day {
+      .ant-calendar-date {
+        color: #fff;
+        background: @theme;
+      }
+    }
+
+    .ant-calendar-in-range-cell::before {
+      background: @mbg-9-cls;
+    }
+
+    .ant-calendar-in-range-cell {
+      .ant-calendar-date {
+        background: @mbg-9-cls;
+      }
+    }
+
+    .ant-calendar-disabled-cell {
+      .ant-calendar-date {
+        color: @mft-4-cls;
+        background: transparent;
+      }
+
+      .ant-calendar-date,
+      .ant-calendar-date::before {
+        border: none;
+      }
+    }
+
+    .ant-calendar-footer {
+      .ant-calendar-footer-btn {
+        a {
+          color: @theme;
+        }
+
+        .ant-calendar-ok-btn {
+          color: #fff;
+          font-size: 14px;
+          background: @theme;
+          border: none;
+        }
+      }
+    }
+
+    .ant-calendar-header {
+      background: @mbg-9-cls;
+
+      > div {
+        z-index: 10;
+      }
+    }
+
+    .ant-calendar-time-picker-inner {
+      background: @mbg-9-cls !important;
+      border-color: @mbd-5-cls;
+      //时间选择的容器div
+      .ant-calendar-time-picker-select {
+        border-color: @mbd-5-cls;
+
+        li {
+          color: @mft-3-cls;
+          font-size: 12px;
+          font-family: PingFangSC-Regular;
+          line-height: 18px;
+          background: @mbg-9-cls;
+          border-radius: 4px;
+          border-radius: 4px;
+        }
+
+        li:hover {
+          color: @mft-1-cls;
+          background: @mbg-6-hv-cls;
+        }
+
+        .ant-calendar-time-picker-select-option-selected {
+          color: @mft-1-cls;
+          font-weight: normal;
+          font-size: 12px;
+          background: @mbg-3-av-cls;
+        }
+      }
+
+      .ant-calendar-time-picker-combobox {
+        background: @mbg-9-cls;
+        border-color: @mbd-5-cls;
+
+        .ant-calendar-time-picker-select {
+          border-color: @mbd-5-cls;
+        }
+      }
+
+      .ant-calendar-time-picker-input-wrap {
+        background: @mbg-9-cls;
+
+        .ant-calendar-time-picker-input {
+          background: transparent;
+        }
+      }
+    }
+  }
+}
+//年份选择
+.ant-calendar-year-panel {
+  background-color: @mbg-10-cls;
+
+  a {
+    color: @mft-2-cls;
+  }
+
+  .ant-calendar-year-panel-header,
+  .ant-calendar-year-panel-body {
+    border-color: @mbd-5-cls;
+  }
+  //悬停状态
+  .ant-calendar-year-panel-year:hover {
+    color: @theme;
+    background: @mbg-6-hv-cls;
+  }
+
+  //选中状态
+  .ant-calendar-year-panel-selected-cell {
+    .ant-calendar-year-panel-year {
+      color: #fff;
+      background: @theme;
+    }
+  }
+  //失效状态
+  .ant-calendar-year-panel-cell-disabled {
+    .ant-calendar-year-panel-year {
+      color: @mft-4-cls;
+      background: transparent;
+    }
+  }
+}
+//深度的日历
+.ant-calendar-decade-panel {
+  background-color: @mbg-10-cls;
+
+  a,
+  .ant-calendar-decade-panel-century {
+    color: @mft-2-cls;
+  }
+
+  .ant-calendar-decade-panel-header {
+    border-color: @mbd-5-cls;
+  }
+  //悬停状态
+  .ant-calendar-decade-panel-decade:hover {
+    color: @theme;
+    background: @mbg-6-hv-cls;
+  }
+
+  //选中状态
+  .ant-calendar-decade-panel-selected-cell {
+    .ant-calendar-decade-panel-decade {
+      color: #fff;
+      background: @theme;
+    }
+  }
+}
+//月份
+.ant-calendar-month-panel {
+  color: @mft-3-cls;
+  background-color: @mbg-10-cls;
+
+  a {
+    color: @mft-2-cls;
+  }
+
+  .ant-calendar-month-panel-header,
+  .ant-calendar-month-panel-body {
+    border-color: @mbd-5-cls;
+  }
+
+  //悬停状态
+  .ant-calendar-month-panel-month:hover {
+    color: @theme;
+    background: @mbg-6-hv-cls;
+  }
+
+  //选中状态
+  .ant-calendar-month-panel-selected-cell {
+    .ant-calendar-month-panel-month {
+      color: #fff;
+      background: @theme;
+    }
+  }
+  //失效状态
+  .ant-calendar-month-panel-cell-disabled {
+    .ant-calendar-month-panel-month {
+      color: @mft-4-cls;
+      background: transparent;
+    }
+  }
+}
+
+.ant-fullcalendar-calendar-body {
+  // 月日历
+  .ant-fullcalendar-table {
+    background-color: @mbg-2-cls;
+
+    thead {
+      tr {
+        background-color: @mbg-2-cls;
+
+        .ant-fullcalendar-column-header {
+          height: 24px;
+          margin: 0 0.8333rem 0 0;
+          padding-right: 0.8333rem;
+          padding-bottom: 0;
+          color: @mft-2-cls;
+          line-height: 24px;
+          background-color: @mbg-2-av-cls;
+          background-clip: content-box;
+
+          .ant-fullcalendar-column-header-inner {
+            height: 100%;
+            color: @mft-2-cls;
+            font-size: @fs14;
+          }
+        }
+      }
+    }
+
+    .ant-fullcalendar-date {
+      margin: 0 0.8333rem 0 0;
+      border-top: 0.166667rem solid @mbd-5-cls;
+
+      .ant-fullcalendar-value {
+        color: @mft-2-cls;
+      }
+
+      &:hover {
+        background: @mbg-11-hv-cls;
+        border-top: 0.166667rem solid @theme;
+      }
+    }
+
+    .ant-fullcalendar-last-month-cell {
+      .ant-fullcalendar-value {
+        color: @mft-4-cls;
+      }
+    }
+
+    .ant-fullcalendar-selected-day {
+      .ant-fullcalendar-date {
+        background: @mbg-11-hv-cls;
+        border-top: 0.166667rem solid @theme;
+
+        .ant-fullcalendar-value {
+          color: @mft-2-cls;
+        }
+      }
+    }
+
+    .ant-fullcalendar-today {
+      .ant-fullcalendar-date {
+        background-color: @mbg-2-cls;
+
+        &:hover {
+          background: @mbg-11-hv-cls;
+          border-top: 0.166667rem solid @theme;
+        }
+      }
+    }
+  }
+  // 年日历
+  .ant-fullcalendar-month-panel-selected-cell {
+    .ant-fullcalendar-month {
+      background-color: @mbg-2-cls !important;
+      border-top: 0.166667rem solid @theme !important;
+
+      .ant-fullcalendar-value {
+        color: @theme !important;
+      }
+    }
+  }
+
+  .ant-fullcalendar-month-panel-table {
+    background-color: @mbg-2-cls;
+
+    .ant-fullcalendar-month-panel-cell {
+      .ant-fullcalendar-month {
+        border-top: 0.166667rem solid @mbd-5-cls;
+
+        .ant-fullcalendar-value {
+          color: @mft-2-cls;
+        }
+      }
+    }
+  }
+
+  .ant-fullcalendar-month:hover {
+    background: @mbg-11-hv-cls !important;
+    border-top: 0.166667rem solid @theme !important;
+  }
+  // 日历事项
+  .ant-fullcalendar-content {
+    .events {
+      .ant-badge {
+        .ant-badge-status-text {
+          color: @mft-2-cls;
+        }
+      }
+    }
+  }
+}

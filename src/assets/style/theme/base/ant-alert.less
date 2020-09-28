@@ -1,0 +1,45 @@
+.ant-alert-success,
+.ant-alert-info,
+.ant-alert-warning,
+.ant-alert-error {
+  &.ant-alert {
+    height: 49px;
+    padding-left: 73px;
+    font-size: @fs14;
+    line-height: 2.5;
+    background-color: @mbg-10-cls;
+    border: none;
+
+    .ant-alert-icon {
+      top: 14px;
+      left: 40px;
+      font-size: 22px;
+    }
+
+    .ant-alert-close-icon {
+      top: 15px;
+
+      .anticon-close {
+        color: @mft-3-cls;
+        font-size: 24px;
+      }
+    }
+
+    .ant-alert-message {
+      color: @mft-1-cls;
+    }
+
+    .ant-alert-description {
+      color: @mft-3-cls;
+    }
+
+    &.ant-alert-with-description {
+      height: 72px;
+      line-height: unset;
+
+      .ant-alert-icon {
+        top: 17px;
+      }
+    }
+  }
+}

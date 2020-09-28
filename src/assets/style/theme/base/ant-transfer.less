@@ -1,0 +1,63 @@
+//穿梭框
+.ant-transfer {
+  //两边的框
+  .ant-transfer-list {
+    color: @mft-3-cls;
+    background: @mbg-9-cls;
+    border: 0;
+    border-radius: 0;
+
+    .ant-transfer-list-header {
+      color: @mft-2-cls;
+      background: @mbg-9-cls;
+      border-top: 1px solid @mbd-5-cls;
+
+      .ant-checkbox-inner {
+        background-color: @mbg-9-cls;
+      }
+
+      .ant-checkbox-indeterminate {
+        .ant-checkbox-inner {
+          background-color: @theme;
+        }
+      }
+    }
+
+    .ant-transfer-list-body {
+      background: @mbg-9-cls;
+      border-top: 1px solid @mbd-5-cls;
+
+      .ant-checkbox-inner {
+        background-color: @mbg-9-cls;
+      }
+
+      .ant-transfer-list-content {
+        > .LazyLoad {
+          font-size: 12px;
+          line-height: 18px;
+          background: @mbg-9-cls;
+        }
+
+        > .LazyLoad:hover {
+          color: @theme;
+          background: @mbg-5-hv-cls;
+        }
+
+        .ant-transfer-list-content-item-disabled {
+          color: @mft-4-cls;
+          font-family: PingFangSC-Regular;
+          letter-spacing: 0;
+          background: @mbg-11-cls;
+        }
+
+        .ant-checkbox-wrapper-checked + span {
+          color: @mft-1-cls;
+        }
+      }
+
+      .ant-transfer-list-content-item:not(.ant-transfer-list-content-item-disabled):hover {
+        background: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+//级联选择
+
+.ant-cascader-picker {
+  color: @mft-3-cls;
+  background: transparent;
+  border: none;
+
+  .ant-cascader-picker-arrow {
+    color: @mft-3-cls;
+  }
+
+  .ant-cascader-picker-clear {
+    color: @mft-3-cls;
+    background: transparent;
+  }
+
+  .ant-cascader-picker-label {
+    font-size: 14px;
+  }
+}
+
+.ant-cascader-picker:focus,
+.ant-cascader-picker:hover {
+  .ant-cascader-input {
+    border-color: @mbd-1-av-cls;
+  }
+
+  span {
+    color: @mft-1-cls;
+    outline: none;
+  }
+}
+
+.ant-cascader-picker-disabled:hover span,
+.ant-cascader-picker-disabled span {
+  color: @mft-4-cls;
+}
+
+//级联选择的下拉框
+.ant-cascader-menus {
+  background: @mbg-10-cls;
+
+  .ant-cascader-menu {
+    border-right: @mbd-2-cls;
+  }
+
+  .ant-cascader-menu-item {
+    color: @mft-2-cls;
+    font-size: 12px !important;
+
+    span {
+      color: @mft-2-cls;
+    }
+  }
+
+  .ant-cascader-menu-item:hover {
+    color: @theme;
+    background: transparent;
+
+    span {
+      color: @theme;
+    }
+  }
+
+  .ant-cascader-menu-item-active {
+    color: @mft-1-cls;
+    font-weight: normal;
+    background: @mbg-1-av-cls;
+  }
+
+  .ant-cascader-menu-item-disabled,
+  .ant-cascader-menu-item-disabled:hover {
+    color: @mft-4-cls;
+    background: @mbg-11-cls;
+  }
+}

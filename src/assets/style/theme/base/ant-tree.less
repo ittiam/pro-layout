@@ -1,0 +1,333 @@
+.ant-tree {
+  background-color: @mbg-7-cls !important;
+
+  .ant-tree-title {
+    color: @mft-11-cls;
+  }
+
+  li {
+    padding: 0;
+    color: @mft-1-cls;
+
+    .ant-tree-treenode-checkbox-checked {
+      .ant-tree-checkbox {
+        .ant-tree-checkbox-inner {
+          background-color: transparent;
+        }
+      }
+    }
+
+    .ant-tree-switcher-icon {
+      color: @mic-1-cls;
+    }
+
+    .ant-tree-iconEle {
+      color: @mic-1-cls;
+    }
+    //选择框样式
+    .ant-tree-checkbox {
+      .ant-tree-checkbox-inner {
+        background-color: transparent;
+        border: 1px solid @theme;
+      }
+    }
+    //半选中状态
+    .ant-tree-checkbox-indeterminate {
+      .ant-tree-checkbox-inner {
+        background-color: transparent;
+        border-color: @theme !important;
+      }
+
+      .ant-tree-checkbox-inner::after {
+        width: 0.366667rem;
+        height: 2px;
+        background-color: @theme;
+        border-radius: 0.166667rem;
+      }
+    }
+    //禁用
+    .ant-tree-checkbox-disabled {
+      + span {
+        cursor: not-allowed;
+
+        .ant-tree-title {
+          color: @mft-4-cls;
+        }
+
+        &:hover {
+          .ant-tree-title {
+            color: @mft-4-cls;
+          }
+        }
+      }
+
+      &.ant-tree-checkbox-checked {
+        background-color: @mbg-11-cls !important;
+      }
+
+      .ant-tree-checkbox-inner {
+        color: @mft-4-cls;
+        background-color: @mbg-11-cls !important;
+        border-color: @mbd-1-cls;
+      }
+    }
+
+    &.ant-tree-treenode-disabled {
+      > span:not(.ant-tree-switcher) {
+        color: @mft-4-cls;
+        cursor: not-allowed;
+
+        &:hover {
+          color: @mft-4-cls;
+        }
+
+        &.ant-tree-checkbox-disabled .ant-tree-checkbox-inner {
+          background-color: @mbg-11-cls;
+          border: 0.083333rem solid @mbd-1-cls !important; // 边框色
+        }
+      }
+
+      > .ant-tree-node-content-wrapper {
+        color: @mft-4-cls;
+        cursor: not-allowed;
+
+        &.ant-tree-checkbox-disabled .ant-tree-checkbox-inner {
+          background-color: @mbg-11-cls;
+          border: 0.083333rem solid @mbd-1-cls !important; // 边框色
+        }
+
+        span {
+          color: @mft-4-cls;
+          cursor: not-allowed;
+
+          &.ant-tree-checkbox-disabled .ant-tree-checkbox-inner {
+            background-color: @mbg-11-cls;
+            border: 0.083333rem solid @mbd-1-cls !important; // 边框色
+          }
+        }
+
+        &:hover {
+          .ant-tree-title {
+            color: @mft-4-cls !important;
+          }
+        }
+      }
+    }
+
+    .ant-tree-checkbox-disabled {
+      border-color: @mbd-1-cls !important;
+    }
+
+    .ant-tree-treenode-disabled {
+      .ant-tree-checkbox-checked {
+        .ant-tree-checkbox-inner::after {
+          border-color: #495057;
+          border-radius: 0.166667rem;
+        }
+      }
+    }
+    //选中状态
+    .ant-tree-checkbox-checked {
+      background-color: @theme;
+      border-color: @theme !important;
+      border-radius: 0.166667rem;
+    }
+
+    .ant-tree-title {
+      color: @mft-11-cls;
+    }
+
+    .ant-tree-node-content-wrapper:hover {
+      background: none;
+
+      .ant-tree-title {
+        color: @mft-3-hv-cls;
+      }
+    }
+
+    .ant-tree-node-selected {
+      background-color: transparent !important;
+
+      .ant-tree-title {
+        color: @mft-4-av-cls;
+      }
+    }
+  }
+  //目录型树型控件
+  &.ant-tree-directory {
+    .ant-tree-title {
+      color: @mft-11-cls;
+    }
+    // .ant-tree-iconEle {
+    // 	color: @theme !important;
+    // }
+    // 一级状态
+    > li {
+      > span {
+        &.ant-tree-node-content-wrapper {
+          &:hover {
+            .ant-tree-title {
+              color: @mft-3-hv-cls !important;
+            }
+          }
+
+          &::before {
+            height: 40px;
+            background: @mbg-13-hv-cls;
+          }
+          // 选中状态下的标题和icon
+          &.ant-tree-node-selected {
+            &:hover {
+              .ant-tree-title {
+                color: @mft-3-hv-cls !important;
+              }
+            }
+          }
+        }
+      }
+      // 选中状态
+      &.ant-tree-treenode-selected {
+        > span {
+          &.ant-tree-node-content-wrapper::before {
+            background-color: @mbg-6-av-cls;
+            border-right: 2px solid @mbd-6-cls;
+          }
+
+          &.ant-tree-checkbox {
+            &.ant-tree-checkbox-checked {
+              &::after {
+                border-color: white;
+              }
+
+              &.ant-tree-checkbox-inner {
+                &::after {
+                  border-color: white;
+                }
+              }
+
+              &.ant-tree-checkbox-checked {
+                .ant-tree-checkbox-inner {
+                  background-color: @theme;
+                  border-color: @theme !important;
+
+                  &::after {
+                    border-color: white !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      //失效状态
+      &.ant-tree-treenode-disabled {
+        > span {
+          &.ant-tree-node-content-wrapper {
+            &::before {
+              background-color: @mbg-7-cls !important;
+            }
+
+            .ant-tree-title {
+              color: @mft-4-cls !important;
+            }
+
+            .ant-tree-iconEle {
+              color: @mft-4-cls !important;
+            }
+          }
+        }
+      }
+    }
+    //二级及以下状态
+    .ant-tree-child-tree {
+      > li {
+        span {
+          // 悬浮状态
+          &.ant-tree-node-content-wrapper {
+            &:hover {
+              .ant-tree-title {
+                color: @mft-3-hv-cls !important;
+              }
+
+              &::before {
+                background: @mbg-13-hv-cls;
+              }
+            }
+          }
+        }
+        //选中状态
+        &.ant-tree-treenode-selected {
+          > span {
+            &.ant-tree-node-content-wrapper {
+              &:hover {
+                .ant-tree-title {
+                  color: @mft-4-av-cls !important;
+                }
+              }
+
+              &::before {
+                background-color: @mbg-6-av-cls;
+                border-right: 2px solid @mbd-6-cls;
+              }
+            }
+            //选中状态下的选框边框状态
+            &.ant-tree-checkbox {
+              .ant-tree-checkbox-inner {
+                border: 0.083333rem solid @theme !important;
+              }
+
+              &.ant-tree-checkbox-checked {
+                .ant-tree-checkbox-inner {
+                  background: @theme;
+                  border-right: 2px solid @mbd-6-cls;
+
+                  &::after {
+                    border-color: white;
+                  }
+                }
+              }
+            }
+          }
+        }
+        //失效状态
+        &.ant-tree-treenode-disabled {
+          .ant-tree-node-content-wrapper {
+            &::before {
+              background-color: @mbg-7-cls !important;
+            }
+
+            .ant-tree-title {
+              color: @mft-4-cls !important;
+            }
+
+            .ant-tree-iconEle {
+              color: @mft-4-cls !important;
+            }
+
+            &:hover {
+              .ant-tree-title {
+                color: @mft-4-cls !important;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    li {
+      > span {
+        vertical-align: middle;
+
+        &.ant-tree-node-content-wrapper {
+          width: calc(100% - 40px);
+          height: 40px;
+          line-height: 40px;
+
+          &::before {
+            height: 40px;
+          }
+        }
+      }
+    }
+  }
+}

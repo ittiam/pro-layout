@@ -1,0 +1,359 @@
+.ant-table {
+  td {
+    vertical-align: middle !important;
+  }
+}
+
+.ant-table-content {
+  background: @mbg-2-cls;
+
+  .ant-table-header {
+    background: @mbg-3-cls;
+    scrollbar-color: transparent transparent;
+
+    ::-webkit-scrollbar {
+      background-color: transparent;
+    }
+
+    .ant-table-thead tr th {
+      padding: 10px 8px;
+      color: @mft-5-cls;
+      font-size: @fs12;
+      border-bottom-color: transparent;
+    }
+
+    .ant-table-thead {
+      background: @mbg-3-cls !important;
+    }
+
+    .ant-table-fixed {
+      background: @mbg-2-cls;
+    }
+  }
+
+  .ant-table-body {
+    .ant-table-tbody {
+      color: @mft-1-cls;
+      background: @mbg-2-cls;
+
+      tr {
+        td {
+          padding: 8px 8px;
+          font-size: @fs12;
+          border-bottom: 0 solid @mbd-1-cls;
+        }
+      }
+
+      tr.ant-table-expanded-row {
+        background-color: @mbg-10-cls !important;
+
+        td {
+          color: @mft-3-cls;
+        }
+      }
+
+      > tr:hover {
+        background: @mbg-8-hv-cls;
+
+        > td {
+          background: transparent;
+        }
+      }
+    }
+  }
+}
+
+.ant-table-wrapper {
+  .ant-checkbox-wrapper {
+    padding: 0 !important;
+
+    .ant-checkbox-indeterminate {
+      .ant-checkbox-inner {
+        background: @theme;
+      }
+    }
+  }
+}
+/*固定表格样式 */
+.ant-table-fixed-left {
+  box-shadow: 0.5rem 0 0.5rem -0.333333rem rgba(0, 0, 0, 0.15);
+}
+
+.ant-table-fixed-right {
+  box-shadow: -0.5rem 0 0.5rem -0.333333rem rgba(0, 0, 0, 0.15);
+}
+
+.ant-table-fixed-left,
+.ant-table-fixed-right {
+  table {
+    background-color: @mbg-2-cls;
+
+    .ant-table-thead {
+      tr {
+        th {
+          padding: 10px 8px;
+        }
+      }
+    }
+
+    tr {
+      td {
+        padding: 8px 8px;
+        color: @mft-1-cls;
+        font-size: @fs12;
+        border-bottom: 0 solid @mbd-1-cls;
+      }
+
+      &:nth-child(even) {
+        background: @mbg-17-cls;
+      }
+    }
+  }
+}
+
+.ant-table-fixed-header > .ant-table-content > .ant-table-scroll > .ant-table-body {
+  background: @mbg-2-cls;
+}
+
+.ant-table-tbody {
+  > tr {
+    &.ant-table-row-hover > td {
+      background: @mbg-8-hv-cls !important ;
+    }
+
+    &:hover > td {
+      background: @mbg-8-hv-cls !important;
+    }
+
+    &.ant-table-row-selected {
+      td {
+        background: transparent;
+      }
+
+      &:hover {
+        td {
+          background: @mbg-8-hv-cls !important ;
+        }
+
+        &.ant-table-row-hover > td {
+          background: @mbg-8-hv-cls !important;
+        }
+      }
+    }
+  }
+}
+
+.ant-table-tbody tr:nth-child(even) {
+  background: @mbg-17-cls;
+}
+
+.ant-table-header {
+  scrollbar-color: transparent transparent;
+}
+
+  .ant-table-header::-webkit-scrollbar {
+  background-color: transparent;
+}
+
+.ant-table-thead > tr {
+  //&.ant-table-row-hover:not(.ant-table-expanded-row) {
+  //    > td {
+  //        background: @mbg-2-cls!important;
+  //    }
+  //}
+  //&.tr:hover(.ant-table-expanded-row) {
+  //    > td {
+  //        background: @mbg-2-cls;
+  //    }
+  //}
+  th {
+    padding: 10px 8px;
+    color: @mft-5-cls;
+    font-size: @fs12;
+    background: @mbg-3-cls;
+    border-bottom-color: transparent;
+
+    &.ant-table-column-has-actions {
+      &.ant-table-column-has-filters {
+        .anticon-filter {
+          color: @mic-2-cls;
+
+          &.ant-table-filter-open {
+            color: @mic-2-cls;
+            background: @mbg-8-hv-cls;
+          }
+        }
+
+        .ant-table-filter-icon {
+          &.ant-table-filter-open {
+            color: @mic-2-cls;
+            background: @mbg-8-hv-cls;
+          }
+        }
+
+        &:hover {
+          background: @mbg-8-hv-cls;
+          cursor: pointer;
+
+          .anticon-filter {
+            &:hover {
+              color: @mic-2-cls;
+              background: @mbg-8-hv-cls;
+            }
+          }
+        }
+      }
+
+      &.ant-table-column-has-sorters {
+        i {
+          color: @mic-2-cls;
+        }
+
+        &:hover {
+          background: @mbg-8-hv-cls;
+          cursor: pointer;
+
+          .ant-table-column-sorters:hover::before {
+            color: @mft-5-cls;
+            background: transparent !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.ant-table-filter-dropdown-btns {
+  padding: 7px 8px;
+  overflow: hidden;
+  background-color: @mbg-10-cls;
+  border-top: 0 solid transparent;
+}
+
+.ant-table-filter-dropdown-link {
+  color: @theme;
+
+  &:hover {
+    color: @theme;
+  }
+
+  &:active {
+    color: @theme;
+  }
+
+  &.confirm {
+    font-size: @fs12;
+  }
+
+  &.clear {
+    font-size: @fs12;
+  }
+}
+
+.ant-table-filter-dropdown {
+  background: @mbg-9-cls;
+
+  .ant-dropdown-content {
+    background: @mbg-9-cls;
+  }
+}
+
+.ant-table-row-expand-icon {
+  background: transparent;
+}
+
+tr.ant-table-expanded-row td > .ant-table-wrapper {
+  margin: -8px -16px -8px;
+}
+
+.ant-table-scroll table .ant-table-fixed-columns-in-body {
+  overflow: visible !important;
+  font-size: 0 !important;
+}
+/*紧凑型表格*/
+.ant-table-middle {
+  .ant-table-thead {
+    tr th {
+      padding: 9px 9.5px !important;
+    }
+  }
+
+  .ant-table-tbody {
+    tr {
+      td {
+        padding: 9px 9.5px !important;
+      }
+    }
+  }
+}
+
+.ant-table-small {
+  background: @mbg-2-cls;
+  border-color: @mbd-1-cls !important;
+
+  .ant-table-thead {
+    tr th {
+      border-bottom: 0 solid @mbd-1-cls !important;
+    }
+  }
+
+  .ant-table-tbody {
+    tr {
+      :last-child {
+        td {
+          border-bottom: 0 solid @mbd-1-cls;
+        }
+      }
+
+      &:nth-child(odd) {
+        td {
+          background: @mbg-17-cls;
+        }
+      }
+
+      &:nth-child(even) {
+        td {
+          background: @mbg-2-cls;
+        }
+      }
+
+      &:hover {
+        td {
+          background: @mbg-8-hv-cls;
+        }
+      }
+    }
+  }
+}
+
+.ant-table-placeholder {
+  background-color: @mbg-2-cls;
+  border: 0;
+}
+
+.ant-empty-description {
+  color: @mft-2-cls;
+}
+
+/*带边框的表格重置*/
+.ant-table-bordered {
+  .ant-table-header > table,
+  .ant-table-body > table,
+  .ant-table-fixed-left table,
+  .ant-table-fixed-right table {
+    border: 0;
+  }
+
+  .ant-table-thead > tr:not(:last-child) > th {
+    border-bottom-width: 0;
+  }
+
+  .ant-table-thead > tr:last-child > th {
+    border-bottom: 1px solid @mbd-1-cls;
+  }
+
+  .ant-table-thead > tr > th,
+  .ant-table-tbody > tr > td {
+    border-right-width: 0;
+  }
+}

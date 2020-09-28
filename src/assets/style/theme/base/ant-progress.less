@@ -1,0 +1,41 @@
+.ant-progress {
+  .ant-progress-text {
+    color: @mft-3-cls;
+    font-size: @fs12;
+  }
+
+  .ant-progress-bg {
+    background-color: @theme;
+  }
+
+  &.ant-progress-status-exception .ant-progress-bg {
+    background-color: @alarm;
+  }
+
+  &.ant-progress-status-success .ant-progress-bg {
+    background-color: @success;
+  }
+
+  .ant-progress-inner {
+    height: 10px;
+    background-color: @mbg-10-cls;
+
+    .ant-progress-bg {
+      height: 10px !important;
+    }
+  }
+
+  &.ant-progress-small {
+    .ant-progress-text {
+      font-size: @fs10;
+    }
+
+    .ant-progress-inner {
+      height: 6px;
+
+      .ant-progress-bg {
+        height: 6px !important;
+      }
+    }
+  }
+}

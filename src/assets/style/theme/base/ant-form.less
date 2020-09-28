@@ -1,0 +1,27 @@
+//表单
+.ant-form-item {
+  .ant-form-item-label {
+    label {
+      color: @mft-2-cls;
+    }
+  }
+
+  //输入框报错
+  .has-error {
+    border-color: @alarm;
+
+    .ant-input,
+    input,
+    .ant-input:hover,
+    .ant-select-selection,
+    .ant-input-number {
+      border-color: @alarm;
+    }
+
+    .ant-form-explain {
+      color: @alarm;
+      font-size: 12px;
+      font-family: PingFangSC-Regular;
+    }
+  }
+}
