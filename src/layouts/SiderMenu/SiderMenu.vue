@@ -21,7 +21,7 @@
 
     <div class="sidemenu-main">
       <base-menu
-        :theme="theme"
+        :theme="sideTheme"
         :collapsed="collapsed"
         :options="menuData"
         class="menu"
@@ -78,7 +78,7 @@ export default {
   computed: {
     ...mapState('setting', ['isMobile', 'companyName']),
     sideTheme() {
-      return this.theme === 'light' ? this.theme : 'dark';
+      return 'dark';
     }
   },
   methods: {

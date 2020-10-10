@@ -1,10 +1,10 @@
 import * as loginService from '@/api/login';
-import { AdminLayout, BlankLayout, RouteView } from '@/layouts';
+import { AdminLayout, BlankLayout, RouteLayout } from '@/layouts';
 
 const constantRouterComponents = {
   AdminLayout: AdminLayout,
   BlankLayout: BlankLayout,
-  RouteView: RouteView
+  RouteLayout: RouteLayout
 };
 
 // 前端未找到页面路由（固定不用改）

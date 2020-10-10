@@ -25,7 +25,7 @@ export const menu = [
     path: '/breadcrumb'
   },
   {
-    component: 'RouteView',
+    component: 'RouteLayout',
     iconCls: 'icon-wpg_water_quality',
     id: '2',
     parentId: '',

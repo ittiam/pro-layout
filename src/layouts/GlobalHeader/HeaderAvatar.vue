@@ -46,8 +46,8 @@
                 rules: [
                   {
                     required: true,
-                    message: '不能包含空格',
-                    whitespace: true
+                    whitespace: true,
+                    message: '请输入新密码'
                   },
                   {
                     validator: validateToNextPassword
@@ -66,9 +66,8 @@
                 rules: [
                   {
                     required: true,
-                    message: '请确认密码'
+                    message: '请输入确认密码'
                   },
-
                   {
                     validator: compareToFirstPassword
                   }
@@ -87,10 +86,12 @@
 <script>
 import { mapState, mapActions } from 'vuex';
 import { validPassword } from '@/utils/validator';
+
 const formItem = {
   labelCol: { span: 4 },
   wrapperCol: { span: 20 }
 };
+
 export default {
   name: 'HeaderAvatar',
   data() {
@@ -113,6 +114,7 @@ export default {
   },
   methods: {
     ...mapActions('account', ['Logout', 'changePassword']),
+
     handleMenuClick(e) {
       let type = e.key;
       if (type === 'logOut') {
@@ -149,30 +151,34 @@ export default {
       const value = e.target.value;
       this.confirmDirty = this.confirmDirty || !!value;
     },
-    compareToFirstPassword(rule, value, callback) {
+    compareToFirstPassword(rule, v, callback) {
+      const value = v || '';
       const form = this.form;
+
       if (value && value !== form.getFieldValue('newPassword')) {
-        callback('密码输入不一致');
+        callback(new Error('密码输入不一致'));
       } else {
         callback();
       }
     },
-    validateToNextPassword(rule, value, callback) {
+    validateToNextPassword(rule, v, callback) {
+      const value = v || '';
       const form = this.form;
-      if (value.length < 8) {
-        callback(new Error('密码长度需大于等于8'));
-      }
-      if (!validPassword(value)) {
-        callback(new Error('密码必须包含大写小写字母和数字'));
-      }
       if (value && this.confirmDirty) {
         form.validateFields(['renewPassword'], { force: true });
       }
-      callback();
+
+      if (value.length < 8) {
+        callback(new Error('密码长度需大于等于8'));
+      } else if (!validPassword(value)) {
+        callback(new Error('密码必须包含大写小写字母和数字'));
+      } else {
+        callback();
+      }
     },
     // 修改密码
     changePass() {
-      this.form.validateFields((err, values) => {
+      this.form.validateFields({ firstFields: true }, (err, values) => {
         Reflect.deleteProperty(values, 'renewPassword');
         if (!err) {
           this.changePassword({

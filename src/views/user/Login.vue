@@ -1,193 +1,63 @@
-/** * @DATE: 2019-09-02 16:53 * @Version: 0.0.1 * @Author: yunchangJia * @Description: 登录页面 *
-@Update: 更新内容 by yunchangJia 2019-09-02 16:53 */
-
 <template>
   <div class="login-container">
     <div class="middle-con">
       <!-- 左侧图片部分 -->
       <div class="img-con">
-        <img class="logo-img" :src="logoImg" alt="" />
-        <img class="backg-img" :src="textImg" alt="" />
+        <img class="logo-img" src="@/assets/login/text.png" alt="" />
+        <img class="backg-img" src="@/assets/login/icon_font.png" alt="" />
       </div>
-
       <!-- 右侧登录部分 -->
       <div class="userinfo-con">
-        <span class="icon" :class="{ hide: isshow }" @click="changeEqCode">
-          <img :src="imgsrc" alt="" />
-          <img :src="coversrc" alt="" />
-        </span>
-        <div :class="{ hide: !iscode }">
-          <!-- 用户名或手机号登录 -->
-          <div v-if="isphone" class="name-ipone-login">
-            <a-form :form="form" class="login-form">
-              <a-tabs defaultActiveKey="1" @change="Loginmethod">
-                <a-tab-pane key="1" tab="用户名">
-                  <div class="form-con">
-                    <a-form-item>
-                      <a-input
-                        v-decorator="[
-                          'loginName',
-                          { rules: [{ required: username, message: '用户名称不能为空!' }] }
-                        ]"
-                        size="large"
-                        autocomplete="off"
-                        placeholder="请输入用户名称"
-                      >
-                        <template v-slot:prefix>
-                          <i class="wpgicon icon-ic_account_circle"></i>
-                        </template>
-                      </a-input>
-                    </a-form-item>
-                    <a-form-item>
-                      <a-input
-                        v-decorator="[
-                          'password',
-                          { rules: [{ required: username, message: '密码不能为空!' }] }
-                        ]"
-                        size="large"
-                        type="password"
-                        autocomplete="off"
-                        placeholder="请输入密码"
-                      >
-                        <template v-slot:prefix>
-                          <i class="wpgicon icon-ic_lock_outline"></i>
-                        </template>
-                      </a-input>
-                    </a-form-item>
-                  </div>
-                </a-tab-pane>
-                <a-tab-pane key="2" tab="手机号" forceRender>
-                  <div class="form-con">
-                    <a-form-item>
-                      <a-input
-                        v-decorator="[
-                          'phoneNumber',
-                          {
-                            rules: [
-                              {
-                                required: phone,
-                                message: '手机号不能为空或格式不正确!',
-                                pattern: /^1[34578]\d{9}$/
-                              }
-                            ]
-                          }
-                        ]"
-                        size="large"
-                        autocomplete="off"
-                        placeholder="请输入手机号"
-                      >
-                        <template v-slot:prefix>
-                          <i class="wpgicon icon-ic_stay_current_portrait"></i>
-                        </template>
-                      </a-input>
-                    </a-form-item>
-                    <a-form-item>
-                      <a-input
-                        v-decorator="[
-                          'code',
-                          { rules: [{ required: phone, message: '验证码不能为空!' }] }
-                        ]"
-                        size="large"
-                        type="text"
-                        autocomplete="off"
-                        placeholder="输入手机验证码"
-                      >
-                        <template v-slot:prefix>
-                          <i class="wpgicon icon-ic_number_box"></i>
-                        </template>
-                        <template v-slot:addonAfter>
-                          <span class="send-code" @click="sendcode">
-                            {{ message }}
-                          </span>
-                        </template>
-                      </a-input>
-                    </a-form-item>
-                  </div>
-                </a-tab-pane>
-              </a-tabs>
-              <div class="submit">
-                <a-form-item>
-                  <a-checkbox
-                    v-decorator="['remember', { valuePropName: 'checked' }]"
-                    class="remb-Pswd"
-                  >
-                    记住密码
-                  </a-checkbox>
-                </a-form-item>
-                <a-button type="primary" class="login-form-button" @click="handleSubmit">
-                  登录
-                </a-button>
-              </div>
-            </a-form>
+        <!-- 用户名登录 -->
+        <div class="name-ipone-login">
+          <div class="title-icon">
+            <p class="">用户登录</p>
+            <img src="@/assets/login/Rectangle2.png" alt="" />
           </div>
 
-          <!-- 用户名登录 -->
-          <div v-if="!isphone" class="name-login">
-            <div class="title-con">
-              用户名登录
-              <img :src="bottomsrc" />
+          <a-form-model ref="loginForm" :model="form" :rules="rules" class="login-form">
+            <a-form-model-item prop="loginName">
+              <a-input
+                v-model.trim="form.loginName"
+                size="large"
+                autocomplete="off"
+                placeholder="请输入账户名/手机号"
+              >
+                <template v-slot:prefix>
+                  <i class="wpgicon icon-ic_account_circle"></i>
+                </template>
+              </a-input>
+            </a-form-model-item>
+            <a-form-model-item prop="password" class="form-item-password">
+              <a-input-password
+                v-model.trim="form.password"
+                size="large"
+                type="password"
+                autocomplete="off"
+                placeholder="请输入密码"
+                :visibilityToggle="false"
+                @keydown.enter="handleSubmit"
+              >
+                <template v-slot:prefix>
+                  <i class="wpgicon icon-ic_lock_outline"></i>
+                </template>
+              </a-input-password>
+            </a-form-model-item>
+            <a-form-model-item prop="remember" class="form-item-remember">
+              <a-checkbox v-model="form.remember" class="remb-Pswd"> 记住密码 </a-checkbox>
+            </a-form-model-item>
+            <!-- </div> -->
+            <div class="submit">
+              <a-button
+                type="primary"
+                class="login-form-button"
+                :loading="loading"
+                @click="handleSubmit"
+              >
+                登录
+              </a-button>
             </div>
-            <a-form :form="form" class="login-form">
-              <div class="form-con">
-                <a-form-item>
-                  <a-input
-                    v-decorator="[
-                      'loginName',
-                      { rules: [{ required: username, message: '用户名称不能为空!' }] }
-                    ]"
-                    size="large"
-                    autocomplete="off"
-                    placeholder="请输入用户名称"
-                  >
-                    <template v-slot:prefix>
-                      <i class="wpgicon icon-ic_account_circle"></i>
-                    </template>
-                  </a-input>
-                </a-form-item>
-                <a-form-item>
-                  <a-input
-                    v-decorator="[
-                      'password',
-                      { rules: [{ required: username, message: '密码不能为空!' }] }
-                    ]"
-                    size="large"
-                    type="password"
-                    autocomplete="off"
-                    placeholder="请输入密码"
-                    @keyup.enter="handleSubmit"
-                  >
-                    <template v-slot:prefix>
-                      <i class="wpgicon icon-ic_lock_outline"></i>
-                    </template>
-                  </a-input>
-                </a-form-item>
-              </div>
-              <div class="submit">
-                <a-form-item>
-                  <a-checkbox
-                    v-decorator="['remember', { valuePropName: 'checked' }]"
-                    class="remb-Pswd"
-                    >记住密码
-                  </a-checkbox>
-                </a-form-item>
-                <a-button type="primary" class="login-form-button" @click="handleSubmit"
-                  >登录</a-button
-                >
-              </div>
-            </a-form>
-          </div>
-        </div>
-
-        <!-- 二维码登录 -->
-        <div :class="{ 'eqcode-login': true, hide: iscode }">
-          <div class="title-con">
-            二维码登录
-            <img :src="bottomsrc" alt="" />
-          </div>
-          <div class="code-con">
-            <img :src="ercode" alt="" />
-            打开[手机]扫一扫 屏幕上方二维码，即可登录智慧平台，尽享多维数据~
-          </div>
+          </a-form-model>
         </div>
       </div>
     </div>
@@ -196,125 +66,66 @@
 
 <script>
 import { mapActions } from 'vuex';
-import { Base64 } from 'js-base64';
 import storage from '@/utils/storage';
+import { Base64 } from 'js-base64';
 import { APP_LOGIN_INFO } from '@/store/mutation-types';
+import { setting } from '@/config';
 
+const defaultForm = {
+  loginName: undefined,
+  // tenantName: undefined,
+  password: undefined,
+  remember: false
+};
 export default {
   data() {
     return {
-      loginMethod: 1,
-      username: true,
-      phone: false,
-      message: '发送验证码',
-      imgsrc: require('@/assets/login/icon_code.png'),
-      coversrc: require('@/assets/login/icon_uncover.png'),
-      ercode: require('@/assets/login/qrcode.png'),
-      bottomsrc: require('@/assets/login/Rectangle 2.png'),
-      isshow: false, // 是否可切换二维码
-      isphone: true, // 是否显示手机号登录
-      iscode: true, // 是否切换到二维码登录
-      logoImg: require('@/assets/login/text.png'),
-      textImg: require('@/assets/login/icon_font.png')
+      loading: false, // 登录 loading
+      systemName: setting.systemName,
+      form: { ...defaultForm },
+      rules: {
+        loginName: [{ required: true, message: '该项不能为空!', trigger: 'change' }],
+        // tenantName: [{ required: true, message: '该项不能为空!', trigger: 'change' }],
+        password: [{ required: true, message: '该项不能为空!', trigger: 'change' }]
+      }
     };
-  },
-  beforeCreate() {
-    this.form = this.$form.createForm(this);
   },
   mounted() {
     this.restore();
   },
   methods: {
     ...mapActions('account', ['Login']),
-    /**
-     * 提交登录
-     * @param e
-     */
-    handleSubmit: function(e) {
-      this.form.validateFields((err, values) => {
-        if (!err) {
-          // eslint-disable-next-line eqeqeq
-          if (this.loginMethod == 1) {
-            // 用户名登录
-            let loginParams = {
-              loginName: values.loginName,
-              password: values.password
-            };
 
-            this.Login(loginParams).then(() => {
-              values.remember && this.remember(loginParams);
+    handleSubmit() {
+      this.$refs.loginForm.validate(valid => {
+        if (valid) {
+          this.loading = true;
+          this.Login(this.form)
+            .then(() => {
+              this.loading = false;
+              this.form.remember && this.remember(this.form);
 
               this.$router.push(this.$route.query.redirect || '/');
+            })
+            .catch(() => {
+              this.loading = false;
             });
-          }
         }
       });
     },
-
-    remember(loginInfo = {}) {
-      let info = Base64.encode(JSON.stringify(loginInfo));
+    remember(data = {}) {
+      let info = Base64.encode(JSON.stringify(data));
       storage.set(APP_LOGIN_INFO, info);
     },
-
     restore() {
       let info = storage.get(APP_LOGIN_INFO);
-
       if (info) {
-        let loginInfo = JSON.parse(Base64.decode(info));
-
-        this.form.setFieldsValue(loginInfo);
+        try {
+          this.form = JSON.parse(Base64.decode(info));
+        } catch (e) {
+          this.form = { ...defaultForm };
+        }
       }
-    },
-
-    sendcode() {
-      if (this.message === '发送验证码' || this.message === '重新发送') {
-        // let sendParams = {
-        //     phone: this.form.getFieldValue('phoneNumber')
-        // };
-        // sendMessage(sendParams).then(data => {
-        //     let {errorMessage, resultData, status} = data;
-        //     if (status === 'complete') {
-        //         //验证码发送成功
-        //         let time = 60 * 1000;
-        //         this._showTime(time);
-        //         this.$message.success('验证码发送成功');
-        //     } else {
-        //         //验证码发送失败
-        //         this.$message.error(errorMessage);
-        //     }
-        // });
-      }
-    },
-
-    /**
-     * 切换登录方法
-     */
-    Loginmethod(key) {
-      this.loginMethod = key;
-      if (key === 1) {
-        // 用户名登录，手机号和短信验证码可以不输入
-        this.username = true;
-        this.phone = false;
-      } else {
-        // 手机号登录，用户名和密码可以不输入
-        this.username = false;
-        this.phone = true;
-      }
-      // 将表单置空
-      this.form.resetFields();
-    },
-
-    /**
-     *切换登录方式
-     */
-    changeEqCode() {
-      // 修改图片src
-      if (this.ishide) {
-        this.imgsrc = require('@/assets/login/icon_username.png');
-      } else {
-        this.imgsrc = require('@/assets/login/icon_code.png');
-      }
-      this.iscode = !this.iscode;
     }
   }
 };
@@ -323,7 +134,7 @@ export default {
 .login-container {
   width: 100%;
   height: 100%;
-  background: url('~@/assets/login/icon_bg.png') no-repeat;
+  background: url('~@/assets/login/icon_bg_compression.png') no-repeat;
   background-size: cover;
 
   .middle-con {
@@ -359,12 +170,15 @@ export default {
 
   .userinfo-con {
     position: absolute;
-    top: 0;
+    top: 50%;
     right: 0;
     width: 468px;
-    height: 525px;
-    padding-top: 52px;
-    background: rgba(2, 23, 40, 0.5);
+    margin-top: -210px;
+
+    // height: 383px;
+    // padding-top: 20px;
+    padding: 35px 23px 35px 23px;
+    background: rgba(2, 23, 40, 0.1);
 
     .icon {
       position: absolute;
@@ -388,9 +202,38 @@ export default {
       display: block;
     }
 
+    /deep/ .ant-form-explain {
+      margin-top: 2px;
+    }
+
     .name-ipone-login {
-      width: 358px;
-      margin: 0 56px;
+      // width: 75%;
+      // margin: 5% auto;
+      // margin: 0 auto;
+      color: #85b4ff;
+
+      .title-icon {
+        text-align: center;
+
+        > p {
+          color: #fff;
+          font-size: 22px;
+        }
+
+        > img {
+          // width: 60%;
+          width: 100%;
+
+          height: 1.4px;
+          margin: 22px 0 25px;
+          // outline: 1px solid #f40;
+        }
+      }
+
+      .login-form {
+        width: 82%;
+        margin: 0 auto;
+      }
 
       .ant-tabs-bar {
         margin-bottom: 64px;
@@ -398,7 +241,7 @@ export default {
 
         .ant-tabs-tab {
           margin-right: 0;
-          color: #3b5e95;
+          color: #85b4ff;
           font-size: 16px;
         }
 
@@ -457,47 +300,65 @@ export default {
 
     .remb-Pswd {
       color: #85b4ff;
-      font-size: 12px;
+      font-size: 14px;
+
+      span {
+        color: #ccc;
+      }
     }
 
     .login-form-button {
       width: 100%;
       height: 50px;
+      margin-top: 10px;
       color: #85b4ff;
       font-size: 20px;
       background: none;
       border: 1px solid #85b4ff;
       border-radius: 4px;
+
+      &.ant-btn-loading {
+        &::before {
+          background: #85b4ff;
+        }
+      }
+    }
+
+    .form-item-remember {
+      /deep/ .ant-form-item-control {
+        height: auto;
+        line-height: 20px;
+      }
     }
 
     /* input 默认提示信息颜色 */
 
     input::-webkit-input-placeholder {
       /* WebKit browsers */
-      color: #3b5e95;
+      color: #adb5bd;
     }
 
     input:-moz-placeholder {
       /* Mozilla Firefox 4 to 18 */
-      color: #3b5e95;
+      color: #adb5bd;
     }
 
     input::-moz-placeholder {
       /* Mozilla Firefox 19+ */
-      color: #3b5e95;
+      color: #adb5bd;
     }
 
     input::-ms-input-placeholder {
       /* Internet Explorer 10+ */
-      color: #3b5e95;
+      color: #adb5bd;
     }
 
     .ant-input {
       height: 50px;
       padding-left: 52px;
-      color: #85b4ff;
+      color: #fff;
       font-size: 14px;
-      background: rgba(10, 22, 33, 0.3);
+      background: rgba(2, 23, 40, 0.1);
       border: 0;
       border-radius: 4px;
 
@@ -509,6 +370,7 @@ export default {
 
     .ant-input-prefix {
       left: 16px;
+      color: #a2b0c6;
     }
 
     .ant-input-group-addon {

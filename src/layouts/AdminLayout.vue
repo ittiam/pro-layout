@@ -22,23 +22,19 @@
           <router-view />
         </div>
       </a-layout-content>
-      <a-layout-footer class="admin-layout-footer" style="padding: 5px 0;">
-        <page-footer :link-list="footerLinks" :copyright="copyright" />
-      </a-layout-footer>
     </a-layout>
   </a-layout>
 </template>
 
 <script>
 import AdminHeader from './GlobalHeader/AdminHeader';
-import PageFooter from './GlobalFooter/PageFooter';
 import SiderMenu from './SiderMenu/SiderMenu';
 import MultiTab from './MultiTab';
 import { mapState, mapGetters } from 'vuex';
 
 export default {
   name: 'AdminLayout',
-  components: { SiderMenu, PageFooter, AdminHeader, MultiTab },
+  components: { SiderMenu, AdminHeader, MultiTab },
   data() {
     return {
       collapsed: false

@@ -1,0 +1,21 @@
+// 全局滚动条样式
+html {
+  -ms-overflow-style: none; // ie下隐藏滚动条
+  overflow: -moz-scrollbars-none; // 火狐浏览器的滚动条隐藏限制---由于火狐浏览器机制，并不生效
+}
+
+::-webkit-scrollbar-track {
+  // background-color: rgba(0, 0, 0, 0.1);
+  background-color: #fafafa;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(72, 127, 217, 0.6);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}

@@ -10,7 +10,7 @@ module.exports = {
   versionType: 'release',
   theme: {
     // 主题
-    mode: 'dark' // 主题模式 可选 dark、 light 和 night
+    mode: 'light' // 主题模式 可选 dark、 light
   },
   layout: 'side', // 导航布局，可选 side 和 head，分别为侧边导航和顶部导航
   fixedHeader: true, // 固定头部状态栏，true:固定，false:不固定
