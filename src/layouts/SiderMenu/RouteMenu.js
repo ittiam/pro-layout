@@ -132,7 +132,7 @@ export default {
         ])
       ]);
     },
-    renderSubMenu: function(h, menu) {
+    renderSubMenu: function(h, menu, level) {
       const title = (menu.meta && menu.meta.title) || menu.name;
       const iconCls = menu.meta && menu.meta.iconCls;
 
@@ -147,11 +147,16 @@ export default {
       ];
       let itemArr = [];
       menu.children.forEach(function(item) {
-        itemArr.push(this_.renderItem(h, item));
+        itemArr.push(this_.renderItem(h, item, level + 1));
       });
-      return h(SubMenu, { key: menu.fullPath }, subItem.concat(itemArr));
+
+      return h(
+        SubMenu,
+        { key: menu.fullPath, class: `ant-menu-submenu-level-${level}` },
+        subItem.concat(itemArr)
+      );
     },
-    renderItem: function(h, menu) {
+    renderItem: function(h, menu, level) {
       if (!menu.hidden) {
         let renderChildren = false;
         const children = menu.children;
@@ -165,7 +170,7 @@ export default {
           }
         }
         return menu.children && renderChildren
-          ? this.renderSubMenu(h, menu)
+          ? this.renderSubMenu(h, menu, level)
           : this.renderMenuItem(h, menu);
       }
     },
@@ -173,7 +178,7 @@ export default {
       let this_ = this;
       let menuArr = [];
       menuTree.forEach(function(menu, i) {
-        menuArr.push(this_.renderItem(h, menu, '0', i));
+        menuArr.push(this_.renderItem(h, menu, 0, i));
       });
 
       return menuArr;
@@ -209,6 +214,7 @@ export default {
           theme: this.menuTheme,
           mode: this.$props.mode,
           selectedKeys: this.selectedKeys,
+          inlineIndent: 14,
           openKeys: this.openKeys ? this.openKeys : this.sOpenKeys
         },
         on: {

@@ -6,6 +6,7 @@
   z-index: 1100;
 }
 
+/* 重置导航菜单 */
 .ant-menu {
   border: none;
 
@@ -45,15 +46,269 @@
 }
 
 .ant-menu-submenu.ant-menu-submenu-popup {
-  .ant-menu .ant-menu-item {
-    height: 40px;
-    font-size: 12px;
-    line-height: 40px;
+  .ant-menu {
+    .ant-menu-submenu-title {
+      height: 40px;
+      font-size: 12px;
+      line-height: 40px;
+    }
 
-    &.ant-menu-item-selected {
-      color: #fff;
-      background-color: unset;
-      border: none;
+    .ant-menu-item {
+      height: 40px;
+      font-size: 12px;
+      line-height: 40px;
+
+      &.ant-menu-item-selected {
+        color: #fff;
+        background-color: unset;
+        border: none;
+      }
+    }
+  }
+}
+
+/* 重置表格 */
+.ant-table {
+  td {
+    vertical-align: middle;
+  }
+
+  .ant-table-thead > tr {
+    th {
+      padding: 10px 8px;
+      font-size: @fs12;
+    }
+  }
+
+  .ant-table-filter-dropdown-btns {
+    padding: 7px 8px;
+    overflow: hidden;
+    border-top: 0 solid transparent;
+  }
+
+  .ant-table-filter-dropdown-link {
+    &.confirm {
+      font-size: @fs12;
+    }
+
+    &.clear {
+      font-size: @fs12;
+    }
+  }
+
+  .ant-table-scroll {
+    .ant-table-header {
+      scrollbar-color: transparent transparent;
+
+      ::-webkit-scrollbar {
+        background-color: transparent;
+      }
+    }
+  }
+
+  .ant-table-body {
+    .ant-table-tbody {
+      tr {
+        td {
+          padding: 8px 8px;
+          font-size: @fs12;
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+
+  tr.ant-table-expanded-row td > .ant-table-wrapper {
+    margin: -8px -16px -8px;
+  }
+
+  .ant-table-scroll table .ant-table-fixed-columns-in-body {
+    overflow: visible !important;
+    font-size: 0 !important;
+  }
+
+  /* 固定表格样式 */
+  .ant-table-fixed-left {
+    box-shadow: 0.5rem 0 0.5rem -0.333333rem rgba(0, 0, 0, 0.15);
+  }
+
+  .ant-table-fixed-right {
+    box-shadow: -0.5rem 0 0.5rem -0.333333rem rgba(0, 0, 0, 0.15);
+  }
+}
+
+.ant-table-wrapper {
+  .ant-checkbox-wrapper {
+    padding: 0;
+  }
+}
+
+.ant-table-fixed-left,
+.ant-table-fixed-right {
+  table {
+    .ant-table-thead {
+      tr {
+        th {
+          padding: 10px 8px;
+        }
+      }
+    }
+
+    tr {
+      td {
+        padding: 8px 8px;
+        font-size: @fs12;
+        border-bottom: 0;
+      }
+    }
+  }
+}
+
+/* 紧凑型表格 */
+.ant-table-middle {
+  .ant-table-thead {
+    tr th {
+      padding: 9px 9.5px !important;
+    }
+  }
+
+  .ant-table-tbody {
+    tr {
+      td {
+        padding: 9px 9.5px !important;
+      }
+    }
+  }
+}
+
+/* 带边框的表格重置 */
+.ant-table-bordered {
+  .ant-table-header > table,
+  .ant-table-body > table,
+  .ant-table-fixed-left table,
+  .ant-table-fixed-right table {
+    border: 0;
+  }
+
+  .ant-table-thead > tr:not(:last-child) > th {
+    border-bottom-width: 0;
+  }
+
+  .ant-table-thead > tr:last-child > th {
+    border-bottom: 1px solid @mbd-1-cls;
+  }
+
+  .ant-table-thead > tr > th,
+  .ant-table-tbody > tr > td {
+    border-right-width: 0;
+  }
+}
+
+/* 重置选择器 */
+.ant-select-selection {
+  border: 1px solid @mbd-1-cls;
+  box-shadow: none;
+
+  .ant-select-selection__choice {
+    border: none;
+    border-radius: 4px;
+  }
+
+  .ant-select-search__field {
+    border: none;
+  }
+}
+
+.ant-select-selection--single {
+  height: 36px;
+}
+
+.ant-select-selection__rendered {
+  line-height: 34px;
+}
+
+.ant-select-dropdown {
+  input {
+    font-size: 14px;
+    outline: none;
+  }
+}
+
+/* 重置对话框 */
+.ant-modal {
+  .ant-modal-footer {
+    padding: 10px 40px 36px;
+    font-size: @fs14;
+    border: none;
+
+    button {
+      min-width: 80px;
+
+      + button {
+        margin-left: 20px;
+      }
+    }
+  }
+
+  .ant-modal-title {
+    font-size: @fs18;
+    line-height: 26px;
+  }
+
+  .ant-modal-header {
+    padding-top: 19px;
+    text-align: center;
+    border: 0;
+  }
+
+  .ant-modal-body {
+    padding: 11px 40px;
+    font-size: @fs12;
+  }
+
+  .ant-modal-close-x {
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+  }
+
+  .ant-modal-confirm-body {
+    text-align: center;
+
+    i.anticon {
+      position: relative;
+      float: unset;
+      width: 100%;
+      height: 48px;
+      margin: 28px 0;
+      font-size: 48px;
+
+      svg {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+    .ant-modal-confirm-title {
+      width: 100%;
+      font-size: @fs16;
+    }
+
+    .ant-modal-confirm-content {
+      margin-left: 0;
+      font-size: @fs12;
+    }
+  }
+
+  &.ant-modal-confirm {
+    .ant-modal-confirm-btns {
+      width: 100%;
+      text-align: center;
+
+      .ant-btn-primary {
+        margin-left: 20px;
+      }
     }
   }
 }

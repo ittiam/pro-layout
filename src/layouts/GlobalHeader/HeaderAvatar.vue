@@ -17,7 +17,7 @@
     <a-modal
       title="修改密码"
       :visible="visible"
-      class="modal"
+      class="modal-update-password"
       @cancel="handleCancel"
       @ok="changePass"
     >
@@ -88,8 +88,8 @@ import { mapState, mapActions } from 'vuex';
 import { validPassword } from '@/utils/validator';
 
 const formItem = {
-  labelCol: { span: 4 },
-  wrapperCol: { span: 20 }
+  labelCol: { span: 6 },
+  wrapperCol: { span: 18 }
 };
 
 export default {
@@ -215,5 +215,13 @@ export default {
 
 .name {
   margin-right: 12px;
+}
+
+.modal-update-password {
+  .ant-form-item {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 </style>

@@ -42,6 +42,22 @@
           }
         }
       }
+
+      .level(@i) when (@i<=5) {
+        .ant-menu-submenu.ant-menu-submenu-level-@{i} {
+          & > .ant-menu-submenu-title {
+            padding-left: (40px + (@i - 1) * 20px) !important;
+          }
+
+          .ant-menu-item {
+            padding-left: (40px + @i * 20px) !important;
+          }
+        }
+
+        .level(@i+1);
+      }
+
+      .level(1);
     }
   }
 
@@ -203,6 +219,27 @@
       border-right: 2px solid #5790fb;
     }
   }
+
+  ::-webkit-scrollbar {
+    /* 滚动条整体样式 */
+    background: #282e34;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    /* 滚动条里面小方块 */
+    background: #495057;
+    border: 2px solid #282e34;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background-color: #282e34;
+  }
+
+  /* IE 浏览器 */
+  scrollbar-face-color: #495057; /* 滚动条颜色 */
+  scrollbar-shadow-color: #282e34; /* 滚动条的边框 */
+  scrollbar-track-color: #282e34; /* 浏览器滚动条背景色 */
+  scrollbar-arrow-color: #495057; /* 上下箭头颜色 */
 }
 
 .side-menu.ant-layout-sider-light {

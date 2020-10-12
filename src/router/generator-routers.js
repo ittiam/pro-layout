@@ -38,16 +38,17 @@ export const generatorDynamicRouter = token => {
       .getCurrentUserNav(token)
       .then(res => {
         console.log('res', res);
-        const { resultData = [] } = res;
+        const { resultData } = res;
         const menuNav = [];
-        const childrenNav = resultData;
+        const childrenNav = resultData.menuTrees || [];
+        const buttonCodes = resultData.buttonCodes || [];
         rootRouter.children = childrenNav;
         menuNav.push(rootRouter);
         console.log('menuNav', menuNav);
         const routers = generator(menuNav);
         routers.push(notFoundRouter);
         console.log('routers', routers);
-        resolve(routers);
+        resolve({ routers, buttonCodes });
       })
       .catch(err => {
         reject(err);
@@ -64,8 +65,9 @@ export const generatorDynamicRouter = token => {
  */
 export const generator = (routerMap, parent) => {
   return routerMap.map(item => {
-    const { name, target, icon, iconCls } = item || {};
+    const { name, target, icon, iconCls, showFlag } = item || {};
     const { title } = item.meta || {};
+    const hidden = !showFlag;
     const currentRouter = {
       // 如果路由设置了 path，则作为默认 path，否则 路由地址 动态拼接生成如 /dashboard/workplace
       path: item.path || `${(parent && parent.path) || ''}/${item.key}`,
@@ -74,13 +76,15 @@ export const generator = (routerMap, parent) => {
       component:
         constantRouterComponents[item.component || item.key] ||
         (() => import(`@/views/${item.component}`)),
+      hidden: hidden,
 
       // meta: 页面标题, 菜单图标, 页面权限(供指令权限用，可去掉)
       meta: {
         title: title || name,
         icon: icon || undefined,
         iconCls,
-        target: target
+        target: target,
+        hidden: hidden
       }
     };
 
