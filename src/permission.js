@@ -7,7 +7,7 @@ import { ACCESS_TOKEN } from '@/store/mutation-types';
 
 const whiteList = ['Login', 'Register', 'RegisterResult']; // no redirect whitelist
 const loginRoutePath = '/login';
-const defaultRoutePath = '/general';
+const defaultRoutePath = '/';
 
 router.beforeEach(async (to, from, next) => {
   /* has token */

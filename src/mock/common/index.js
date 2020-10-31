@@ -11,6 +11,17 @@ export const menu = {
   buttonCodes: [],
   menuTrees: [
     {
+      component: 'home/Workspace',
+      iconCls: 'icon-ic_home',
+      id: '99',
+      parentId: '',
+      name: '工作台',
+      path: '/workspace',
+      showFlag: true,
+      isPublic: true,
+      menuButtonFlag: '0'
+    },
+    {
       component: 'general/Button',
       iconCls: 'icon-ic_developer_board',
       id: '1',
