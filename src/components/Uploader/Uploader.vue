@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import serverConfig from '@/api/serverConfig';
+import serverConfig from '@/config/server.config';
 
 function getBase64(img, callback) {
   const reader = new FileReader();

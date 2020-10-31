@@ -65,7 +65,7 @@ import InputAddress from '@/components/InputAddress';
 import MultiTab from '@/layouts/MultiTab/plugin';
 import { VueAxios } from '@/utils/request';
 import './directives/action';
-import serverConfig from '@/api/serverConfig';
+import serverConfig from '@/config/server.config';
 
 Vue.use(ConfigProvider);
 Vue.use(Layout);
