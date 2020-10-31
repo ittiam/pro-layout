@@ -18,29 +18,38 @@
 
 .@{multi-tab-wrapper-prefix-cls} {
   flex: 1;
+  overflow: hidden;
 
-  .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab {
-    margin-right: -1px;
-    padding-right: 10px;
-    color: @color-text-second;
-    font-size: 12px;
-    line-height: 26px;
-    background: #f4f6f9;
-    border: 1px solid #dee2e7;
-    border-radius: 0;
+  .ant-tabs.ant-tabs-card .ant-tabs-card-bar {
+    border-bottom: 0;
 
-    &:hover,
-    &.ant-tabs-tab-active {
-      color: @color-text-normal;
-      background: #fff;
+    .ant-tabs-nav-container {
+      height: 26px;
     }
 
-    &:first-child {
-      padding: 0 8px;
-      color: @color-text-normal;
+    .ant-tabs-tab {
+      margin-right: -1px;
+      padding-right: 10px;
+      color: @color-text-second;
+      font-size: 12px;
+      line-height: 26px;
+      background: #f4f6f9;
+      border: 1px solid #dee2e7;
+      border-radius: 0;
 
-      .anticon {
-        margin-right: 0;
+      &:hover,
+      &.ant-tabs-tab-active {
+        color: @color-text-normal;
+        background: #fff;
+      }
+
+      &:first-child {
+        padding: 0 8px;
+        color: @color-text-normal;
+
+        .anticon {
+          margin-right: 0;
+        }
       }
     }
   }

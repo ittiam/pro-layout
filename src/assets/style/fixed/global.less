@@ -17,6 +17,103 @@ table, tbody, td, tfoot, th, thead, time, tr, ul, var, video {
   border: 0;
 }
 
+img,
+object,
+embed {
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+th {
+  font-weight: bold;
+  vertical-align: bottom;
+}
+
+td {
+  font-weight: normal;
+  vertical-align: top;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  margin: 1em 0;
+  padding: 0;
+  border: 0;
+  border-top: 1px solid #ccc;
+}
+
+input,
+select {
+  vertical-align: middle;
+}
+
+pre {
+  white-space: pre; /* CSS2 */
+  white-space: pre-wrap; /* CSS 2.1 */
+  white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
+  word-wrap: break-word; /* IE */
+}
+
+input[type='radio'] {
+  vertical-align: text-bottom;
+}
+
+input[type='checkbox'] {
+  vertical-align: bottom;
+}
+
+button,
+input,
+select,
+textarea {
+  margin: 0;
+}
+
+/* make buttons play nice in IE */
+button,
+input[type='button'] {
+  width: auto;
+  overflow: visible;
+}
+
+table {
+  font-size: inherit;
+}
+
+small {
+  font-size: 85%;
+}
+
+strong {
+  font-weight: bold;
+}
+
+td,
+td img {
+  vertical-align: top;
+}
+
 /* 定义默认的 icon 图标样式 */
 .wpgicon {
   font-size: 24px;
@@ -120,4 +217,28 @@ table, tbody, td, tfoot, th, thead, time, tr, ul, var, video {
 
 .fr {
   float: right;
+}
+
+.outwork {
+  &-titlebar {
+    height: 56px;
+    padding: 10px 30px 10px 25px;
+    line-height: 36px;
+    border-radius: 4px;
+
+    &-name {
+      &::before {
+        display: inline-block;
+        width: 5px;
+        height: 14px;
+        margin-right: 10px;
+        background: #87ce40;
+        content: '';
+      }
+    }
+
+    &-btn {
+      float: right;
+    }
+  }
 }

@@ -1,12 +1,11 @@
 <template>
   <div class="header-avatar">
-    <span class="name">{{ currUser.userName || currUser.loginName }}</span>
-    <a-dropdown style="display: inline-block; height: 100%; vertical-align: initial">
-      <span style="cursor: pointer">
+    <a-dropdown>
+      <div class="header-menu-item" style="cursor: pointer">
         <a-avatar class="avatar" size="small" shape="circle" :src="defaultAvatar" />
-        <!-- <span class="name">{{ currUser.userName || currUser.loginName }}</span> -->
+        <span class="name">{{ currUser.userName || currUser.loginName }}</span>
         <a-icon type="caret-down" />
-      </span>
+      </div>
       <a-menu slot="overlay" style="width: 150px" @click="handleMenuClick">
         <a-menu-item v-for="item in sysMenuList" :key="item.type">
           <a-icon :type="item.icon" />
@@ -131,6 +130,9 @@ export default {
         content: '确认要退出登录吗？',
         okText: '确认',
         cancelText: '取消',
+        class: 'pro-modal-confirm',
+        centered: true,
+        width: '480px',
         onOk: () => {
           this.Logout()
             .then(res => {
@@ -208,13 +210,19 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.header-avatar {
+  font-size: 12px;
+}
+
 .avatar {
-  margin: 10px 4px 10px 0;
-  vertical-align: middle;
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
+  border-radius: 24px;
 }
 
 .name {
-  margin-right: 12px;
+  margin-right: 5px;
 }
 
 .modal-update-password {

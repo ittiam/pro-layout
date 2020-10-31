@@ -90,3 +90,33 @@ export function formatFullPath(routes, parentPath = '') {
     }
   });
 }
+
+/**
+ * url参数序列化方法
+ * @param obj
+ * @param type
+ * @returns {string}
+ */
+export function serialize(obj = {}, type = '?') {
+  let ary = [];
+  for (let p in obj) {
+    if (obj.hasOwnProperty(p) && obj[p]) {
+      if (type === '/') {
+        ary.push(encodeURIComponent(obj[p]));
+      } else {
+        ary.push(encodeURIComponent(p) + '=' + encodeURIComponent(obj[p]));
+      }
+    }
+  }
+
+  return type + ary.join(type === '/' ? type : '&');
+}
+
+// 服务器图片完整链接
+export function imageFullUrl(url) {
+  return url && !/http/.test(url) ? 'http://119.3.37.131' + url : url;
+}
+
+export function ellipsis(item, max) {
+  return item ? (item.length > max ? item.substring(0, max) + '...' : item) : '--';
+}

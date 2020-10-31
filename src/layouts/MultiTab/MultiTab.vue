@@ -25,8 +25,8 @@ export default {
     ...mapGetters('setting', ['menuData'])
   },
   watch: {
-    $route: function(newVal) {
-      this.open(newVal);
+    $route: function(newRoute) {
+      this.open(newRoute);
     }
   },
   created() {
@@ -67,7 +67,14 @@ export default {
     this.open(this.$route);
   },
   methods: {
-    ...mapMutations('page', ['setCurrent', 'addOpened', 'removeOpenen', 'editOpened']),
+    ...mapMutations('page', [
+      'setCurrent',
+      'setClearCaches',
+      'addOpened',
+      'removeOpened',
+      'replaceOpened',
+      'editOpened'
+    ]),
     ...mapActions('page', ['opened2db']),
     init(routes) {
       const pool = [];
@@ -76,10 +83,10 @@ export default {
           if (route.children && route.children.length > 0) {
             push(route.children);
           } else {
-            if (!route.hidden) {
-              const { meta, name, path } = route;
-              pool.push({ meta, name, path });
-            }
+            // if (!route.hidden) {
+            const { meta, name, path } = route;
+            pool.push({ meta, name, path });
+            // }
           }
         });
       };
@@ -92,11 +99,19 @@ export default {
      * @param {Object} context
      * @param {Object} payload { index, params, query, fullPath, meta } 路由信息
      */
-    async openedUpdate({ params, query, fullPath }) {
+    openedUpdate({ index, params, query, fullPath }) {
       // 更新页面列表某一项
-      this.editOpened({ params, query, fullPath });
+      // 更新页面列表某一项
+      const page = this.opened[index];
+      page.params = params || page.params;
+      page.query = query || page.query;
+      page.fullPath = fullPath || page.fullPath;
+      this.replaceOpened({
+        index,
+        page
+      });
       // 持久化
-      await this.opened2db();
+      this.opened2db();
     },
 
     /**
@@ -104,7 +119,7 @@ export default {
      * @param {Object} context
      * @param {Object} payload new tag info
      */
-    async add({ tag, params, query, fullPath }) {
+    add({ tag, params, query, fullPath }) {
       // 设置新的 tag 在新打开一个以前没打开过的页面时使用
       const newTag = tag;
       newTag.params = params || newTag.params;
@@ -113,7 +128,7 @@ export default {
       // 添加进当前显示的页面数组
       this.addOpened(newTag);
       // 持久化
-      await this.opened2db();
+      this.opened2db();
     },
 
     /**
@@ -121,19 +136,21 @@ export default {
      * @param {Object} context
      * @param {Object} payload 从路由钩子的 to 对象上获取 { name, params, query, fullPath, meta } 路由信息
      */
-    async open({ name, params, query, fullPath, meta }) {
+    open({ name, params, query, fullPath, meta }) {
       // 已经打开的页面
       const opened = this.opened;
       // 判断此页面是否已经打开 并且记录位置
       let pageOpendIndex = 0;
       const pageOpend = opened.find((page, index) => {
-        const same = page.fullPath === fullPath;
+        let same = page.fullPath.split('?')[0] === fullPath.split('?')[0];
+        // const same = page.fullPath === fullPath;
         pageOpendIndex = same ? index : pageOpendIndex;
         return same;
       });
 
       if (pageOpend) {
-        await this.openedUpdate({
+        this.openedUpdate({
+          index: pageOpendIndex,
           params,
           query,
           fullPath
@@ -143,7 +160,7 @@ export default {
         let page = this.pool.find(t => t.name === name);
 
         if (page) {
-          await this.add({
+          this.add({
             tag: { ...page },
             params,
             query,
@@ -161,9 +178,10 @@ export default {
      * @param {Object} context
      * @param {Object} payload { tagName: 要关闭的标签名字 }
      */
-    async close({ tagName }) {
+    close({ tagName }) {
       // 预定下个新页面
       let newPage = {};
+      let clearCaches = [];
       const isCurrent = this.current === tagName;
       // 如果关闭的页面就是当前显示的页面
       if (isCurrent) {
@@ -180,16 +198,18 @@ export default {
       const index = this.opened.findIndex(page => page.fullPath === tagName);
       if (index >= 0) {
         // 更新数据 删除关闭的页面
-        this.removeOpenen(index);
+        clearCaches.push(this.opened[index].fullPath);
+        this.removeOpened(index);
       }
 
+      this.setClearCaches(clearCaches);
       // 持久化
-      await this.opened2db();
+      this.opened2db();
       // 决定最后停留的页面
       if (isCurrent) {
         const { name = 'index', params = {}, query = {} } = newPage;
         const routerObj = { name, params, query };
-        await this.$router.push(routerObj);
+        this.$router.push(routerObj);
       }
     },
 
@@ -199,12 +219,14 @@ export default {
      * @param {Object} context
      * @param {Object} payload { pageSelect: 当前选中的tagName }
      */
-    async closeLeft({ pageSelect } = {}) {
+    closeLeft({ pageSelect } = {}) {
       const pageAim = pageSelect || this.current;
       let currentIndex = 0;
+      let clearCaches = [];
       this.opened.forEach((page, index) => {
         if (page.fullPath === pageAim) currentIndex = index;
       });
+
       if (currentIndex > 0) {
         // 删除打开的页面 并在缓存设置中删除
         for (let i = this.opened.length - 1; i >= 0; i--) {
@@ -212,50 +234,59 @@ export default {
             continue;
           }
 
-          this.removeOpenen(i);
+          clearCaches.push(this.opened[i].fullPath);
+          this.removeOpened(i);
         }
       }
 
+      // 清除缓存
+      this.setClearCaches(clearCaches);
       // 持久化
-      await this.opened2db();
+      this.opened2db();
       // 设置当前的页面
       this.setCurrent(pageAim);
-      if (this.$route.fullPath !== pageAim) await this.$router.push(pageAim);
+      if (this.$route.fullPath !== pageAim) this.$router.push(pageAim);
     },
     /**
      * @description 关闭当前标签右边的标签
      * @param {Object} context
      * @param {Object} payload { pageSelect: 当前选中的tagName }
      */
-    async closeRight({ pageSelect } = {}) {
+    closeRight({ pageSelect } = {}) {
       const pageAim = pageSelect || this.current;
       let currentIndex = 0;
+      let clearCaches = [];
       this.opened.forEach((page, index) => {
         if (page.fullPath === pageAim) currentIndex = index;
       });
+
       // 删除打开的页面 并在缓存设置中删除
       for (let i = this.opened.length - 1; i >= 0; i--) {
         if (this.opened[i].name === 'index' || currentIndex >= i) {
           continue;
         }
 
-        this.removeOpenen(i);
+        clearCaches.push(this.opened[i].fullPath);
+        this.removeOpened(i);
       }
 
+      // 清除缓存
+      this.setClearCaches(clearCaches);
       // 持久化
-      await this.opened2db();
+      this.opened2db();
       // 设置当前的页面
       this.setCurrent(pageAim);
-      if (this.$route.fullPath !== pageAim) await this.$router.push(pageAim);
+      if (this.$route.fullPath !== pageAim) this.$router.push(pageAim);
     },
     /**
      * @description 关闭当前激活之外的 tag
      * @param {Object} context
      * @param {Object} payload { pageSelect: 当前选中的tagName }
      */
-    async closeOther({ pageSelect } = {}) {
+    closeOther({ pageSelect } = {}) {
       const pageAim = pageSelect || this.current;
       let currentIndex = 0;
+      let clearCaches = [];
       this.opened.forEach((page, index) => {
         if (page.fullPath === pageAim) currentIndex = index;
       });
@@ -265,32 +296,41 @@ export default {
           continue;
         }
 
-        this.removeOpenen(i);
+        clearCaches.push(this.opened[i].fullPath);
+        this.removeOpened(i);
       }
+
+      // 清除缓存
+      this.setClearCaches(clearCaches);
       // 设置新的页面
       this.setCurrent(pageAim);
-      if (this.$route.fullPath !== pageAim) await this.$router.push(pageAim);
+      if (this.$route.fullPath !== pageAim) this.$router.push(pageAim);
       // 持久化
-      await this.opened2db();
+      this.opened2db();
     },
     /**
      * @description 关闭所有 tag
      * @param {Object} context
      */
-    async closeAll() {
+    closeAll() {
+      let clearCaches = [];
       // 删除打开的页面
       for (let i = this.opened.length - 1; i >= 0; i--) {
         if (this.opened[i].name === 'index') {
           continue;
         }
 
-        this.removeOpenen(i);
+        clearCaches.push(this.opened[i].fullPath);
+        this.removeOpened(i);
       }
+
+      // 清除缓存
+      this.setClearCaches(clearCaches);
       // 持久化
-      await this.opened2db();
+      this.opened2db();
       // 关闭所有的标签页后需要判断一次现在是不是在首页
       if (this.$route.name !== 'index') {
-        await this.$router.push({ name: 'index' });
+        this.$router.push({ name: 'index' });
       }
     },
 

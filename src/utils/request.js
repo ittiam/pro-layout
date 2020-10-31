@@ -6,7 +6,7 @@ import { VueAxios } from './axios';
 import { ACCESS_TOKEN, JWT_TOKEN_EXPIRED } from '@/store/mutation-types';
 
 const logout = () => {
-  store.dispatch('Logout').then(() => {
+  store.dispatch('account/Logout').then(() => {
     setTimeout(() => {
       window.location.reload();
     }, 1500);

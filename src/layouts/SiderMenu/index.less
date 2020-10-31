@@ -5,6 +5,7 @@
 .side-menu {
   z-index: 10;
   min-height: 100vh;
+  overflow-x: hidden;
   overflow-y: auto;
 
   .ant-layout-sider-children {
@@ -156,6 +157,10 @@
     .ant-menu-item {
       color: #a2b0c6;
 
+      a {
+        color: inherit;
+      }
+
       &:hover {
         color: #fff;
       }
@@ -173,6 +178,10 @@
         .ant-menu-item,
         .ant-menu-submenu-title {
           color: #adb5bd;
+
+          a {
+            color: inherit;
+          }
         }
 
         .ant-menu-item:hover {

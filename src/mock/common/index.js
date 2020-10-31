@@ -16,7 +16,10 @@ export const menu = {
       id: '1',
       parentId: '',
       name: 'Button 按钮',
-      path: '/general'
+      path: '/general',
+      showFlag: true,
+      isPublic: true,
+      menuButtonFlag: '0'
     },
     {
       component: 'navigation/Breadcrumb',
@@ -24,7 +27,10 @@ export const menu = {
       id: '21',
       parentId: '',
       name: 'Breadcrumb 面包屑',
-      path: '/breadcrumb'
+      path: '/breadcrumb',
+      showFlag: true,
+      isPublic: true,
+      menuButtonFlag: '0'
     },
     {
       component: 'RouteLayout',
@@ -33,27 +39,39 @@ export const menu = {
       parentId: '',
       name: 'Navigation',
       path: '/navigation',
+      showFlag: true,
+      isPublic: true,
+      menuButtonFlag: '0',
       children: [
         {
           component: 'navigation/Dropdown',
           id: '22',
           parentId: '',
           name: 'Dropdown 下拉菜单',
-          path: '/navigation/dropdown'
+          path: '/navigation/dropdown',
+          showFlag: true,
+          isPublic: true,
+          menuButtonFlag: '0'
         },
         {
           component: 'navigation/Menu',
           id: '23',
           parentId: '',
           name: 'Menu 导航',
-          path: '/navigation/menu'
+          path: '/navigation/menu',
+          showFlag: true,
+          isPublic: true,
+          menuButtonFlag: '0'
         },
         {
           component: 'navigation/Pagination',
           id: '24',
           parentId: '',
           name: 'Pagination 分页',
-          path: '/navigation/pagination'
+          path: '/navigation/pagination',
+          showFlag: true,
+          isPublic: true,
+          menuButtonFlag: '0'
         }
       ]
     }

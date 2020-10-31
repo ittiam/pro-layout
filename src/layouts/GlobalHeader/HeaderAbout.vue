@@ -1,6 +1,11 @@
 <template>
   <div class="header-about">
-    <i class="icon-ic_local_library" style="cursor: pointer" @click="handleMenuClick" />
+    <div class="header-menu-item" @click="handleMenuClick">
+      <span>
+        <i class="icon-ic_local_library" style="cursor: pointer" />
+      </span>
+      <span>关于我们</span>
+    </div>
     <a-modal v-model="visible" centered width="664px">
       <template slot="title">
         <div class="modal-content-tit">

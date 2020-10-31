@@ -23,6 +23,10 @@ const api = {
    */
   close: function(config) {
     events.$emit('close', config);
+  },
+  redirect: function(config) {
+    this.close();
+    this.open(config);
   }
 };
 

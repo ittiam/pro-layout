@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import confirm from './confirm';
 
 // base library
 import {
@@ -11,8 +12,10 @@ import {
   Radio,
   Checkbox,
   Select,
+  Cascader,
   Card,
   Form,
+  FormModel,
   Row,
   Col,
   Modal,
@@ -26,8 +29,10 @@ import {
   List,
   Avatar,
   Breadcrumb,
+  Rate,
   Steps,
   Spin,
+  Slider,
   Menu,
   Drawer,
   Tooltip,
@@ -49,12 +54,18 @@ import {
 } from 'ant-design-vue';
 
 // ext library
+import BaiduMap from 'vue-baidu-map';
+import WpgDesign from 'wpg-design';
 import VueCropper from 'vue-cropper';
 import Dialog from '@/components/Dialog';
+import STable from '@/components/Table';
+import TableSearch from '@/components/TableSearch';
 import PageLoading from '@/components/PageLoading';
+import InputAddress from '@/components/InputAddress';
 import MultiTab from '@/layouts/MultiTab/plugin';
 import { VueAxios } from '@/utils/request';
 import './directives/action';
+import serverConfig from '@/api/serverConfig';
 
 Vue.use(ConfigProvider);
 Vue.use(Layout);
@@ -65,8 +76,10 @@ Vue.use(Switch);
 Vue.use(Radio);
 Vue.use(Checkbox);
 Vue.use(Select);
+Vue.use(Cascader);
 Vue.use(Card);
 Vue.use(Form);
+Vue.use(FormModel);
 Vue.use(Row);
 Vue.use(Col);
 Vue.use(Modal);
@@ -80,7 +93,9 @@ Vue.use(Dropdown);
 Vue.use(List);
 Vue.use(Avatar);
 Vue.use(Breadcrumb);
+Vue.use(Rate);
 Vue.use(Steps);
+Vue.use(Slider);
 Vue.use(Spin);
 Vue.use(Menu);
 Vue.use(Drawer);
@@ -98,8 +113,12 @@ Vue.use(PageHeader);
 Vue.use(Result);
 Vue.use(Statistic);
 Vue.use(Descriptions);
+Vue.use(BaiduMap, {
+  ak: serverConfig.AK
+});
+Vue.use(InputAddress);
 
-Vue.prototype.$confirm = Modal.confirm;
+Vue.prototype.$confirm = confirm;
 Vue.prototype.$message = message;
 Vue.prototype.$notification = notification;
 Vue.prototype.$info = Modal.info;
@@ -107,7 +126,10 @@ Vue.prototype.$success = Modal.success;
 Vue.prototype.$error = Modal.error;
 Vue.prototype.$warning = Modal.warning;
 
+Vue.use(WpgDesign);
 Vue.use(Dialog); // this.$dialog func
+Vue.use(STable);
+Vue.use(TableSearch);
 Vue.use(PageLoading);
 Vue.use(VueCropper);
 Vue.use(MultiTab);

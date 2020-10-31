@@ -15,9 +15,7 @@
           <h1 v-if="!isMobile">{{ systemName }}</h1>
         </router-link>
         <a-divider v-if="isMobile" type="vertical" />
-        <h1 v-if="layout !== 'head'" class="admin-header-title">
-          {{ systemName }}
-        </h1>
+        <h1 v-if="layout !== 'head'" class="admin-header-title">{{ systemName }} 欢迎您</h1>
         <div
           v-if="layout !== 'side' && !isMobile"
           class="admin-header-menu"
@@ -33,12 +31,6 @@
         </div>
         <div :class="['admin-header-right', headerTheme]">
           <header-about class="header-item" />
-          <a-tooltip class="header-item" title="帮助文档" placement="bottom">
-            <a href="https://gitlab.cloud4water.com/WPG_SRC_WEB/pro-layout/" target="_blank">
-              <a-icon type="question-circle-o" />
-            </a>
-          </a-tooltip>
-          <header-notice class="header-item" />
           <header-avatar class="header-item" />
         </div>
       </div>
@@ -113,6 +105,6 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 @import 'index';
 </style>

@@ -15,9 +15,9 @@ import { menu, userInfo } from '../common';
 Mock.mock('/sso/login', 'post', ({ body }) => {
   const result = {};
   const { loginName, password } = JSON.parse(body);
-  if (loginName !== 'admin' || password !== '888888') {
+  if (loginName !== 'admin' || password !== '123456') {
     result.status = 'error';
-    result.errorMessage = '账户名或密码错误（admin/888888）';
+    result.errorMessage = '账户名或密码错误（admin/123456）';
   } else {
     result.status = 'complete';
     result.resultData = userInfo;
@@ -60,7 +60,7 @@ Mock.mock('/sysUser/getMenu', 'get', () => {
 /**
  * 退出
  */
-Mock.mock('/sso/logout', 'get', () => {
+Mock.mock('/sso/logout', 'post', () => {
   const result = {
     status: 'complete'
   };

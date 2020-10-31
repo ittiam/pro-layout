@@ -7,7 +7,8 @@ const userApi = {
   CheckToken: '/sso/checkToken',
   ChangePassword: '/sysUser/changePassword',
   // get my info
-  UserMenu: '/sysUser/getMenu'
+  UserMenu: '/sysUser/getMenu',
+  getUserRoles: '/sysUser/userClient/getRoleCode'
 };
 
 export function login(parameter) {
@@ -54,6 +55,13 @@ export function checkToken() {
 export function getCurrentUserNav() {
   return axios({
     url: userApi.UserMenu,
+    method: 'get'
+  });
+}
+
+export function getUserRoles() {
+  return axios({
+    url: userApi.getUserRoles,
     method: 'get'
   });
 }

@@ -20,7 +20,7 @@ const rootRouter = {
   name: 'index',
   path: '/',
   component: 'AdminLayout',
-  redirect: '/general',
+  redirect: '/workspace',
   meta: {
     title: '首页'
   },
@@ -68,6 +68,7 @@ export const generator = (routerMap, parent) => {
     const { name, target, icon, iconCls, showFlag } = item || {};
     const { title } = item.meta || {};
     const hidden = !showFlag;
+
     const currentRouter = {
       // 如果路由设置了 path，则作为默认 path，否则 路由地址 动态拼接生成如 /dashboard/workplace
       path: item.path || `${(parent && parent.path) || ''}/${item.key}`,
@@ -94,6 +95,7 @@ export const generator = (routerMap, parent) => {
     }
     // 重定向
     item.redirect && (currentRouter.redirect = item.redirect);
+
     // 是否有子菜单，并递归处理
     if (item.children && item.children.length > 0) {
       // Recursion

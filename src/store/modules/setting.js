@@ -10,6 +10,7 @@ export default {
     isMobile: false,
     routers: constantRouterMap,
     addRouters: [],
+    buttonCodes: [],
     menuBadge: [],
     activatedFirst: undefined,
     ...config
@@ -67,6 +68,9 @@ export default {
       state.addRouters = routers;
       state.routers = constantRouterMap.concat(routers);
     },
+    setButtonCodes: (state, buttonCodes) => {
+      state.buttonCodes = buttonCodes;
+    },
     setActiveedFirst: (state, fullPath) => {
       state.activatedFirst = fullPath;
     },
@@ -97,12 +101,16 @@ export default {
   },
   actions: {
     GenerateRoutes({ commit }, data) {
-      return new Promise(resolve => {
-        const { token } = data;
-        generatorDynamicRouter(token).then(routers => {
-          commit('setRouters', routers);
-          resolve();
-        });
+      return new Promise((resolve, reject) => {
+        generatorDynamicRouter()
+          .then(({ routers, buttonCodes }) => {
+            commit('setRouters', routers);
+            commit('setButtonCodes', buttonCodes);
+            resolve(routers);
+          })
+          .catch(e => {
+            reject(new Error('获取当前用户菜单失败'));
+          });
       });
     }
   }

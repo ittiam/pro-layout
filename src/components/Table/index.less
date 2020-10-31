@@ -1,0 +1,85 @@
+@import '~ant-design-vue/es/style/themes/default';
+
+@pro-table-prefix-cls: ~'@{ant-prefix}-pro-table';
+
+.@{pro-table-prefix-cls}-wrapper {
+  .ant-table-empty {
+    .ant-table-body {
+      display: none;
+    }
+  }
+}
+
+.@{pro-table-prefix-cls}-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 16px 0;
+  padding: 0 24px;
+}
+
+.@{pro-table-prefix-cls}-toolbar-item-icon {
+  margin-right: 8px;
+  margin-left: 8px;
+  font-size: 16px;
+  cursor: pointer;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.@{pro-table-prefix-cls}-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__title {
+    flex: 1 1;
+    color: rgba(0, 0, 0, 0.85);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    opacity: 0.85;
+  }
+
+  &__toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
+
+.@{pro-table-prefix-cls}-toolbar-title {
+  flex: 1 1;
+  color: rgba(0, 0, 0, 0.85);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  opacity: 0.85;
+}
+
+.@{pro-table-prefix-cls}-alert {
+  flex: 1;
+}
+
+.@{pro-table-prefix-cls}-option {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: 20px;
+}
+
+.@{pro-table-prefix-cls}-column-setting-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 32px;
+}
+
+.@{pro-table-prefix-cls}-column-setting {
+  .ant-checkbox-group-item {
+    display: block;
+    margin: 8px 0;
+  }
+}

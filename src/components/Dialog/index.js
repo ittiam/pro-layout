@@ -71,7 +71,7 @@ export default Vue => {
           ...((modalModel && { model: modalModel }) || {}),
           attrs: { ...(modalProps.attrs || modalProps), visible: this.visible },
           on: {
-            ...(modalProps.on || modalProps),
+            ...(modalProps.on || {}),
             ok: () => {
               that.handleOk();
             },

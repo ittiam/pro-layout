@@ -18,8 +18,10 @@
       <admin-header :menuData="menus" :collapsed="collapsed" :sideMenuWidth="sideMenuWidth" />
       <a-layout-content class="admin-layout-content">
         <multi-tab v-if="multiPage" />
-        <div class="admin-layout-body">
-          <router-view />
+        <div class="admin-layout-body" :class="{ 'admin-layout-frame': showFrame }">
+          <a-keep-alive v-model="closed" :exclude="exclude">
+            <router-view :key="$route.fullPath" />
+          </a-keep-alive>
         </div>
       </a-layout-content>
     </a-layout>
@@ -30,14 +32,18 @@
 import AdminHeader from './GlobalHeader/AdminHeader';
 import SiderMenu from './SiderMenu/SiderMenu';
 import MultiTab from './MultiTab';
-import { mapState, mapGetters } from 'vuex';
+import AKeepAlive from './AKeepAlive';
+import { mapState, mapGetters, mapMutations } from 'vuex';
 
 export default {
   name: 'AdminLayout',
-  components: { SiderMenu, AdminHeader, MultiTab },
+  components: { SiderMenu, AdminHeader, MultiTab, AKeepAlive },
   data() {
     return {
-      collapsed: false
+      collapsed: false,
+      refreshing: false,
+      closed: [],
+      exclude: ['FormManage', 'FlowManage']
     };
   },
   computed: {
@@ -52,6 +58,8 @@ export default {
       'fixedSideBar',
       'hideSetting'
     ]),
+    ...mapState('page', ['opened', 'clearCaches']),
+    ...mapGetters('page', ['currentRoute']),
     ...mapGetters('setting', ['firstMenu', 'subMenu', 'menuData']),
     sideMenuWidth() {
       return this.collapsed ? '50px' : '216px';
@@ -59,10 +67,20 @@ export default {
     menus() {
       const routes = this.menuData.find(item => item.path === '/');
       return (routes && routes.children) || [];
+    },
+    showFrame() {
+      return this.currentRoute && this.currentRoute.meta && this.currentRoute.meta.iframeSrc;
+    }
+  },
+
+  watch: {
+    clearCaches(val) {
+      this.closed = val;
     }
   },
 
   methods: {
+    ...mapMutations('page', ['setCachedKey']),
     toggleCollapse() {
       this.collapsed = !this.collapsed;
     },

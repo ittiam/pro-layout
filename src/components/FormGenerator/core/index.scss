@@ -1,0 +1,533 @@
+$selectedColor: #f2f6fc;
+$lighterBlue: #409eff;
+
+.form-generator-container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+
+  .vc-scrollbar__wrap {
+    box-sizing: border-box;
+    margin-bottom: 0 !important;
+    overflow-x: hidden !important;
+  }
+
+  .vc-scrollbar__view {
+    overflow-x: hidden;
+  }
+
+  .ant-form--label-left {
+    .ant-form-item-label {
+      text-align: left;
+    }
+  }
+
+  .ant-form--label-right {
+    .ant-form-item-label {
+      text-align: right;
+    }
+  }
+
+  .ant-form-horizontal {
+    .ant-form-item {
+      display: flex;
+    }
+
+    .ant-form-item-label {
+      padding-right: 12px;
+    }
+
+    .ant-form-item-control-wrapper {
+      flex: 1;
+    }
+  }
+
+  .components-list {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 6px 12px;
+
+    .ant-divider {
+      margin: 20px 0 4px 0;
+    }
+
+    .ant-radio-group {
+      display: flex;
+      font-size: 12px;
+
+      .ant-radio-button-wrapper {
+        display: block;
+        flex: 1;
+        height: 28px;
+        line-height: 26px;
+        text-align: center;
+      }
+    }
+
+    .components-container {
+      margin-top: 10px;
+      margin-right: -6px;
+    }
+
+    .components-item {
+      float: left;
+      width: 50%;
+      padding-right: 6px;
+      padding-bottom: 6px;
+      transition: transform 0ms !important;
+    }
+  }
+
+  .components-draggable {
+    // padding-bottom: 20px;
+    overflow: hidden;
+  }
+
+  .components-title {
+    display: inline-flex;
+    align-items: center;
+    margin: 6px 0 10px 0;
+    color: #333;
+    font-size: 14px;
+
+    .wpgicon {
+      margin-right: 4px;
+      color: #bac7de;
+    }
+  }
+
+  .components-body {
+    padding: 5px 8px;
+    color: #6281a3;
+    font-size: 12px;
+    background: $selectedColor;
+    cursor: move;
+
+    .svg-icon {
+      float: right;
+      color: #6281a3;
+      font-size: 14px;
+    }
+  }
+
+  .left-board {
+    width: 264px;
+    height: 100%;
+    border-radius: 4px 4px 0 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 36, 89, 0.1);
+  }
+
+  .left-scrollbar {
+    height: 100%;
+    // height: calc(100vh - 42px);
+    overflow: hidden;
+  }
+
+  .center-scrollbar {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    // height: calc(100vh - 42px);
+    overflow: hidden;
+  }
+
+  .center-board {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    height: 100%;
+    margin-right: 8px;
+    margin-left: 8px;
+    border-radius: 4px 4px 0 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 36, 89, 0.1);
+
+    .center-render {
+      flex: 1;
+      overflow: hidden;
+    }
+  }
+
+  .right-scrollbar {
+    .vc-scrollbar__view {
+      padding: 0 10px 0 10px;
+    }
+  }
+
+  .right-board {
+    width: 280px;
+    border-radius: 4px 4px 0 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 36, 89, 0.1);
+
+    .ant-form-item {
+      margin-bottom: 10px;
+
+      .ant-form-item-label {
+        line-height: 28px;
+      }
+
+      .ant-form-item-control {
+        line-height: 28px;
+      }
+
+      .ant-select-selection--single {
+        height: 28px;
+      }
+
+      .ant-select-selection__rendered {
+        line-height: 26px;
+      }
+
+      .ant-input {
+        height: 28px;
+      }
+
+      .ant-input-number {
+        height: 28px;
+
+        .ant-input-number-input {
+          height: 26px;
+        }
+      }
+
+      .ant-btn {
+        height: 28px;
+      }
+
+      .ant-radio-button-wrapper {
+        display: block;
+        flex: 1;
+        height: 28px;
+        padding: 0;
+        line-height: 26px;
+        text-align: center;
+      }
+
+      .ant-radio-group {
+        display: flex;
+      }
+
+      .ant-form-item-label {
+        width: 80px;
+        padding-right: 5px;
+        white-space: initial;
+        text-align: right;
+      }
+
+      .ant-slider-with-marks {
+        margin: 10px 0;
+      }
+    }
+
+    .vc-scrollbar {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    // .field-box,
+    // .form-box {
+    //   overflow: hidden;
+    // }
+  }
+
+  .empty-info {
+    position: absolute;
+    top: 20%;
+    right: 0;
+    left: 0;
+    color: #ccb1ea;
+    font-size: 160px;
+    letter-spacing: 4px;
+    text-align: center;
+  }
+
+  .action-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    height: 42px;
+    margin: 0 12px;
+    padding: 14px 0 8px 0;
+    border-top: none;
+    border-bottom: 1px solid #e0e0e0;
+    border-left: none;
+
+    .action-bar-title {
+      display: inline-flex;
+      flex: 1;
+      align-items: center;
+
+      .wpgicon {
+        margin-right: 5px;
+        color: #cbd5e6;
+        vertical-align: -1px;
+      }
+    }
+
+    .ant-btn {
+      color: #4285f4;
+      font-size: 14px;
+
+      .wpgicon {
+        font-size: 16px;
+        vertical-align: -1px;
+      }
+    }
+
+    .action-bar-empty {
+      color: #f64357;
+    }
+  }
+
+  .center-board-row {
+    box-sizing: border-box;
+    padding: 12px 12px 15px 12px;
+  }
+
+  .drawing-board {
+    position: relative;
+    height: 100%;
+
+    .components-body {
+      margin: 0;
+      padding: 0;
+      font-size: 0;
+    }
+
+    .sortable-ghost {
+      position: relative;
+      display: block;
+      overflow: hidden;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 2;
+        height: 3px;
+        background: rgb(89, 89, 223);
+        content: ' ';
+      }
+    }
+
+    .components-item.sortable-ghost {
+      width: 100%;
+      height: 60px;
+      background-color: $selectedColor;
+    }
+
+    .active-from-item {
+      & > .ant-form-item {
+        background: $selectedColor;
+        border-radius: 6px;
+      }
+
+      & > .drawing-item-copy,
+      & > .drawing-item-delete {
+        display: initial;
+      }
+
+      & > .component-name {
+        color: $lighterBlue;
+      }
+    }
+
+    .ant-form-item {
+      margin-bottom: 15px;
+    }
+  }
+
+  .drawing-tip {
+    height: 36px;
+    margin: 0 10px 10px;
+    font-size: 12px;
+    line-height: 36px;
+    text-align: center;
+    background: #ecf3ff;
+    border: 1px dashed #7badff;
+    border-radius: 3px;
+  }
+
+  .drawing-item {
+    position: relative;
+    cursor: move;
+
+    &.unfocus-bordered:not(.active-from-item) > div:first-child {
+      border: 1px dashed #ccc;
+    }
+
+    .ant-form-item {
+      padding: 12px 10px;
+    }
+  }
+
+  .drawing-row-item {
+    position: relative;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    padding: 0 2px;
+    border: 1px dashed #ccc;
+    border-radius: 3px;
+    cursor: move;
+
+    .drawing-row-item {
+      margin-bottom: 2px;
+    }
+
+    .ant-col {
+      margin-top: 22px;
+    }
+
+    .ant-form-item {
+      margin-bottom: 0;
+    }
+
+    .drag-wrapper {
+      min-height: 80px;
+    }
+
+    &.active-from-item {
+      border: 1px dashed $lighterBlue;
+    }
+
+    .component-name {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: inline-block;
+      padding: 0 6px;
+      color: #bbb;
+      font-size: 12px;
+    }
+  }
+
+  .drawing-item,
+  .drawing-row-item {
+    &:hover {
+      & > .ant-form-item {
+        background: #f2f6fc;
+      }
+
+      & > .drawing-item-copy,
+      & > .drawing-item-delete {
+        display: initial;
+      }
+    }
+
+    & > .drawing-item-copy,
+    & > .drawing-item-delete {
+      position: absolute;
+      top: -10px;
+      z-index: 1;
+      display: none;
+      width: 22px;
+      height: 22px;
+      font-size: 12px;
+      line-height: 22px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    & > .drawing-item-copy {
+      right: 56px;
+      color: $lighterBlue;
+    }
+
+    & > .drawing-item-delete {
+      right: 24px;
+      color: #f56c6c;
+    }
+  }
+}
+
+.right-board {
+  .ant-tabs {
+    .ant-tabs-tab {
+      padding-top: 11px;
+      padding-bottom: 10px;
+    }
+  }
+
+  .select-item {
+    display: flex;
+    box-sizing: border-box;
+    border: 1px dashed #fff;
+
+    & .close-btn {
+      color: #f56c6c;
+      cursor: pointer;
+    }
+
+    & .ant-input + .ant-input {
+      margin-left: 4px;
+    }
+  }
+
+  .select-item + .select-item {
+    margin-top: 4px;
+  }
+
+  .select-item.sortable-chosen {
+    border: 1px dashed #409eff;
+  }
+
+  .select-line-icon {
+    padding: 0 4px;
+    color: #777;
+    font-size: 22px;
+    line-height: 32px;
+  }
+
+  .option-drag {
+    cursor: move;
+  }
+
+  .custom-tree-node {
+    width: 100%;
+    font-size: 14px;
+
+    .node-operation {
+      float: right;
+    }
+
+    i[class*='anticon'] + i[class*='anticon'] {
+      margin-left: 6px;
+    }
+
+    .anticon-plus {
+      color: #409eff;
+    }
+
+    .anticon-delete {
+      color: #ff4d4f;
+    }
+  }
+
+  .addon-after {
+    cursor: pointer;
+  }
+}
+
+.form-generator-dialog {
+  .ant-form-item {
+    display: flex;
+  }
+
+  .ant-form-item-label {
+    padding-right: 12px;
+  }
+
+  .ant-form-item-control-wrapper {
+    flex: 1;
+  }
+}
+
+.dialog-preview-form {
+  .ant-form-parser {
+    padding: 30px 80px 30px 20px;
+    background: #f7faff;
+  }
+}

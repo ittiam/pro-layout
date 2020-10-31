@@ -9,6 +9,7 @@ import '@/utils/storage';
 import './permission'; // permission control
 
 import 'font-awesome/css/font-awesome.min.css';
+import 'wpg-design/dist/index.css';
 import '@/assets/style/index.less';
 
 import store from './store';
