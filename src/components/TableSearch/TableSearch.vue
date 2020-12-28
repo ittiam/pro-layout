@@ -6,7 +6,12 @@
       </a-form>
     </div>
     <div class="wbgc-card table-page-list-wrapper">
-      <slot></slot>
+      <div class="table-page-list-head">
+        <slot name="head"></slot>
+      </div>
+      <div class="table-page-list-container">
+        <slot></slot>
+      </div>
     </div>
   </div>
 </template>
@@ -35,15 +40,23 @@ export default {
   height: 100%;
 
   .table-page-list-wrapper {
+    display: flex;
     flex: 1;
+    flex-direction: column;
     margin-top: 12px;
+    overflow: hidden;
     border-radius: 4px;
+  }
+
+  .table-page-list-container {
+    flex: 1;
+    overflow: hidden;
   }
 
   .table-page-list-head {
     display: flex;
     align-items: center;
-    height: 40px;
+    // height: 40px;
     padding-right: 12px;
     padding-left: 20px;
 
@@ -92,6 +105,7 @@ export default {
 
       > .ant-form-item-label {
         width: auto;
+        min-width: 70px;
         // padding-right: 8px;
         line-height: 36px;
       }
@@ -106,6 +120,10 @@ export default {
         .ant-form-item-children {
           min-width: 160px;
         }
+      }
+
+      .ant-calendar-picker {
+        display: block;
       }
     }
   }

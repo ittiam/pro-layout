@@ -1,5 +1,5 @@
 export default {
-  'bm-map': [
+  BmMap: [
     'click',
     'dblclick',
     'rightclick',
@@ -34,9 +34,9 @@ export default {
     'touchend',
     'longpress'
   ],
-  'bm-geolocation': ['locationSuccess', 'locationError'],
-  'bm-overview-map': ['viewchanged', 'viewchanging'],
-  'bm-marker': [
+  BmGeolocation: ['locationSuccess', 'locationError'],
+  'BmOverview-map': ['viewchanged', 'viewchanging'],
+  BmMarker: [
     'click',
     'dblclick',
     'mousedown',
@@ -51,7 +51,7 @@ export default {
     'dragend',
     'rightclick'
   ],
-  'bm-polyline': [
+  BmPolyline: [
     'click',
     'dblclick',
     'mousedown',
@@ -61,7 +61,7 @@ export default {
     'remove',
     'lineupdate'
   ],
-  'bm-polygon': [
+  BmPolygon: [
     'click',
     'dblclick',
     'mousedown',
@@ -71,7 +71,7 @@ export default {
     'remove',
     'lineupdate'
   ],
-  'bm-circle': [
+  BmCircle: [
     'click',
     'dblclick',
     'mousedown',
@@ -81,7 +81,7 @@ export default {
     'remove',
     'lineupdate'
   ],
-  'bm-label': [
+  BmLabel: [
     'click',
     'dblclick',
     'mousedown',
@@ -91,8 +91,8 @@ export default {
     'remove',
     'rightclick'
   ],
-  'bm-info-window': ['close', 'open', 'maximize', 'restore', 'clickclose'],
-  'bm-ground': ['click', 'dblclick'],
-  'bm-autocomplete': ['onconfirm', 'onhighlight'],
-  'bm-point-collection': ['click', 'mouseover', 'mouseout']
+  BmInfoWindow: ['close', 'open', 'maximize', 'restore', 'clickclose'],
+  BmGround: ['click', 'dblclick'],
+  BmAutocomplete: ['onconfirm', 'onhighlight'],
+  BmPointCollection: ['click', 'mouseover', 'mouseout']
 };

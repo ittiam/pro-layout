@@ -239,6 +239,23 @@ td img {
 
     &-btn {
       float: right;
+      margin-left: 20px;
+
+      &:first-child {
+        margin-left: 0;
+      }
     }
+  }
+}
+
+.dialog-preview-form {
+  .ant-modal-body {
+    max-height: 500px;
+    overflow: auto;
+  }
+
+  .ant-form-parser {
+    padding: 30px 80px 30px 20px;
+    background: #f7faff;
   }
 }

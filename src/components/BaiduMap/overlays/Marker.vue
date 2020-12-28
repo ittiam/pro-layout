@@ -8,6 +8,7 @@
 import commonMixin from '../base/mixins/common.js';
 import bindEvents from '../base/bindEvent.js';
 import { createLabel, createIcon, createPoint } from '../base/factory.js';
+
 export default {
   name: 'BmMarker',
   mixins: [commonMixin('overlay')],

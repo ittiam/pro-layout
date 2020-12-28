@@ -9,11 +9,13 @@ import {
   baseGet,
   on,
   off,
+  getBoundingClientRect,
   getViewportOffset,
   triggerWindowResize
 } from './util';
 import ColumnSetting from './components/ColumnSetting';
 import TableTitle from './components/TableTitle';
+import Empty from '../Empty';
 
 export default {
   name: 'STable',
@@ -193,19 +195,20 @@ export default {
 
   mounted() {
     if (this.getCanResize) {
-      this.calcTableHeight();
+      // this.calcTableHeight();
 
-      const hasFixedLeft = (this.columns || []).some(item => item.fixed === 'left');
+      // const hasFixedLeft = (this.columns || []).some(item => item.fixed === 'left');
       // TODO antv table问题情况太多，只能先用下面方式定时器hack
-      setTimeout(() => {
-        this.calcTableHeight(() => {
-          // 有左侧固定列的时候才有问题
-          hasFixedLeft &&
-            setTimeout(() => {
-              triggerWindowResize();
-            }, 300);
-        });
-      }, 200);
+      // setTimeout(() => {
+
+      // }, 100);
+      this.calcTableHeight(() => {
+        // 有左侧固定列的时候才有问题
+        // hasFixedLeft &&
+        setTimeout(() => {
+          triggerWindowResize();
+        }, 100);
+      });
 
       this.__resizeHandler = debounce(
         () => {
@@ -317,7 +320,14 @@ export default {
             // } catch (e) {
             //   this.localPagination = false;
             // }
-            this.localDataSource = records; // 返回结果中的数组数据
+            this.localDataSource = records.map((o, index) => {
+              return {
+                ...o,
+                index: this.localPagination
+                  ? (this.localPagination.current - 1) * this.localPagination.pageSize + index + 1
+                  : index + 1
+              };
+            }); // 返回结果中的数组数据
             this.localLoading = false;
           })
           .catch(err => {
@@ -357,6 +367,7 @@ export default {
 
       this.$nextTick(() => {
         const table = this.$refs.table;
+        const elem = this.$el;
 
         if (!table) {
           return;
@@ -365,6 +376,7 @@ export default {
         if (!tableEl) {
           return;
         }
+
         const el = tableEl.querySelector('.ant-table-thead');
         // const tbody = tableEl.querySelector('.ant-table-body');
 
@@ -372,22 +384,25 @@ export default {
           return;
         }
         // 表格距离底部高度
-        const { bottomIncludeBody } = getViewportOffset(el);
+        // const { height: bottomIncludeBody } = getBoundingClientRect(elem);
+        const bottomIncludeBody = elem.offsetHeight;
 
         // 表格高度+距离底部高度-自定义偏移量
-        const paddingHeight = 12;
+        // const paddingHeight = 12;
+        const paddingHeight = 0;
         const borderHeight = 1 * 2;
         // 分页器高度
 
-        // TODO 先固定32
-        let paginationHeight = 52;
-        // if (!isBoolean(pagination)) {
-        //   const paginationDom = tableEl.querySelector('.ant-pagination');
-        //   if (paginationDom) {
-        //     const offsetHeight = paginationDom.offsetHeight;
-        //     paginationHeight += offsetHeight || 0;
-        //   }
-        // }
+        // TODO 先固定 52
+        let paginationHeight = 0;
+        if (!isBoolean(pagination)) {
+          paginationHeight = 52;
+          // const paginationDom = tableEl.querySelector('.ant-pagination');
+          // if (paginationDom) {
+          //   const offsetHeight = paginationDom.offsetHeight;
+          //   paginationHeight += offsetHeight || 0;
+          // }
+        }
 
         let footerHeight = 0;
         if (!isBoolean(pagination)) {
@@ -423,7 +438,7 @@ export default {
           };
 
           cb && cb();
-        }, 0);
+        }, 16);
 
         this.updateTableHeight(tableHeight);
       });
@@ -433,9 +448,7 @@ export default {
       const table = this.$refs.table;
       const tableEl = table.$el;
       const tbody = tableEl.querySelector('.ant-table-body');
-      setTimeout(() => {
-        tbody.style.height = `${tableHeight}px`;
-      }, 300);
+      tbody.style.height = `${tableHeight}px`;
     },
 
     /**
@@ -650,6 +663,12 @@ export default {
       'ant-pro-table-resize': this.getCanResize
     };
 
-    return <div class={tableClassNames}>{table}</div>;
+    return (
+      <a-config-provider
+        {...{ scopedSlots: { renderEmpty: slotProps => [<Empty slotprops={slotProps} />] } }}
+      >
+        <div class={tableClassNames}>{table}</div>
+      </a-config-provider>
+    );
   }
 };

@@ -42,18 +42,19 @@ input {
   outline: none;
 }
 
-.ant-input-disabled,
-.ant-input-disabled:hover,
-.ant-input-disabled:focus {
-  background: @mbg-11-cls;
-  border-color: @mbd-1-cls !important;
-}
-
 .ant-input:focus,
 .ant-input:hover,
 input:hover {
   color: @mft-1-cls;
   border: 1px solid @mbd-1-hv-cls;
+}
+
+.ant-input-disabled,
+.ant-input-disabled:hover,
+.ant-input-disabled:focus {
+  color: rgba(0, 0, 0, 0.25);
+  background: @mbg-11-cls;
+  border-color: @mbd-1-cls !important;
 }
 
 .ant-input-search {
