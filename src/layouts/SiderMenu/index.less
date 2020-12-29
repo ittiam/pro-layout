@@ -373,18 +373,29 @@
       }
     }
 
-    // .ant-menu-sub {
-    //   .ant-menu-item {
-    //     &.ant-menu-item-selected {
-    //       color: #fff;
-    //       background-color: #11172b;
-    //     }
-    //   }
-    // }
+    &.ant-menu-vertical {
+      .ant-menu-item {
+        &:hover {
+          background-color: #11172b;
+        }
 
-    &.ant-menu-vertical .ant-menu-submenu.ant-menu-submenu-selected .ant-menu-submenu-title {
-      background-color: #11172b;
-      border-right: 2px solid #5790fb;
+        &.ant-menu-item-selected {
+          background-color: #11172b;
+        }
+      }
+
+      .ant-menu-submenu {
+        .ant-menu-submenu-title {
+          &:hover {
+            background-color: #11172b;
+          }
+        }
+
+        &.ant-menu-submenu-selected .ant-menu-submenu-title {
+          background-color: #11172b;
+          border-right: 2px solid #5790fb;
+        }
+      }
     }
   }
 
