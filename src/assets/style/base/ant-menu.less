@@ -1,0 +1,30 @@
+/* 菜单缩起弹出框样式 */
+.ant-menu-submenu.ant-menu-submenu-popup {
+  background-color: unset;
+
+  .ant-menu {
+    background-color: @mbg-20-cls;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+
+    .ant-menu-item {
+      color: @mft-7-cls;
+
+      a {
+        color: inherit;
+      }
+
+      &:hover {
+        // 收缩状态 二级菜单 hover
+        color: @mft-2-hv-cls;
+        background-color: @mbg-15-hv-cls;
+      }
+
+      &.ant-menu-item-selected {
+        // 收缩状态 二级菜单选中
+        color: @mft-2-av-cls;
+        background-color: unset;
+        border: none;
+      }
+    }
+  }
+}

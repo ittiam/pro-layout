@@ -51,7 +51,7 @@ export default {
       };
     },
     setThemeBody(state) {
-      document.body.className = `theme--${state.theme.mode} theme--${state.theme.name}`;
+      document.body.className = `theme--${state.theme.mode} theme-side--${state.theme.sideMode} theme--${state.theme.name}`;
     },
     setLayout(state, layout) {
       state.layout = layout;

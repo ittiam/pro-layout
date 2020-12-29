@@ -1,0 +1,33 @@
+/* 重置面包屑 */
+.ant-breadcrumb {
+  font-size: @fs14;
+
+  & > span:last-child .ant-breadcrumb-link {
+    color: @mft-1-cls;
+  }
+
+  .ant-breadcrumb-link {
+    color: @mft-3-cls;
+
+    & > a {
+      color: @mft-3-cls;
+
+      &:hover {
+        color: @theme;
+        text-decoration: none;
+      }
+
+      &:focus {
+        text-decoration: none;
+      }
+    }
+  }
+
+  a.ant-breadcrumb-link:hover {
+    color: @theme;
+  }
+
+  .ant-breadcrumb-separator {
+    color: @mft-3-cls;
+  }
+}

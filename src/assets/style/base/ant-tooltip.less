@@ -1,18 +1,22 @@
 .ant-tooltip {
   .ant-tooltip-content {
     font-size: @fs12;
+  }
 
-    .ant-tooltip-arrow {
-      border-top-color: @mbg-9-cls;
+  .ant-tooltip-arrow {
+    border-top-color: @mbg-9-cls;
 
-      &::before {
-        background-color: @mbg-9-cls;
-      }
-    }
-
-    .ant-tooltip-inner {
-      color: @mft-2-cls;
+    &::before {
       background-color: @mbg-9-cls;
+    }
+  }
+
+  .ant-tooltip-inner {
+    color: @mft-2-cls;
+    background-color: @mbg-9-cls;
+
+    a {
+      color: inherit;
     }
   }
 }
@@ -21,17 +25,4 @@
 .ant-tooltip-placement-bottomLeft .ant-tooltip-arrow,
 .ant-tooltip-placement-bottomRight .ant-tooltip-arrow {
   border-bottom-color: @mbg-9-cls;
-}
-
-.ant-menu-inline-collapsed-tooltip {
-  .ant-tooltip-content {
-    .ant-tooltip-arrow::before {
-      background-color: rgba(0, 0, 0, 0.75);
-    }
-
-    .ant-tooltip-inner {
-      color: #fff;
-      background-color: rgba(0, 0, 0, 0.75);
-    }
-  }
 }
