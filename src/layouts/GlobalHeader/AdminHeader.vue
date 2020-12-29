@@ -15,7 +15,7 @@
           <h1 v-if="!isMobile">{{ systemName }}</h1>
         </router-link>
         <a-divider v-if="isMobile" type="vertical" />
-        <h1 v-if="layout !== 'head'" class="admin-header-title">{{ systemName }} 欢迎您</h1>
+        <h1 v-if="layout !== 'head'" class=" admin-header-title">{{ systemName }} 欢迎您</h1>
         <div
           v-if="layout !== 'side' && !isMobile"
           class="admin-header-menu"
@@ -30,6 +30,7 @@
           />
         </div>
         <div :class="['admin-header-right', headerTheme]">
+          <header-theme class="header-item" />
           <header-about class="header-item" />
           <header-avatar class="header-item" />
         </div>
@@ -42,12 +43,13 @@
 import HeaderAbout from './HeaderAbout';
 import HeaderNotice from './HeaderNotice';
 import HeaderAvatar from './HeaderAvatar';
+import HeaderTheme from './HeaderTheme';
 import BaseMenu from '@/layouts/SiderMenu/RouteMenu';
 import { mapState, mapMutations } from 'vuex';
 
 export default {
   name: 'AdminHeader',
-  components: { BaseMenu, HeaderAvatar, HeaderNotice, HeaderAbout },
+  components: { BaseMenu, HeaderAvatar, HeaderNotice, HeaderTheme, HeaderAbout },
   props: ['collapsed', 'menuData', 'fixed', 'sideMenuWidth'],
   data() {
     return {
@@ -62,6 +64,8 @@ export default {
   computed: {
     ...mapState('setting', [
       'theme',
+      'isShowTheme',
+      'isHeaderColor',
       'isMobile',
       'fixedHeader',
       'layout',
@@ -71,10 +75,11 @@ export default {
       'pageWidth'
     ]),
     headerTheme() {
-      if (this.layout === 'side' && this.theme.mode === 'dark' && !this.isMobile) {
-        return 'light';
+      if (this.isShowTheme && this.isHeaderColor) {
+        return 'header-color';
       }
-      return this.theme.mode;
+
+      return this.theme.mode === 'light' ? this.theme.mode : 'dark';
     },
     langAlias() {
       let lang = this.langList.find(item => item.key === this.lang);

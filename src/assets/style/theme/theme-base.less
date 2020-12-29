@@ -1,0 +1,46 @@
+.theme--@{theme-type} {
+  /*------- 顶部主题样式 ------*/
+  .ant-layout-header {
+    &.header-color {
+      color: @ft-8-cls;
+      background: @bg-6-cls;
+
+      .admin-header-wide {
+        .admin-header-title {
+          color: @ft-8-cls;
+        }
+
+        .header-item {
+          color: @ft-8-cls;
+        }
+
+        .admin-header-right {
+          .ant-dropdown-link,
+          .ant-dropdown-trigger:hover,
+          .ant-dropdown-open {
+            color: @ft-8-cls !important;
+          }
+        }
+      }
+    }
+  }
+
+  /*------- 底部主题样式 ------*/
+  .ant-layout-footer {
+    color: @ft-9-cls;
+    background: @bg-19-cls;
+  }
+
+  /*------ 定义收缩菜单栏按钮样式 ------*/
+  .anticon-menu-fold,
+  .sidemenu-header,
+  .sidemenu-footer,
+  .sidemenu-fold {
+    color: @ft-6-cls !important;
+  }
+
+  .anticon-menu-unfold {
+    color: @ft-6-cls !important;
+    background: @bg-5-cls;
+  }
+}

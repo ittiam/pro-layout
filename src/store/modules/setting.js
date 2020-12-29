@@ -122,13 +122,21 @@ export default {
     },
 
     UpdateTheme({ state, commit }, themeName) {
-      let theme = state.themeList.find(e => e.name === themeName);
-      if (!theme) {
-        theme = state.themeList[0];
-      }
+      return new Promise(resolve => {
+        let theme = state.themeList.find(e => e.name === themeName);
+        if (!theme) {
+          theme = state.themeList[0];
+        }
 
-      commit('setTheme', theme);
-      commit('setThemeBody');
+        commit('setTheme', theme);
+        commit('setThemeBody');
+
+        // 加载主题
+        import(`@/assets/style/theme/${themeName}/index.less`);
+
+        // 加载黑白主题 JS
+        import(`@/assets/style/mode/${theme.mode}/index.js`);
+      });
     }
   }
 };

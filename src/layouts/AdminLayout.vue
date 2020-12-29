@@ -111,7 +111,6 @@ export default {
   .ant-layout-header {
     height: @pro-header-height;
     line-height: @pro-header-height;
-    background: #fff;
 
     &.admin-header-fixed {
       position: fixed;
@@ -134,10 +133,6 @@ export default {
     height: 100%;
     padding: 12px;
     overflow: auto;
-  }
-
-  .admin-layout-footer {
-    background: #fff;
   }
 }
 </style>

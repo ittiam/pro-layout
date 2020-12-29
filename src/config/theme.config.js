@@ -1,7 +1,7 @@
 /*
  * @Author: chenzh
  * @Date: 2020-12-28 17:21:28
- * @LastEditTime: 2020-12-29 13:29:39
+ * @LastEditTime: 2020-12-29 20:56:59
  * @LastEditors: chenzh
  * @Description:
  * @FilePath: /pro-layout/src/config/theme.config.js
@@ -27,6 +27,7 @@ export default {
     {
       title: 'WPG红',
       name: 'wpg-red',
+      circular: 'images/theme/wpg-red/circular.png',
       mode: 'light',
       sideMode: 'light'
     },

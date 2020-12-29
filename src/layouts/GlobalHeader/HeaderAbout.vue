@@ -1,7 +1,7 @@
 <template>
   <div class="header-about">
     <div class="header-menu-item" @click="handleMenuClick">
-      <span>
+      <span class="header-menu-lc">
         <i class="icon-ic_local_library" style="cursor: pointer" />
       </span>
       <span>关于我们</span>

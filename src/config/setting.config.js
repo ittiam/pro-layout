@@ -8,8 +8,10 @@ module.exports = {
   versionTime: '202007',
   version: '1.0.0',
   versionType: 'release',
+  isShowTheme: true, // 是否显示多主题
+  isHeaderColor: true, // 多主题时头部是否启用背景
   theme: {
-    name: 'deep-blue',
+    name: 'sea-blue',
     sideMode: 'dark', // 左边菜单栏主题
     // 主题
     mode: 'light' // 主题模式 可选 dark、 light
@@ -24,9 +26,5 @@ module.exports = {
   asyncRoutes: true, // 异步加载路由，true:开启，false:不开启
   showPageTitle: true, // 是否显示页面标题（PageLayout 布局中的页面标题），true:显示，false:不显示
   filterMenu: true, // 根据权限过滤菜单，true:过滤，false:不过滤
-  footerLinks: [
-    // 页面底部链接，{link: '链接地址', name: '名称/显示文字', icon: '图标，支持 ant design vue 图标库'}
-    { link: 'https://pro.ant.design', name: 'Pro首页' },
-    { link: 'https://ant.design', name: 'Ant Design' }
-  ]
+  footerLinks: []
 };

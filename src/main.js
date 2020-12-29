@@ -4,6 +4,7 @@ import Vue from 'vue';
 
 import '@/mock';
 
+import bootstrap from './core/bootstrap';
 import '@/core/lazy_use';
 import '@/utils/storage';
 import './permission'; // permission control
@@ -19,5 +20,6 @@ import App from './App';
 new Vue({
   router,
   store,
+  created: bootstrap,
   render: h => h(App)
 }).$mount('#app');

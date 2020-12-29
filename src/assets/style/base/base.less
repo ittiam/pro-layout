@@ -50,3 +50,61 @@ body {
     color: @theme;
   }
 }
+
+.admin-layout-main {
+  background: @mbg-1-cls;
+}
+
+.admin-layout-body {
+  color: @mft-1-cls;
+}
+
+.pro-multi-tab {
+  background-color: @mbg-8-cls;
+
+  /*------ 重置tab-nav ------*/
+  .ant-tabs.ant-tabs-card {
+    .ant-tabs-card-bar {
+      // 标签卡头部切换部分
+      .ant-tabs-nav-container {
+        .ant-tabs-nav > div {
+          background-color: @mbg-8-cls !important;
+        }
+
+        .ant-tabs-tab {
+          color: @mft-3-cls !important;
+          font-size: @fs12;
+          background: @mbg-8-cls !important;
+          border: 1px solid @mbd-2-cls !important;
+
+          &:first-child {
+            color: @mft-2-cls;
+            pointer-events: none;
+          }
+
+          .ant-tabs-close-x {
+            display: inline-block !important;
+            color: @mic-1-cls !important;
+          }
+
+          &:hover {
+            color: @mft-2-cls !important;
+            background: @mbg-14-hv-cls !important;
+          }
+
+          &.ant-tabs-tab-active {
+            color: @mft-2-cls !important;
+            background: @mbg-5-av-cls !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.theme-ul li {
+  &.theme-li-active {
+    color: @mft-2-cls;
+    background-color: @mbg-1-av-cls;
+  }
+}
