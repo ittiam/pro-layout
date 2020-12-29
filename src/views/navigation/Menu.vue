@@ -9,7 +9,7 @@
           :defaultSelectedKeys="['1']"
           :defaultOpenKeys="['sub1']"
           mode="inline"
-          theme="light"
+          :theme="theme.mode"
           :inlineCollapsed="collapsed"
         >
           <a-menu-item key="1">
@@ -44,6 +44,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
   data() {
     return {
@@ -51,6 +52,9 @@ export default {
       rootSubmenuKeys: ['sub1', 'sub2', 'sub4'],
       openKeys: ['sub1']
     };
+  },
+  computed: {
+    ...mapState('setting', ['theme'])
   },
   methods: {
     onOpenChange(openKeys) {
