@@ -9,6 +9,8 @@ module.exports = {
   version: '1.0.0',
   versionType: 'release',
   theme: {
+    name: 'deep-blue',
+    sideMode: 'dark', // 左边菜单栏主题
     // 主题
     mode: 'light' // 主题模式 可选 dark、 light
   },

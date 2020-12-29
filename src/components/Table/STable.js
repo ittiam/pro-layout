@@ -15,7 +15,6 @@ import {
 } from './util';
 import ColumnSetting from './components/ColumnSetting';
 import TableTitle from './components/TableTitle';
-import Empty from '../Empty';
 
 export default {
   name: 'STable',
@@ -663,12 +662,6 @@ export default {
       'ant-pro-table-resize': this.getCanResize
     };
 
-    return (
-      <a-config-provider
-        {...{ scopedSlots: { renderEmpty: slotProps => [<Empty slotprops={slotProps} />] } }}
-      >
-        <div class={tableClassNames}>{table}</div>
-      </a-config-provider>
-    );
+    return <div class={tableClassNames}>{table}</div>;
   }
 };

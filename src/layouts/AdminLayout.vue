@@ -3,7 +3,7 @@
     <sider-menu
       v-if="layout === 'side' || layout === 'mix'"
       :class="[fixedSideBar ? 'fixed-side' : '']"
-      :theme="theme.mode"
+      :theme="theme.sideMode"
       :menuData="menus"
       :collapsed="collapsed"
       :collapsible="true"

@@ -3,6 +3,7 @@ import { constantRouterMap } from '@/config/router.config';
 import { generatorDynamicRouter } from '@/router/generator-routers';
 import { formatFullPath } from '@/utils/util';
 import config from '@/config/setting.config';
+import theme from '@/config/theme.config';
 
 export default {
   namespaced: true,
@@ -12,6 +13,7 @@ export default {
     addRouters: [],
     buttonCodes: [],
     menuBadge: [],
+    themeList: theme.list,
     activatedFirst: undefined,
     ...config
   },
@@ -44,7 +46,12 @@ export default {
       state.isMobile = isMobile;
     },
     setTheme(state, theme) {
-      state.theme = theme;
+      state.theme = {
+        ...theme
+      };
+    },
+    setThemeBody(state) {
+      document.body.className = `theme--${state.theme.mode} theme--${state.theme.name}`;
     },
     setLayout(state, layout) {
       state.layout = layout;
@@ -112,6 +119,16 @@ export default {
             reject(new Error('获取当前用户菜单失败'));
           });
       });
+    },
+
+    UpdateTheme({ state, commit }, themeName) {
+      let theme = state.themeList.find(e => e.name === themeName);
+      if (!theme) {
+        theme = state.themeList[0];
+      }
+
+      commit('setTheme', theme);
+      commit('setThemeBody');
     }
   }
 };

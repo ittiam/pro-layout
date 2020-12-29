@@ -8,8 +8,12 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex';
+import moment from 'moment';
+import { mapState, mapActions } from 'vuex';
 import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN';
+import 'moment/locale/zh-cn';
+
+moment.locale('zh-cn');
 
 export default {
   name: 'App',
@@ -22,45 +26,17 @@ export default {
   },
 
   watch: {
-    'theme.mode': function(val) {
-      this.setThemeDom(val);
+    'theme.name': function(val) {
+      this.UpdateTheme(val);
     }
   },
 
   created() {
-    this.setThemeDom(this.theme.mode);
-
-    // setTimeout(() => {
-    //   this.setTheme({
-    //     ...this.theme,
-    //     mode: 'night'
-    //   });
-    // }, 3000);
-
-    // setTimeout(() => {
-    //   this.setTheme({
-    //     ...this.theme,
-    //     mode: 'light'
-    //   });
-    // }, 6000);
-
-    // setTimeout(() => {
-    //   this.setTheme({
-    //     ...this.theme,
-    //     mode: 'dark'
-    //   });
-    // }, 10000);
+    this.UpdateTheme(this.theme.name);
   },
 
   methods: {
-    ...mapMutations('setting', ['setTheme']),
-    /**
-     * @description 将 vuex 中的主题应用到 dom
-     * @param {Object} state state
-     */
-    setThemeDom(mode) {
-      document.body.className = `theme--${mode}`;
-    }
+    ...mapActions('setting', ['UpdateTheme'])
   }
 };
 </script>

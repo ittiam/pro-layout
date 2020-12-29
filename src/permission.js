@@ -20,7 +20,7 @@ router.beforeEach(async (to, from, next) => {
         // request login userInfo
         try {
           await store.dispatch('setting/GenerateRoutes');
-          console.log(444);
+
           router.addRoutes(store.getters.addRouters);
           // 请求带有 redirect 重定向时，登录自动重定向到该地址
           const redirect = decodeURIComponent(from.query.redirect || to.path);

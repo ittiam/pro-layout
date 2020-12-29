@@ -9,22 +9,18 @@
     <a-modal v-model="visible" centered width="664px">
       <template slot="title">
         <div class="modal-content-tit">
-          <img class="title-img" src="@/assets/images/about_logo.png" width="160" height="86" />
+          <img class="title-img" :src="logoImg" width="160" height="86" />
         </div>
       </template>
-      <p class="name modal-content-txt">{{ aboutInfo.systemName }}</p>
-      <p class="version modal-content-txt">
-        Version：{{ aboutInfo.systemCode }}.{{ aboutInfo.versionTime }}.{{ aboutInfo.version }}.{{
-          aboutInfo.versionType
-        }}
-      </p>
-      <p class="build modal-content-txt">
+      <p class="wfc1 name modal-content-txt">{{ aboutInfo.systemName }}</p>
+      <p class="wfc2 version modal-content-txt">Version：{{ aboutInfo.version }}</p>
+      <p class="wfc2 build modal-content-txt">
         Build：{{ aboutInfo.commitId }}.{{ aboutInfo.branch }}.{{ aboutInfo.buildDate }}.{{
           aboutInfo.versionType
         }}
       </p>
       <template slot="footer">
-        <div class="about-footer modal-content-txt">{{ aboutInfo.copyright }}</div>
+        <div class="wfc3 about-footer modal-content-txt">{{ aboutInfo.copyright }}</div>
       </template>
     </a-modal>
   </div>
@@ -42,6 +38,7 @@ export default {
   },
   computed: {
     ...mapState('setting', [
+      'theme',
       'systemName',
       'systemCode',
       'versionTime',
@@ -49,11 +46,18 @@ export default {
       'versionType',
       'copyright'
     ]),
+    logoImg() {
+      return this.theme.mode === 'dark'
+        ? require('@/assets/images/about_logo_black.png')
+        : require('@/assets/images/about_logo.png');
+    },
     aboutInfo() {
       let { systemName, systemCode, versionTime, version, versionType, copyright } = this;
 
       let { buildDate, commitId, branch } = BUILD_INFO;
       buildDate = moment(buildDate).format('YYYYMMDDHHmm');
+      commitId = commitId.slice(0, 8);
+
       return {
         systemName,
         systemCode,
@@ -103,7 +107,6 @@ export default {
 
   &.name {
     margin: 8px auto 20px;
-    color: @color-text-main;
     font-weight: 500;
     font-size: 24px;
     line-height: 33px;
@@ -111,10 +114,6 @@ export default {
 
   &.build {
     margin-bottom: 42px;
-  }
-
-  &.footer {
-    color: @color-text-second;
   }
 }
 </style>
