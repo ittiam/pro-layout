@@ -54,9 +54,9 @@ import {
 } from 'ant-design-vue';
 
 // ext library
-import BaiduMap from 'vue-baidu-map';
 import WpgDesign from 'wpg-design';
 import VueCropper from 'vue-cropper';
+import BaiduMap from '@/components/BaiduMap';
 import Dialog from '@/components/Dialog';
 import STable from '@/components/Table';
 import TableSearch from '@/components/TableSearch';
