@@ -1,3 +1,164 @@
+.ant-menu {
+  color: @mft-6-cls;
+  background-color: @mbg-5-cls;
+  border: none;
+
+  /* 一级菜单 (不可展开) */
+  .ant-menu-item {
+    color: @mft-6-cls;
+
+    .anticon {
+      color: @mic-1-cls;
+    }
+
+    &:hover {
+      // 一级菜单 (不可展开) hover
+      color: @mft-1-hv-cls;
+
+      .anticon {
+        color: @mft-1-hv-cls;
+      }
+    }
+
+    &.ant-menu-item-selected {
+      // 一级菜单 (不可展开) 选中
+      color: @mft-1-av-cls;
+      background-color: transparent;
+
+      .anticon {
+        color: @mft-1-hv-cls;
+      }
+    }
+  }
+
+  /* 一级菜单(可展开) */
+  .ant-menu-submenu {
+    .ant-menu-submenu-title {
+      .title-icon > * {
+        &.icon {
+          //color: @mic-1-cls;
+        }
+      }
+
+      .ant-menu-submenu-arrow {
+        // 箭头
+        opacity: 1;
+
+        &::before,
+        &::after {
+          background: @mft-6-cls;
+        }
+      }
+
+      &:hover {
+        // 一级菜单(可展开) hover 状态
+        color: @mft-1-hv-cls;
+
+        .ant-menu-submenu-arrow::before,
+        .ant-menu-submenu-arrow::after {
+          background: @mft-1-hv-cls;
+        }
+
+        .title-icon > .icon,
+        .anticon {
+          color: @mft-1-hv-cls;
+        }
+      }
+    }
+
+    &.ant-menu-submenu-open {
+      // 一级菜单展开状态
+      .ant-menu-submenu-title {
+        color: @mft-1-av-cls;
+
+        .ant-menu-submenu-arrow::before,
+        .ant-menu-submenu-arrow::after {
+          background: @mft-1-av-cls;
+        }
+
+        .title-icon > .icon,
+        .anticon {
+          color: @mft-1-hv-cls;
+        }
+      }
+    }
+
+    & > .ant-menu {
+      //二级菜单
+      color: @mft-7-cls;
+      background-color: @mbg-14-cls;
+      box-shadow: unset;
+
+      .ant-menu-item {
+        // 二级菜单(不可展开)
+        &:hover {
+          // 二级菜单 hover
+          color: @mft-2-hv-cls;
+          background-color: @mbg-12-hv-cls;
+        }
+
+        &.ant-menu-item-selected {
+          // 二级菜单选中
+          color: @mft-2-av-cls;
+          background-color: @mbg-4-av-cls;
+          border-right: 2px solid @mbd-6-cls;
+
+          &::after {
+            border-right: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Menu 收缩状态, 只显示图标 */
+.ant-menu.ant-menu-vertical {
+  .ant-menu-item {
+    // 收缩状态 一级菜单(不可展开)
+    &:hover {
+      background-color: @mbg-12-hv-cls;
+
+      .anticon {
+        color: @mft-2-hv-cls;
+      }
+    }
+
+    &.ant-menu-item-selected {
+      background-color: @mbg-4-av-cls;
+      border-right: 2px solid @mbd-6-cls;
+    }
+  }
+
+  .ant-menu-submenu {
+    .ant-menu-submenu-title {
+      &:hover {
+        // 收缩状态 一级菜单(可展开) hover
+        color: @mft-1-hv-cls;
+        background-color: @mbg-12-hv-cls;
+
+        .anticon,
+        .title-icon > .icon {
+          color: @mft-2-hv-cls;
+        }
+      }
+    }
+
+    &.ant-menu-submenu-selected {
+      // 收缩状态 一级菜单选中
+      .ant-menu-submenu-title {
+        background-color: @mbg-4-av-cls;
+        border-right: 2px solid @mbd-6-cls;
+
+        .anticon,
+        .title-icon > .icon {
+          color: @mft-1-av-cls;
+        }
+      }
+    }
+  }
+}
+
 /* 菜单缩起弹出框样式 */
 .ant-menu-submenu.ant-menu-submenu-popup {
   background-color: unset;
