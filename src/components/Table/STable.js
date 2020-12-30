@@ -402,12 +402,20 @@ export default {
             footerHeight += offsetHeight || 0;
           }
         }
+        let titleHeight = 0;
+        const titleEl = tableEl.querySelector('.ant-table-title');
+        if (titleEl) {
+          titleHeight = titleEl.offsetHeight || 0;
+        }
+
         let headerHeight = 0;
         if (el) {
           headerHeight = el.offsetHeight;
         }
+
         let tableHeight =
           bottomIncludeBody -
+          titleHeight -
           (resizeHeightOffset || 0) -
           paddingHeight -
           borderHeight -

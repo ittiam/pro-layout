@@ -5,6 +5,7 @@ if (process.env.NODE_ENV !== 'production' || process.env.VUE_APP_PREVIEW === 'tr
   console.log('[antd-pro] mock mounting');
   const Mock = require('mockjs');
   require('./user/login');
+  require('./user/manage');
 
   Mock.setup({
     timeout: 800 // setter delay time

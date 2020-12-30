@@ -85,6 +85,29 @@ export const menu = {
           menuButtonFlag: '0'
         }
       ]
+    },
+    {
+      component: 'RouteLayout',
+      iconCls: 'icon-wpg_water_quality',
+      id: '3',
+      parentId: '',
+      name: 'List',
+      path: '/list',
+      showFlag: true,
+      isPublic: true,
+      menuButtonFlag: '0',
+      children: [
+        {
+          component: 'list/BasicList',
+          id: '31',
+          parentId: '',
+          name: 'List 基本列表',
+          path: '/list/basic',
+          showFlag: true,
+          isPublic: true,
+          menuButtonFlag: '0'
+        }
+      ]
     }
   ]
 };
