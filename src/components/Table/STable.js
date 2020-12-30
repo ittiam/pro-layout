@@ -2,19 +2,10 @@ import './index.less';
 import T from 'ant-design-vue/es/table/Table';
 import get from 'lodash.get';
 import debounce from 'lodash.debounce';
-import {
-  genColumnKey,
-  isBoolean,
-  isString,
-  baseGet,
-  on,
-  off,
-  getBoundingClientRect,
-  getViewportOffset,
-  triggerWindowResize
-} from './util';
+import { genColumnKey, isBoolean, isString, baseGet, on, off, triggerWindowResize } from './util';
 import ColumnSetting from './components/ColumnSetting';
 import TableTitle from './components/TableTitle';
+import Empty from '../Empty';
 
 export default {
   name: 'STable',
@@ -662,6 +653,12 @@ export default {
       'ant-pro-table-resize': this.getCanResize
     };
 
-    return <div class={tableClassNames}>{table}</div>;
+    return (
+      <a-config-provider
+        {...{ scopedSlots: { renderEmpty: slotProps => [<Empty slotprops={slotProps} />] } }}
+      >
+        <div class={tableClassNames}>{table}</div>
+      </a-config-provider>
+    );
   }
 };
