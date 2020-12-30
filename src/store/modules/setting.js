@@ -52,10 +52,8 @@ export default {
         ...theme
       };
 
+      document.body.className = `theme--${theme.mode} theme-side--${theme.sideMode} theme--${theme.name}`;
       storage.set(TOGGLE_THEME, theme.name);
-    },
-    setThemeBody(state) {
-      document.body.className = `theme--${state.theme.mode} theme-side--${state.theme.sideMode} theme--${state.theme.name}`;
     },
     setLayout(state, layout) {
       state.layout = layout;
@@ -133,7 +131,6 @@ export default {
         }
 
         commit('setTheme', theme);
-        commit('setThemeBody');
 
         // 加载主题
         import(`@/assets/style/theme/${themeName}/index.less`);
