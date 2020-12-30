@@ -51,6 +51,8 @@ export default {
       state.theme = {
         ...theme
       };
+
+      storage.set(TOGGLE_THEME, theme.name);
     },
     setThemeBody(state) {
       document.body.className = `theme--${state.theme.mode} theme-side--${state.theme.sideMode} theme--${state.theme.name}`;
@@ -129,8 +131,6 @@ export default {
         if (!theme) {
           theme = state.themeList[0];
         }
-
-        storage.set(TOGGLE_THEME, theme.name);
 
         commit('setTheme', theme);
         commit('setThemeBody');
