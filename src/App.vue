@@ -25,12 +25,6 @@ export default {
     ...mapState('setting', ['theme'])
   },
 
-  watch: {
-    'theme.name': function(val) {
-      this.UpdateTheme(val);
-    }
-  },
-
   created() {
     this.UpdateTheme(this.theme.name);
   },
