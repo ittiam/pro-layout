@@ -4,6 +4,8 @@ import { generatorDynamicRouter } from '@/router/generator-routers';
 import { formatFullPath } from '@/utils/util';
 import config from '@/config/setting.config';
 import theme from '@/config/theme.config';
+import storage from '@/utils/storage';
+import { TOGGLE_THEME } from '@/store/mutation-types';
 
 export default {
   namespaced: true,
@@ -127,6 +129,8 @@ export default {
         if (!theme) {
           theme = state.themeList[0];
         }
+
+        storage.set(TOGGLE_THEME, theme.name);
 
         commit('setTheme', theme);
         commit('setThemeBody');

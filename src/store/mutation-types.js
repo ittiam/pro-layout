@@ -5,3 +5,4 @@ export const ACCESS_TOKEN = 'access_token';
 export const APP_LOGIN_INFO = 'login_info';
 export const USER_INFO = 'user_info';
 export const PAGE_OPENED = 'page_opened';
+export const TOGGLE_THEME = 'toggle_theme';

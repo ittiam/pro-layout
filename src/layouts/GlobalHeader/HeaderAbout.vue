@@ -4,7 +4,7 @@
       <span class="header-menu-lc">
         <i class="icon-ic_local_library" style="cursor: pointer" />
       </span>
-      <span>关于我们</span>
+      <span>关于</span>
     </div>
     <a-modal v-model="visible" centered width="664px">
       <template slot="title">

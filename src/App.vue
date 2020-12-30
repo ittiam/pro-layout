@@ -9,7 +9,6 @@
 
 <script>
 import moment from 'moment';
-import { mapState, mapActions } from 'vuex';
 import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN';
 import 'moment/locale/zh-cn';
 
@@ -19,18 +18,6 @@ export default {
   name: 'App',
   data() {
     return { locale: zhCN };
-  },
-
-  computed: {
-    ...mapState('setting', ['theme'])
-  },
-
-  created() {
-    this.UpdateTheme(this.theme.name);
-  },
-
-  methods: {
-    ...mapActions('setting', ['UpdateTheme'])
   }
 };
 </script>

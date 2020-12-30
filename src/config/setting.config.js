@@ -8,8 +8,8 @@ module.exports = {
   versionTime: '202007',
   version: '1.0.0',
   versionType: 'release',
-  isShowTheme: false, // 是否显示多主题
-  isHeaderColor: false, // 多主题时头部是否启用背景
+  isShowTheme: true, // 是否显示多主题
+  isHeaderColor: true, // 多主题时头部是否启用背景
   theme: {
     name: 'sea-blue',
     sideMode: 'dark', // 左边菜单栏主题
