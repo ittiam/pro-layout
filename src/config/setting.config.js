@@ -6,8 +6,9 @@ module.exports = {
   systemName: '模板项目', // 系统名称
   systemCode: 'CAMP',
   versionTime: '202007',
-  version: '1.0.0',
+  version: 'V1.0.0',
   versionType: 'release',
+  platform: 'V1.0',
   isShowTheme: true, // 是否显示多主题
   isHeaderColor: true, // 多主题时头部是否启用背景
   theme: {

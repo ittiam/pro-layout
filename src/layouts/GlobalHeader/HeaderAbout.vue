@@ -14,6 +14,7 @@
       </template>
       <p class="wfc1 name modal-content-txt">{{ aboutInfo.systemName }}</p>
       <p class="wfc2 version modal-content-txt">Version：{{ aboutInfo.version }}</p>
+      <p class="wfc2 platform modal-content-txt">Platform：{{ aboutInfo.platform }}</p>
       <p class="wfc2 build modal-content-txt">
         Build：{{ aboutInfo.commitId }}.{{ aboutInfo.branch }}.{{ aboutInfo.buildDate }}.{{
           aboutInfo.versionType
@@ -44,6 +45,7 @@ export default {
       'versionTime',
       'version',
       'versionType',
+      'platform',
       'copyright'
     ]),
     logoImg() {
@@ -52,7 +54,7 @@ export default {
         : require('@/assets/images/about_logo.png');
     },
     aboutInfo() {
-      let { systemName, systemCode, versionTime, version, versionType, copyright } = this;
+      let { systemName, systemCode, versionTime, version, versionType, platform, copyright } = this;
 
       let { buildDate, commitId, branch } = BUILD_INFO;
       buildDate = moment(buildDate).format('YYYYMMDDHHmm');
@@ -67,6 +69,7 @@ export default {
         copyright,
         buildDate,
         commitId,
+        platform,
         branch
       };
     }
