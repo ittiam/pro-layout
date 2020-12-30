@@ -66,7 +66,7 @@ export const generatorDynamicRouter = token => {
 export const generator = (routerMap, parent) => {
   return routerMap.map(item => {
     const { name, target, icon, iconCls, showFlag } = item || {};
-    const { title } = item.meta || {};
+    const { title, iframeSrc } = item.meta || {};
     const hidden = !showFlag;
 
     const currentRouter = {
@@ -85,7 +85,8 @@ export const generator = (routerMap, parent) => {
         icon: icon || undefined,
         iconCls,
         target: target,
-        hidden: hidden
+        hidden: hidden,
+        iframeSrc: iframeSrc ? iframeSrc : null
       }
     };
 
