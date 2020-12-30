@@ -61,7 +61,6 @@ import Dialog from '@/components/Dialog';
 import STable from '@/components/Table';
 import TableSearch from '@/components/TableSearch';
 import PageLoading from '@/components/PageLoading';
-import InputAddress from '@/components/InputAddress';
 import MultiTab from '@/layouts/MultiTab/plugin';
 import { VueAxios } from '@/utils/request';
 import './directives/action';
@@ -116,7 +115,6 @@ Vue.use(Descriptions);
 Vue.use(BaiduMap, {
   ak: serverConfig.AK
 });
-Vue.use(InputAddress);
 
 Vue.prototype.$confirm = confirm;
 Vue.prototype.$message = message;
