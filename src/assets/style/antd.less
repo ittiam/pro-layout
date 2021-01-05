@@ -180,6 +180,10 @@ textarea.ant-input {
     th {
       padding: 10px 8px;
       font-size: @fs12;
+
+      .ant-table-column-sorter .ant-table-column-sorter-inner-full {
+        margin-top: -0.45em;
+      }
     }
   }
 
@@ -371,7 +375,7 @@ textarea.ant-input {
       right: 40px;
       bottom: 0;
       left: 40px;
-      border-bottom: 1px solid #ebebeb;
+      border-bottom: 1px solid @mbd-2-cls;
       content: '';
     }
   }
@@ -429,12 +433,12 @@ textarea.ant-input {
         font-size: 32px;
       }
     }
-  }
 
-  .ant-modal-confirm-title {
-    color: #333;
-    font-size: 18px;
-    text-align: center;
+    .ant-modal-confirm-title {
+      color: #333;
+      font-size: 18px;
+      text-align: center;
+    }
   }
 
   .ant-modal-confirm-content {
@@ -444,7 +448,7 @@ textarea.ant-input {
   }
 
   .ant-btn {
-    height: auto;
+    height: 36px;
     padding: 0 53px;
   }
 
@@ -616,6 +620,18 @@ textarea.ant-input {
   &.ant-form--label-right {
     .ant-form-item-label {
       text-align: right;
+    }
+  }
+}
+
+.ant-popover {
+  .ant-popover-inner {
+    font-size: @fs12;
+
+    .ant-popover-buttons .ant-btn {
+      width: 48px;
+      height: 20px;
+      font-size: @fs12;
     }
   }
 }
