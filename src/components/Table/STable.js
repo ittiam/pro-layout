@@ -564,7 +564,7 @@ export default {
       );
 
       return (
-        <div class="ant-pro-table-option">
+        <div class="ant-pro-table-option wfc2">
           {options.reload ? reloadItem : null}
           {options.setting ? (
             <ColumnSetting columns={this.columns} onChange={this.onColumnsChange} />

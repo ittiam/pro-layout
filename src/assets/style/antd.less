@@ -8,6 +8,44 @@
 
 .ant-input {
   height: 36px;
+  font-size: 14px;
+  outline: none;
+}
+
+.ant-btn {
+  height: @pro-form-item-height;
+  font-size: @fs14;
+
+  > [class^='icon-'] + span,
+  > [class*=' icon-'] + span {
+    margin-left: 6px;
+  }
+
+  > [class^='icon-'],
+  > [class*=' icon-'] {
+    margin-left: -4px;
+    vertical-align: -0.2em;
+  }
+
+  &.ant-btn-circle {
+    width: @pro-form-item-height;
+  }
+
+  &.ant-btn-lg {
+    height: 42px;
+
+    &.ant-btn-circle {
+      width: 42px;
+    }
+  }
+
+  &.ant-btn-sm {
+    height: 28px;
+
+    &.ant-btn-circle {
+      width: 28px;
+    }
+  }
 }
 
 .ant-select-auto-complete.ant-select .ant-input {
@@ -16,6 +54,8 @@
 
 textarea.ant-input {
   min-height: 72px;
+  font-size: 14px;
+  outline: none;
 }
 
 .ant-input-number {
@@ -23,6 +63,14 @@ textarea.ant-input {
 
   .ant-input-number-input {
     height: 34px;
+  }
+}
+
+.ant-radio-wrapper {
+  span {
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.22px;
   }
 }
 
@@ -418,6 +466,106 @@ textarea.ant-input {
   }
 }
 
+.ant-pagination {
+  font-size: @fs14;
+
+  .ant-pagination-prev,
+  .ant-pagination-item,
+  .ant-pagination-next {
+    width: auto;
+    min-width: 24px;
+    height: 24px;
+    line-height: 22px;
+    background-color: transparent;
+
+    a {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  }
+
+  .ant-pagination-prev,
+  .ant-pagination-next {
+    padding: 0 4px;
+  }
+
+  .ant-pagination-options-quick-jumper {
+    height: 24px;
+    line-height: 24px;
+
+    input {
+      width: 40px;
+      height: 24px;
+      padding: 0 4px;
+      cursor: pointer;
+    }
+  }
+
+  &.mini {
+    font-size: @fs12;
+
+    .ant-pagination-prev,
+    .ant-pagination-item,
+    .ant-pagination-next {
+      width: auto;
+      min-width: unset;
+      height: 20px;
+      margin-right: 8px;
+      line-height: 20px;
+      border: none;
+    }
+
+    .ant-pagination-options {
+      .ant-pagination-options-quick-jumper {
+        height: 20px;
+        line-height: 20px;
+
+        input {
+          width: 30px;
+          height: 20px;
+        }
+      }
+    }
+  }
+}
+
+.ant-alert-success,
+.ant-alert-info,
+.ant-alert-warning,
+.ant-alert-error {
+  &.ant-alert {
+    height: 49px;
+    padding-left: 73px;
+    font-size: @fs14;
+    line-height: 2.5;
+    border: none;
+
+    .ant-alert-icon {
+      top: 14px;
+      left: 40px;
+      font-size: 22px;
+    }
+
+    .ant-alert-close-icon {
+      top: 15px;
+
+      .anticon-close {
+        font-size: 24px;
+      }
+    }
+
+    &.ant-alert-with-description {
+      height: 72px;
+      line-height: unset;
+
+      .ant-alert-icon {
+        top: 17px;
+      }
+    }
+  }
+}
+
 .ant-table-pagination.ant-pagination {
   height: 52px;
   margin: 0;
@@ -436,7 +584,8 @@ textarea.ant-input {
     height: 24px;
 
     .ant-select-selection__rendered {
-      line-height: 24px;
+      font-size: 13px;
+      line-height: 22px;
     }
   }
 }

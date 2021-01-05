@@ -1,15 +1,9 @@
 .ant-pagination {
   color: @mft-3-cls;
-  font-size: @fs14;
 
   .ant-pagination-prev,
   .ant-pagination-item,
   .ant-pagination-next {
-    width: 24px;
-    min-width: unset;
-    height: 24px;
-    line-height: 22px;
-    background-color: transparent;
     border: 1px solid @mbd-1-cls;
 
     &:hover {
@@ -21,17 +15,9 @@
     }
 
     a {
-      width: 100%;
-      height: 100%;
       color: @mft-3-cls;
       background-color: transparent;
-      border: none;
     }
-  }
-
-  .ant-pagination-prev,
-  .ant-pagination-next {
-    padding: 0 4px;
   }
 
   .ant-pagination-item-active,
@@ -72,45 +58,12 @@
     }
 
     .ant-pagination-options-quick-jumper {
-      height: 24px;
       color: @mft-3-cls;
-      line-height: 24px;
 
       input {
-        width: 40px;
-        height: 24px;
-        padding: 0 4px;
         color: @mft-3-cls;
         background-color: transparent;
         border: 1px solid @mbd-1-cls;
-        cursor: pointer;
-      }
-    }
-  }
-
-  &.mini {
-    font-size: @fs12;
-
-    .ant-pagination-prev,
-    .ant-pagination-item,
-    .ant-pagination-next {
-      width: auto;
-      min-width: unset;
-      height: 20px;
-      margin-right: 8px;
-      line-height: 20px;
-      border: none;
-    }
-
-    .ant-pagination-options {
-      .ant-pagination-options-quick-jumper {
-        height: 20px;
-        line-height: 20px;
-
-        input {
-          width: 30px;
-          height: 20px;
-        }
       }
     }
   }

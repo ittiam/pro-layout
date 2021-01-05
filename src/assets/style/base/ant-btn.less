@@ -1,24 +1,7 @@
 .ant-btn {
-  height: @pro-form-item-height;
   color: @mft-2-cls;
-  font-size: @fs14;
   background-color: transparent;
   border-color: @mbd-1-cls;
-
-  > [class^='icon-'] + span,
-  > [class*=' icon-'] + span {
-    margin-left: 6px;
-  }
-
-  > [class^='icon-'],
-  > [class*=' icon-'] {
-    margin-left: -4px;
-    vertical-align: -0.2em;
-  }
-
-  &.ant-btn-circle {
-    width: @pro-form-item-height;
-  }
 
   &:hover,
   &:focus {
@@ -65,22 +48,6 @@
       &:hover {
         color: @theme;
       }
-    }
-  }
-
-  &.ant-btn-lg {
-    height: 42px;
-
-    &.ant-btn-circle {
-      width: 42px;
-    }
-  }
-
-  &.ant-btn-sm {
-    height: 28px;
-
-    &.ant-btn-circle {
-      width: 28px;
     }
   }
 }
