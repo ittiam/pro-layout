@@ -12,7 +12,7 @@ module.exports = {
   isShowTheme: true, // 是否显示多主题
   isHeaderColor: true, // 多主题时头部是否启用背景
   theme: {
-    name: 'sea-blue',
+    name: 'stone-white',
     sideMode: 'dark', // 左边菜单栏主题
     // 主题
     mode: 'light' // 主题模式 可选 dark、 light

@@ -15,7 +15,11 @@
           <h1 v-if="!isMobile">{{ systemName }}</h1>
         </router-link>
         <a-divider v-if="isMobile" type="vertical" />
-        <h1 v-if="layout !== 'head'" class=" admin-header-title">{{ systemName }} 欢迎您</h1>
+        <div v-if="layout !== 'head'" class="admin-header-title">
+          <i class="trigger sidemenu-icon wpgicon icon-ic_open_with"></i>
+          <img class="logo-img" :src="logoImg" />
+          <span class="system-name">{{ systemName }}</span>
+        </div>
         <div
           v-if="layout !== 'side' && !isMobile"
           class="admin-header-menu"
@@ -92,13 +96,15 @@ export default {
       return `calc(${headWidth} - ${extraWidth})`;
     },
     headerStyle() {
-      let width =
-        this.fixedHeader && this.layout !== 'head' && !this.isMobile
-          ? `calc(100% - ${this.sideMenuWidth})`
-          : '100%';
+      let width = '100%';
 
       let transition = this.fixedHeader ? 'transition: width 0.2s' : '';
       return `width: ${width}; padding: 0; transition: ${transition}`;
+    },
+    logoImg() {
+      return this.theme.mode === 'dark'
+        ? require('@/assets/images/logo_black.png')
+        : require('@/assets/images/logo.png');
     }
   },
   methods: {

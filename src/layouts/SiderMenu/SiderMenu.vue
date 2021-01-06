@@ -8,17 +8,6 @@
     :collapsible="collapsible"
     :trigger="null"
   >
-    <slot name="header">
-      <div class="sidemenu-header" :class="[collapsed ? 'collapsed' : null]">
-        <div v-if="!collapsed" :class="['logo', 'sidemenu-logo-txt']">
-          <img class="logo-img" :src="logoImg" />
-          <span class="title">{{ companyName }}</span>
-        </div>
-        <img v-else :src="apLogoImg" />
-        <div class="divider-border"></div>
-      </div>
-    </slot>
-
     <div class="sidemenu-main">
       <base-menu
         :theme="sideTheme"
@@ -28,22 +17,6 @@
         @select="onSelect"
       />
     </div>
-
-    <slot name="footer">
-      <div class="sidemenu-footer">
-        <div class="divider-border"></div>
-        <div :class="['logo', 'sidemenu-logo-txt']" @click="toggleCollapse">
-          <i
-            :class="[
-              'trigger',
-              'sidemenu-icon',
-              collapsed ? 'icon-ic_fullscreen' : 'icon-ic_fullscreen_exit'
-            ]"
-          ></i>
-          <span class="sidemenu-text">{{ collapsed ? '' : '收起导航' }}</span>
-        </div>
-      </div>
-    </slot>
   </a-layout-sider>
 </template>
 

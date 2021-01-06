@@ -27,7 +27,7 @@
           :class="['circular', item.theme]"
           :style="{ 'background-image': `url(${$baseUrl}${item.circular})` }"
         ></span
-        ><span>&nbsp;&nbsp;{{ item.name }}</span>
+        ><span>&nbsp;&nbsp;{{ item.title }}</span>
       </a-menu-item>
     </a-menu>
   </a-dropdown>

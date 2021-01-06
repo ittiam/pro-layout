@@ -1,21 +1,15 @@
 <template>
   <a-layout :class="['admin-layout', 'beauty-scroll']">
-    <sider-menu
-      v-if="layout === 'side' || layout === 'mix'"
-      :class="[fixedSideBar ? 'fixed-side' : '']"
-      :theme="theme.sideMode"
-      :menuData="menus"
-      :collapsed="collapsed"
-      :collapsible="true"
-      @toggleCollapse="toggleCollapse"
-    />
-    <div
-      v-if="fixedSideBar && !isMobile"
-      :style="`width: ${sideMenuWidth}; min-width: ${sideMenuWidth};max-width: ${sideMenuWidth};`"
-      class="virtual-side"
-    ></div>
+    <admin-header :menuData="menus" :collapsed="collapsed" />
     <a-layout class="admin-layout-main beauty-scroll">
-      <admin-header :menuData="menus" :collapsed="collapsed" :sideMenuWidth="sideMenuWidth" />
+      <sider-menu
+        v-if="layout === 'side' || layout === 'mix'"
+        :theme="theme.sideMode"
+        :menuData="menus"
+        :collapsed="collapsed"
+        :collapsible="true"
+        @toggleCollapse="toggleCollapse"
+      />
       <a-layout-content class="admin-layout-content">
         <multi-tab v-if="multiPage" />
         <div class="admin-layout-body" :class="{ 'admin-layout-frame': showFrame }">
