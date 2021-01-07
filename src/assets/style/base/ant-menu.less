@@ -67,6 +67,13 @@
     }
 
     &.ant-menu-submenu-open {
+      .ant-menu-submenu-arrow::before,
+      .ant-menu-submenu-arrow::after {
+        background: @mft-1-av-cls;
+      }
+    }
+
+    &.ant-menu-submenu-selected {
       // 一级菜单展开状态
       .ant-menu-submenu-title {
         color: @mft-1-av-cls;
