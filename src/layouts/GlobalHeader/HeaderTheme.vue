@@ -2,6 +2,9 @@
   <a-dropdown v-if="isShowTheme" :trigger="['click']">
     <div class="header-menu-item">
       <span>
+        <span class="header-menu-lc">
+          <i class="icon-ic_extension"></i>
+        </span>
         <span style="margin-right: 5px;">换肤</span>
         <a-icon type="caret-down" />
       </span>
