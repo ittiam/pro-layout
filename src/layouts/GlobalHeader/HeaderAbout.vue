@@ -15,11 +15,7 @@
       <p class="wfc1 name modal-content-txt">{{ aboutInfo.systemName }}</p>
       <p class="wfc2 version modal-content-txt">Version：{{ aboutInfo.version }}</p>
       <p class="wfc2 platform modal-content-txt">Platform：{{ aboutInfo.platform }}</p>
-      <p class="wfc2 build modal-content-txt">
-        Build：{{ aboutInfo.commitId }}.{{ aboutInfo.branch }}.{{ aboutInfo.buildDate }}.{{
-          aboutInfo.versionType
-        }}
-      </p>
+      <p class="wfc2 build modal-content-txt">Build：{{ aboutInfo.buildTag }}</p>
       <template slot="footer">
         <div class="wfc3 about-footer modal-content-txt">{{ aboutInfo.copyright }}</div>
       </template>
@@ -46,6 +42,7 @@ export default {
       'version',
       'versionType',
       'platform',
+      'buildTag',
       'copyright'
     ]),
     logoImg() {
@@ -54,7 +51,16 @@ export default {
         : require('@/assets/images/about_logo.png');
     },
     aboutInfo() {
-      let { systemName, systemCode, versionTime, version, versionType, platform, copyright } = this;
+      let {
+        systemName,
+        systemCode,
+        versionTime,
+        version,
+        versionType,
+        platform,
+        buildTag,
+        copyright
+      } = this;
 
       let { buildDate, commitId, branch } = BUILD_INFO;
       buildDate = moment(buildDate).format('YYYYMMDDHHmm');
@@ -70,6 +76,7 @@ export default {
         buildDate,
         commitId,
         platform,
+        buildTag,
         branch
       };
     }

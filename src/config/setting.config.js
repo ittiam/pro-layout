@@ -9,6 +9,7 @@ module.exports = {
   version: 'V1.0.0',
   versionType: 'release',
   platform: 'V1.0',
+  buildTag: 'SystemPlatform.202012300900.release',
   isShowTheme: true, // 是否显示多主题
   isHeaderColor: true, // 多主题时头部是否启用背景
   theme: {
